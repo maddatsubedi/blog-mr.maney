@@ -1,0 +1,56 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+const { banner } = Astro.props;
+const { title,secondTitle, button, image, content, badges } = banner;
+---
+
+<section class="section banner relative bg-primary overflow-hidden">
+  <div class="container">
+    <div class="row items-start">
+      <div class="lg:col-6">
+        <h1 class="banner-title text-white text-7xl font-header" set:html={markdownify(title)} />
+        <h1 class="banner-title text-[#FFFAC3] text-7xl font-header whitespace-nowrap" set:html={markdownify(secondTitle)} />
+
+
+
+        <p class="mt-6 text-white w-80" set:html={markdownify(content)} />
+
+        {
+          button.enable && (
+            <a class="btn btn-outline-white mt-8 text-white" href={button.link}>
+              {button.label}
+            </a>
+          )
+        }
+        <Image
+        src={badges} 
+        class="object-contain translate-y-10"
+        alt="badges"
+        width={400}
+        height={100}
+        />
+      </div>
+      <div class="lg:col-6 relative">
+        <!-- <div class="blur-3xl absolute rounded-full z-10 bg-[#FFFAC3] w-60 h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        </div> -->
+        <Image
+          class="w-full object-contain z-20 -mt-32 translate-y-20 relative"
+          alt="banner"
+          src={image}
+          width={603}
+          height={396}
+        />
+
+      </div>
+    </div>
+  </div>
+<!-- 
+  <Image
+    class="banner-shape absolute -top-28 right-0 -z-[1] w-full max-w-[30%]"
+    alt="banner"
+    src="/images/banner-shape.png"
+    width={496}
+    height={466}
+  /> -->
+</section>

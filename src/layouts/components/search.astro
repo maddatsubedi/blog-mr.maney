@@ -1,0 +1,39 @@
+---
+---
+
+<style>
+    .search-container {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 10px 40px 10px 10px;
+        border: 1px solid #ccc;
+        color:black;
+        border-radius: 7px;
+        font-size: 16px;
+    }
+
+    .search-input::placeholder{
+        color: #ccc;
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        width: 25px;
+    }
+</style>
+
+<div class="search-container">
+    <input type="text" class="search-input" placeholder="Search..." />
+    <svg class="search-icon stroke-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+      </svg>
+</div>
