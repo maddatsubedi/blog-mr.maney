@@ -23,7 +23,7 @@ about:
     - image: "images/home_about/game4.jpeg"
     - image: "images/home_about/game5.jpeg"
     - image: "images/home_about/game6.jpeg"
-  -main_images:
+  main_images:
     - image: "images/home_about/image1.jpeg"
       badge: "images/home_about/badge1.jpeg"
     - image: "images/home_about/image2.jpeg"
