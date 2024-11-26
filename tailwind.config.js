@@ -62,6 +62,7 @@ module.exports = {
         primary: ["var(--font-primary)", fontPrimaryType],
         secondary: ["var(--font-secondary)", fontSecondaryType],
         header: ["var(--font-header)", theme.fonts.font_family.header],
+        montserrat: ["Montserrat", "sans-serif"],
       },
     },
   },

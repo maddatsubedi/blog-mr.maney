@@ -11,6 +11,26 @@ technology, games, and toys ."
     enable: true
   badges: /images/users/Badges.svg
 
+about:
+  title: "ABOUT"
+  secondTitle: "Let me to introduce myself"
+  sideText: "MR.MANEY"
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed urna in justo euismod condimentum.  \nVestibulum dignissim orci vitae eros rutrum euismod. Vestibulum tempor, sem et molestie egestas, dui tortor laoreet tellus, id rhoncus mauris neque malesuada augue."
+  image_group:
+    - image: "images/home_about/game1.jpeg"
+    - image: "images/home_about/game2.jpeg"
+    - image: "images/home_about/game3.jpeg"
+    - image: "images/home_about/game4.jpeg"
+    - image: "images/home_about/game5.jpeg"
+    - image: "images/home_about/game6.jpeg"
+  -main_images:
+    - image: "images/home_about/image1.jpeg"
+      badge: "images/home_about/badge1.jpeg"
+    - image: "images/home_about/image2.jpeg"
+      badge: "images/home_about/badge2.jpeg"
+    - image: "images/home_about/image3.jpeg"
+      badge: "images/home_about/badge3.jpeg"
+
 ##key features
 key_features:
   title: "The Highlighting Part Of Our Solution"

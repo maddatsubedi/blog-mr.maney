@@ -1,0 +1,32 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+const { about } = Astro.props;
+// const { title,secondTitle, button, image, content, badges } = about;
+// console.log(about);
+---
+
+<section
+  class="section banner px-5 flex font-montserrat"
+  style="background-color: #f5f4fe;"
+>
+  <div class="side-text text-primary text-5xl font-light scale-x-[-1] scale-y-[-1] font-montserrat flex items-center">
+    {markdownify(about.sideText)}
+  </div>
+  <div class="container">
+    <div class="text-center">
+        <h1 class="text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] text-[10rem] leading-none font-montserrat font-extrabold">{markdownify(about.title)}</h1>
+        <p class="secont-title text-[#3B3A39] font-extrabold leading-none text-[3.3rem]">{markdownify(about.secondTitle)}</p>
+    </div>
+    container
+  </div>
+</section>
+
+<style>
+    .side-text {
+        writing-mode: vertical-rl;
+    }
+    .secont-title {
+        margin-top: -50px;
+    }
+</style>
