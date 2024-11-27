@@ -5,7 +5,12 @@ const { banner } = Astro.props;
 const { title,secondTitle, button, image, content, badges } = banner;
 ---
 
-<section class="section banner relative bg-primary overflow-hidden">
+<section class="section banner relative bg-primary overflow-hidden pt-32">
+  <div class="social-media absolute flex flex-col h-full justify-around top-0">
+    <a href="#" class="text-white rotate-90">Facebook</a>
+    <a href="#" class="text-white rotate-90">YouTube</a>
+    <a href="#" class="text-white rotate-90">Instagram</a>
+  </div>
   <div class="container">
     <div class="row items-start">
       <div class="lg:col-6">
