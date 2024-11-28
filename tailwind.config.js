@@ -63,6 +63,7 @@ module.exports = {
         secondary: ["var(--font-secondary)", fontSecondaryType],
         header: ["var(--font-header)", theme.fonts.font_family.header],
         montserrat: ["Montserrat", "sans-serif"],
+        plusJakartaSans: ["Plus Jakarta Sans", "sans-serif"],
       },
     },
   },

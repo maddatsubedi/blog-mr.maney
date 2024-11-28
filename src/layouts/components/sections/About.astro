@@ -2,13 +2,10 @@
 import { markdownify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 const { about } = Astro.props;
-const { title, secondTitle, sideText, description, image_group, main_images } =
-  about;
+const { title, secondTitle, sideText, description, image_group, main_images } = about;
 
 // Fix-Later-1: markdownify returning <br> text instead of new line
 const descriptionArray = description.split("\n");
-
-console.log(about);
 ---
 
 <section
@@ -74,7 +71,7 @@ console.log(about);
             />
             <Image
               src={main_images[0].badge}
-              class="badge-img object-cover object-center m-0 h-[50px] absolute top-0 mx-auto left-0 right-0 translate-y-[-50%]"
+              class="badge-img object-cover object-center m-0 h-[50px] absolute top-0 mx-auto left-0 right-0 translate-y-[-50%] shadow-medium"
               alt="image"
               width={70}
               height={50}
@@ -97,7 +94,7 @@ console.log(about);
                   />
                   <Image
                     src={image.badge}
-                    class="badge-img object-cover object-center m-0 h-[50px] absolute top-0 mx-auto left-0 right-0 translate-y-[-50%]"
+                    class="badge-img object-cover object-center m-0 h-[50px] absolute top-0 mx-auto left-0 right-0 translate-y-[-50%] shadow-medium"
                     alt="image"
                     width={70}
                     height={50}
@@ -152,5 +149,9 @@ console.log(about);
     position: relative;
     min-width: 250px;
     z-index: 2;
+  }
+
+  .shadow-medium {
+    box-shadow: 0px 2px 10px 0px #00000080;
   }
 </style>
