@@ -45,8 +45,13 @@ export const readCategoryImagesWithFallback = async (): Promise<{ [key: string]:
 
     Object.assign(imageMap, imageMapFromFiles);
 
-    // console.log(imageMap);
-    return imageMap;
+    // Replace backslashes (//) with forward slashes (/)
+    const updatedImageMap = Object.fromEntries(
+      Object.entries(imageMap).map(([key, value]) => [key, value ? value.replace(/\\/g, '/') : null])
+    );
+
+    // console.log(updatedImageMap);
+    return updatedImageMap;
   } catch (error) {
     console.error('Error reading category images with fallback:', error);
     return {};
