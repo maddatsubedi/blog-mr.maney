@@ -8,49 +8,65 @@ const { title } = explore_categories;
 
 const categoriesImageMap = await readCategoryImagesWithFallback();
 const categories = Object.keys(categoriesImageMap);
+const categoriesUpToNine = categories.slice(0, 9);
 import { Image } from "astro:assets";
+import { FaChevronCircleRight, FaChevronRight } from "react-icons/fa";
 
-// console.log(categoriesImageMap);
-// console.log(categories);
+const categoriesLength = categories.length;
+const showMoreColSpan = categoriesLength % 3 === 0 ? 3 : (9 - categoriesLength) % 3;
 ---
 
 <section
-  class="section banner px-10 font-montserrat"
+  class="section banner px-10 font-montserrat flex flex-col items-center"
   style="background-color: #FFFFFF;"
 >
-  <div class="section-container max-w-[1120px]">
-    <h2 class="font-plusJakartaSans font-medium text-[3rem] text-center">
+  <div
+    class="section-container max-w-[1120px] w-fit flex flex-col items-center gap-10"
+  >
+    <h2 class="font-plusJakartaSans font-medium text-[3rem]">
       {markdownify(title)}
     </h2>
-    <div class="categories-container grid grid-cols-3 w-fit">
+    <div class="categories-container grid grid-cols-3 w-fit gap-7">
       {
-        categories.map((category: string) => (
+        categoriesUpToNine.map((category: string) => (
           <a
             href={`/categories/${slugify(category)}`}
-            class="category relative flex rounded-xl overflow-hidden shadow-md w-fit"
+            class="category relative flex rounded-xl overflow-hidden shadow-md"
           >
             <Image
-              src={
-                categoriesImageMap[category]?.replace("\\", "/") ||
-                "/images/placeholder.png"
-              }
-              class="category-image object-cover object-center rounded-xl aspect-[3.67/1]"
+              src={categoriesImageMap[category] || "/images/placeholder.png"}
+              class="category-image object-cover object-center rounded-xl h-[95px]"
               alt="image"
               width={352}
               height={70}
             />
-            <div class="category-text-overlay text-[#ffffff] text-2xl font-medium absolute w-full h-full top-0 left-0 flex justify-center items-center bg-[#00000066]">
+            <div class="category-text-overlay text-center text-[#ffffff] text-2xl font-medium absolute w-full h-full top-0 left-0 flex justify-center items-center bg-[#00000066]">
               {capitalize(category)}
             </div>
           </a>
         ))
       }
+      {
+        (
+          <a
+            href={`/categories`}
+            class={`show-more flex gap-[10px] h-[95px] justify-center items-center rounded-xl overflow-hidden shadow-medium-light col-span-${showMoreColSpan}`}
+          >
+            <div class="font-medium text-primary text-2xl">Show More</div>
+            <FaChevronCircleRight className="icon text-[#615a5a] text-xl" />
+          </a>
+        )
+      }
     </div>
-    <h3 class="font-montserrat">Updates To Follow</h3>
   </div>
 </section>
 
 <style>
+  .test {
+    background: #583838;
+  }
+  .show-more,
+  .show-more .icon ,
   .category-image,
   .category-text-overlay {
     transition: 0.25s ease-in-out;
@@ -61,5 +77,22 @@ import { Image } from "astro:assets";
   .category:hover .category-text-overlay {
     transform: scale(1.075);
     background: #4e4e4e66;
+  }
+  .show-more {
+    transition: 0.25s ease-in-out;
+  }
+  .show-more:hover {
+    background: #f2f2f2;
+  }
+  .show-more:hover .icon {
+    transform: translateX(5px);
+  }
+
+  .show-more.col-span-3 {
+    height: 60px;
+  }
+
+  .shadow-medium-light {
+    box-shadow: 0px 2px 10px 0px #69696980;
   }
 </style>
