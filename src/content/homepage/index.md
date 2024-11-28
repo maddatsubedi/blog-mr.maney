@@ -31,6 +31,9 @@ about:
     - image: /images/home_about/image3.jpeg
       badge: /images/home_about/badge3.jpeg
 
+explore_categories:
+  title: "Explore Categories"
+
 ##key features
 key_features:
   title: "The Highlighting Part Of Our Solution"

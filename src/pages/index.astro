@@ -2,14 +2,16 @@
 import Base from "@/layouts/Base.astro";
 import Banner from "@/layouts/components/Banner.astro";
 import About from "@/layouts/components/sections/About.astro";
+import ExploreCategories from "@/components/sections/ExploreCategories.astro";
 import { getEntryBySlug } from "astro:content";
 
 const homepage = await getEntryBySlug("homepage", "index");
-const { banner, about } = homepage.data;
+const { banner, about, explore_categories } = homepage.data;
 ---
 
 <Base>
   <!-- banner -->
   <Banner banner={banner} />
   <About about={about} />
+  <ExploreCategories explore_categories={explore_categories} />
 </Base>

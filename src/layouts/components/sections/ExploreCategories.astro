@@ -1,0 +1,65 @@
+---
+import { markdownify, slugify } from "@/lib/utils/textConverter";
+import { readCategoryImagesWithFallback } from "@/lib/utils/categoriesImageMapper";
+import { capitalize } from "@/lib/utils/textConverter";
+
+const { explore_categories } = Astro.props;
+const { title } = explore_categories;
+
+const categoriesImageMap = await readCategoryImagesWithFallback();
+const categories = Object.keys(categoriesImageMap);
+import { Image } from "astro:assets";
+
+// console.log(categoriesImageMap);
+// console.log(categories);
+---
+
+<section
+  class="section banner px-10 font-montserrat"
+  style="background-color: #FFFFFF;"
+>
+  <div class="section-container max-w-[1120px]">
+    <h2 class="font-plusJakartaSans font-medium text-[3rem] text-center">
+      {markdownify(title)}
+    </h2>
+    <div class="categories-container grid grid-cols-3 w-fit">
+      {
+        categories.map((category: string) => (
+          <a
+            href={`/categories/${slugify(category)}`}
+            class="category relative flex rounded-xl overflow-hidden shadow-md w-fit"
+          >
+            <Image
+              src={
+                categoriesImageMap[category]?.replace("\\", "/") ||
+                "/images/placeholder.png"
+              }
+              class="category-image object-cover object-center rounded-xl aspect-[3.67/1]"
+              alt="image"
+              width={352}
+              height={70}
+            />
+            <div class="category-text-overlay text-[#ffffff] text-2xl font-medium absolute w-full h-full top-0 left-0 flex justify-center items-center bg-[#00000066]">
+              {capitalize(category)}
+            </div>
+          </a>
+        ))
+      }
+    </div>
+    <h3 class="font-montserrat">Updates To Follow</h3>
+  </div>
+</section>
+
+<style>
+  .category-image,
+  .category-text-overlay {
+    transition: 0.25s ease-in-out;
+  }
+  .category:hover .category-image {
+    transform: scale(1.175);
+  }
+  .category:hover .category-text-overlay {
+    transform: scale(1.075);
+    background: #4e4e4e66;
+  }
+</style>

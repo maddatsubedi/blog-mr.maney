@@ -55,3 +55,12 @@ const htmlEntityDecoder = (htmlWithEntities: string): string => {
   );
   return htmlWithoutEntities;
 };
+
+// capitalize each word in a sentence
+export const capitalize = (s: string): string  => {
+  if (typeof s !== "string") return "";
+  return s
+    .split(" ")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
