@@ -13,9 +13,9 @@ technology, games, and toys ."
 
 about:
   title: "ABOUT"
-  secondTitle: "Let me to introduce myself"
+  secondTitle: "Let me introduce myself"
   sideText: "MR.MANEY"
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed urna in justo euismod condimentum.  \nVestibulum dignissim orci vitae eros rutrum euismod. Vestibulum tempor, sem et molestie egestas, dui tortor laoreet tellus, id rhoncus mauris neque malesuada augue. Lorem ipsum hi hello how are you ? I am fine thank you, fuck you ismod. Vestibulum tempor, sem et molestie egestas, dui tortor laoreet tellus, id rhoncus mauris neque malesuada augue. Lorem ipsum hi hello how are you ? I "
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed urna in justo euismod condimentum.  \nVestibulum dignissim orci vitae eros rutrum euismod. Vestibulum tempor, sem et molestie egestas, dui tortor laoreet tellus, id rhoncus mauris neque malesuada augue. Lorem ipsum hi hello how are you ? I a hi hello how are you ? I "
   image_group:
     - image: /images/home_about/game1.jpeg
     - image: /images/home_about/game2.jpeg
