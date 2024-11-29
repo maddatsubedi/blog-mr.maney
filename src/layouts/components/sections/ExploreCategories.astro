@@ -13,7 +13,8 @@ import { Image } from "astro:assets";
 import { FaChevronCircleRight, FaChevronRight } from "react-icons/fa";
 
 const categoriesLength = categories.length;
-const showMoreColSpan = categoriesLength % 3 === 0 ? 3 : (9 - categoriesLength) % 3;
+const showMoreColSpan =
+  categoriesLength % 3 === 0 ? 3 : (9 - categoriesLength) % 3;
 ---
 
 <section
@@ -66,24 +67,29 @@ const showMoreColSpan = categoriesLength % 3 === 0 ? 3 : (9 - categoriesLength) 
     background: #583838;
   }
   .show-more,
-  .show-more .icon ,
+  .show-more .icon,
   .category-image,
   .category-text-overlay {
     transition: 0.25s ease-in-out;
   }
+  
   .category:hover .category-image {
     transform: scale(1.175);
   }
+
   .category:hover .category-text-overlay {
     transform: scale(1.075);
     background: #4e4e4e66;
   }
+
   .show-more {
     transition: 0.25s ease-in-out;
   }
+
   .show-more:hover {
     background: #f2f2f2;
   }
+
   .show-more:hover .icon {
     transform: translateX(5px);
   }

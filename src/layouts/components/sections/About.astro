@@ -13,12 +13,12 @@ const descriptionArray = description.split("\n");
   style="background-color: #f5f4fe;"
 >
   <div
-    class="side-text text-primary text-5xl font-light scale-x-[-1] scale-y-[-1] font-montserrat text-end"
+    class="side-text px-10 text-primary opacity-60 text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat text-end"
   >
     {markdownify(sideText)}
   </div>
   <!-- Fix-Later: remove max-width and adjust the layout for small and big screen -->
-  <div class="flex flex-col gap-[3.5rem] max-w-[1045px]">
+  <div class="flex flex-col gap-[3.5rem] max-w-[1280px]">
     <div class="text-center">
       <h1
         class="text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] text-[10rem] leading-none font-montserrat font-extrabold"
@@ -31,8 +31,8 @@ const descriptionArray = description.split("\n");
         {markdownify(secondTitle)}
       </p>
     </div>
-    <div class="content grid grid-cols-[1fr_250px] gap-10">
-      <div class="flex flex-col gap-10">
+    <div class="content grid grid-cols-[1fr_300px] gap-16">
+      <div class="flex flex-col gap-14 justify-center">
         <div class="description">
           <!-- Fix-Later-1: markdownify returning <br> text instead of new line -->
           {
@@ -45,8 +45,9 @@ const descriptionArray = description.split("\n");
             )
           }
         </div>
-        <div class="image-group-bottom flex items-center gap-14">
-          <div class="image-group grid grid-cols-3 gap-5 w-fit flex-grow max-w-[470px]">
+        <div class="image-group-bottom flex items-center gap-16">
+          <!-- <div class="image-group grid grid-cols-3 w-fit gap-5 flex-grow max-w-[470px]"> -->
+          <div class="image-group grid grid-cols-3 gap-5 flex-grow">
             {
               image_group.map((image: any) => (
                 <div class="image-wrapper flex">
@@ -54,8 +55,8 @@ const descriptionArray = description.split("\n");
                     src={image.image}
                     class="object-cover object-center m-0 flex-grow rounded-xl aspect-[16/11]"
                     alt="image"
-                    width={100}
-                    height={70}
+                    width={150}
+                    height={100}
                   />
                 </div>
               ))
@@ -64,10 +65,10 @@ const descriptionArray = description.split("\n");
           <div class="relative ml-auto main-img-wrapper">
             <Image
               src={main_images[0].image}
-              class="main-img object-cover object-center m-0 h-[200px] rounded-2xl"
+              class="main-img object-cover object-center m-0 h-[250px] rounded-2xl"
               alt="image"
-              width={250}
-              height={200}
+              width={300}
+              height={250}
             />
             <Image
               src={main_images[0].badge}
@@ -79,7 +80,7 @@ const descriptionArray = description.split("\n");
           </div>
         </div>
       </div>
-      <div class="flex flex-col justify-center gap-10">
+      <div class="flex flex-col justify-center gap-16">
         {
           main_images.map(
             (image: any, index: number) =>
@@ -87,10 +88,10 @@ const descriptionArray = description.split("\n");
                 <div class="image-main relative w-fit main-img-wrapper">
                   <Image
                     src={image.image}
-                    class="main-img marker:object-cover object-center m-0 h-[200px] rounded-2xl"
+                    class="main-img marker:object-cover object-center m-0 h-[250px] rounded-2xl"
                     alt="image"
-                    width={250}
-                    height={200}
+                    width={300}
+                    height={250}
                   />
                   <Image
                     src={image.badge}
@@ -147,7 +148,7 @@ const descriptionArray = description.split("\n");
   }
   .main-img {
     position: relative;
-    min-width: 250px;
+    min-width: 300px;
     z-index: 2;
   }
 
