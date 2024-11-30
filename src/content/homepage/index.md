@@ -34,6 +34,12 @@ about:
 explore_categories:
   title: "Explore Categories"
 
+numbers:
+  experience: "22"
+  courses: "700"
+  customers: "1k"
+  awards: "100"
+
 ##key features
 key_features:
   title: "The Highlighting Part Of Our Solution"
