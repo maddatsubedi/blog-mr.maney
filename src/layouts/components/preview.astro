@@ -1,0 +1,59 @@
+---
+import viewsFormat from "../../lib/utils/viewFromat";
+const { videos,gaming } = Astro.props;
+const {data} = videos;
+
+const {gdata} = gaming;
+
+
+---
+
+<section class="section relative">
+  <div class="container">
+    <h2 class="font-montserrat">Latest Video</h2>
+    <div class="flex overflow-x-auto gap-5 mt-5 flex-shrink-0">
+        {data.map(item=>{
+            return (
+                <div class="bg-white rounded-lg overflow-hidden min-w-96">
+                    <img
+                    class="w-full h-48 object-cover"
+                    src={item.image}
+                    alt="Video Thumbnail"
+                    />
+                    <div class="p-4">
+                        <a href={item.link} class="text-xl font-semibold mb-2 font-montserrat block text-gray-700">
+                        {item.title}
+                        </a>
+                        <span class="text-gray-400 text-sm">{item.time}</span>
+                        <span class="text-gray-400 text-sm"> - {viewsFormat(item.views)} views</span>
+                        </div>
+                </div>
+            )
+        })}
+
+    </div>
+  </div>
+
+  <div class="container mt-10">
+    <h2 class="font-montserrat">Featured Gaming</h2>
+    <div class="flex overflow-x-auto gap-5 mt-5 flex-shrink-0">
+        {gdata.map(item=>{
+            return (
+                <div class="bg-white rounded-lg overflow-hidden min-w-96">
+                    <img
+                    class="w-full h-48 object-cover"
+                    src={item.image}
+                    alt="Video Thumbnail"
+                    />
+                    <div class="p-4">
+                        <a href={item.link} class="text-xl font-semibold mb-2 font-montserrat block text-gray-700">
+                        {item.title}
+                        </a>
+                        </div>
+                </div>
+            )
+        })}
+
+    </div>
+  </div>
+</section>

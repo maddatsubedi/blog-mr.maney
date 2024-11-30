@@ -38,6 +38,43 @@ about:
 explore_categories:
   title: "Explore Categories"
 
+numbers:
+  experience: "22"
+  courses: "700"
+  customers: "1k"
+  awards: "100"
+
+
+videos:
+  data:
+    - title: "Top 10 Best Places in Japan to Get Deluxe Edition Boxes"
+      views: "734,000"
+      time: "6 Hours ago"
+      image: /images/videos/gallery-img-1.png
+      link: "#"
+    - title: "Ranking the Best Sunglasses Bundles for This Summer"
+      views: "204,000"
+      time: "7 Hours ago"
+      image: /images/videos/gallery-img-2.png
+      link: "#"
+    - title: "We Unbox the 'Power Computer Bundle' for Gaming"
+      views: "7,190,000"
+      time: "13 Hours ago"
+      image: /images/videos/gallery-img-3.png
+      link: "#"
+
+gaming:
+  gdata:
+    - title: "Top 10 Best Places in Japan to Get Deluxe Edition Boxes"
+      image: /images/videos/gallery-img-1.png
+      link: "#"
+    - title: "Ranking the Best Sunglasses Bundles for This Summer"
+      image: /images/videos/gallery-img-2.png
+      link: "#"
+    - title: "We Unbox the 'Power Computer Bundle' for Gaming"
+      image: /images/videos/gallery-img-3.png
+      link: "#"
+
 ##key features
 key_features:
   title: "The Highlighting Part Of Our Solution"
