@@ -18,8 +18,17 @@ about:
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed urna in justo euismod condimentum.  \nVestibulum dignissim orci vitae eros rutrum euismod. Vestibulum tempor, sem et molestie egestas, dui tortor laoreet tellus, id rhoncus mauris neque malesuada augue. Lorem ipsum hi hello how are you ? I a hi hello how are you ? I "
   main_links_group:
     - link_to: blog
+      image: /images/home_about/mrmaney.jpg
+      title: Browse Blogs
+      subtitle: Insights and stories
     - link_to: about
+      image: /images/home_about/mrmaney2.jpg
+      title: About Me
+      subtitle: Know more about me
     - link_to: contact
+      image: /images/home_about/mrmaney1.jpg
+      title: Contact Me
+      subtitle: Let’s get in touch
   image_group:
     - image: /images/home_about/game1.jpeg
     - image: /images/home_about/game2.jpeg
@@ -27,13 +36,6 @@ about:
     - image: /images/home_about/game4.jpeg
     - image: /images/home_about/game5.jpeg
     - image: /images/home_about/game6.jpeg
-  main_images:
-    - image: /images/home_about/image1.jpeg
-      badge: /images/home_about/badge1.jpeg
-    - image: /images/home_about/image2.jpeg
-      badge: /images/home_about/badge2.jpeg
-    - image: /images/home_about/image3.jpeg
-      badge: /images/home_about/badge3.jpeg
 
 explore_categories:
   title: "Explore Categories"

@@ -34,13 +34,13 @@ const showMoreColSpan =
             class="category relative flex rounded-xl overflow-hidden shadow-md"
           >
             <Image
-              src={categoriesImageMap[category] || "/images/placeholder.png"}
+              src={categoriesImageMap[category] || "/images/fallback_images/category_fallback.jpg"}
               class="category-image object-cover object-center rounded-xl h-[95px]"
               alt="image"
               width={352}
               height={70}
             />
-            <div class="category-text-overlay text-center text-[#ffffff] text-2xl font-medium absolute w-full h-full top-0 left-0 flex justify-center items-center bg-[#00000066]">
+            <div class="category-text-overlay text-center p-4 text-[#ffffff] text-2xl font-medium absolute w-full h-full top-0 left-0 flex justify-center items-center bg-[#00000066]">
               {capitalize(category)}
             </div>
           </a>
@@ -50,10 +50,10 @@ const showMoreColSpan =
         (
           <a
             href={`/categories`}
-            class={`show-more flex gap-[10px] h-[95px] justify-center items-center rounded-xl overflow-hidden shadow-medium-light col-span-${showMoreColSpan}`}
+            class={`show-more p-4 flex gap-[10px] h-[95px] justify-center items-center rounded-xl overflow-hidden shadow-medium-light col-span-${showMoreColSpan}`}
           >
-            <div class="font-medium text-primary text-2xl">Show More</div>
-            <FaChevronCircleRight className="icon text-[#615a5a] text-xl" />
+            <div class="font-medium text-primary text-center text-2xl">Show More</div>
+            <FaChevronCircleRight className="icon text-[#615a5a] min-w-5 min-h-5 text-xl" />
           </a>
         )
       }
