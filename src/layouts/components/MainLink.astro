@@ -1,0 +1,98 @@
+---
+import config from "@/config/config.json";
+import { Image } from "astro:assets";
+import LinkIconMap from "../function-components/LinkIconMap";
+const { link, className } = Astro.props;
+// console.log(link);
+---
+
+<div class={`main-link-wrapper relative ${className || ``}`}>
+  <div class="main-link m-0 w-[300px] h-[250px] rounded-2xl">
+    Hello {link?.link_to}
+  </div>
+  <div
+    class="badge text-primary flex justify-center items-center text-2xl m-0 h-[50px] w-[70px] absolute top-0 mx-auto left-0 right-0 translate-y-[-50%] shadow-medium"
+  >
+    {(<LinkIconMap linkTo={link?.link_to} />)}
+  </div>
+</div>
+
+<style>
+  .main-link-wrapper {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .main-link-wrapper:hover::before,
+  .main-link-wrapper:hover::after {
+    transform: scale(1.05);
+    border-width: 2px;
+  }
+
+  .main-link-wrapper::before,
+  .main-link-wrapper::after {
+    position: absolute;
+    content: "";
+    border: 1px solid #b43d4b;
+    border-radius: 1rem;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: 0.25s ease-in-out;
+    pointer-events: none;
+  }
+  .main-link-wrapper::before {
+    transform: rotate(-3.67deg) translate(-10px, 10px);
+  }
+  .main-link-wrapper::after {
+    transform: rotate(3.67deg) translate(-7.5px, 15px);
+  }
+
+  .badge {
+    z-index: 3;
+    background-color: white;
+  }
+  .main-link {
+    position: relative;
+    min-width: 300px;
+    z-index: 2;
+    background-color: rgb(255, 230, 230);
+  }
+
+  .shadow-medium {
+    box-shadow: 0px 2px 10px 0px #00000080;
+  }
+
+  /* 2XL Screen */
+  @media screen and (max-width: 1450px) {
+    .main-link {
+      width: 250px;
+      min-width: 250px;
+      height: 200px;
+    }
+  }
+  @media screen and (max-width: 1350px) {
+    .main-link {
+      width: 225px;
+      min-width: 225px;
+      height: 175px;
+    }
+  }
+  @media screen and (max-width: 1250px) {
+    .md-hide {
+      display: none;
+    }
+    .main-link-wrapper {
+      flex-grow: 1;
+      height: 175px;
+    }
+    .main-link {
+      width: 100%;
+      min-width: unset;
+      height: 100%;
+      position: absolute;
+    }
+  }
+</style>
