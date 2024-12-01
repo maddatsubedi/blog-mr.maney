@@ -4,7 +4,7 @@ banner:
   secondTitle: "Content creator"
   content: "Bringing you the best unboxing videos of the latest
 technology, games, and toys ."
-  image: /images/users/client.png
+  image: /images/users/mrmaney.png
   button:
     label: Subscribe Now
     link: "https://themefisher.com/astro-themes/pinwheel-astro"

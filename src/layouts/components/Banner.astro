@@ -2,55 +2,63 @@
 import { markdownify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 const { banner } = Astro.props;
-const { title,secondTitle, button, image, content, badges } = banner;
+const { title, secondTitle, button, image, content, badges } = banner;
 ---
 
-<section class="section banner relative bg-primary overflow-hidden pt-32">
-  <div class="social-media absolute flex flex-col h-full justify-around top-0">
-    <a href="#" class="text-white rotate-90">Facebook</a>
-    <a href="#" class="text-white rotate-90">YouTube</a>
-    <a href="#" class="text-white rotate-90">Instagram</a>
+<section class="section banner relative bg-primary overflow-hidden pt-32 pl-[106px]">
+  <div class="social-media absolute flex flex-col h-full justify-around top-0 left-0 p-4 px-10 pt-32">
+    <a href="#" class="social-media-link text-white">Facebook</a>
+    <a href="#" class="social-media-link text-white">YouTube</a>
+    <a href="#" class="social-media-link text-white">Instagram</a>
   </div>
   <div class="container">
     <div class="row items-start">
       <div class="lg:col-6">
-        <h1 class="banner-title text-white text-7xl font-header" set:html={markdownify(title)} />
-        <h1 class="banner-title text-[#FFFAC3] text-7xl font-header whitespace-nowrap" set:html={markdownify(secondTitle)} />
-
-
+        <h1
+          class="banner-title text-white text-7xl font-header"
+          set:html={markdownify(title)}
+        />
+        <h1
+          class="banner-title text-[#FFFAC3] text-7xl font-header whitespace-nowrap"
+          set:html={markdownify(secondTitle)}
+        />
 
         <p class="mt-6 text-white w-80" set:html={markdownify(content)} />
 
         {
           button.enable && (
-            <a class="btn btn-outline-white mt-8 text-white hover:bg-white hover:text-black" href={button.link}>
+            <a
+              class="btn btn-outline-white mt-8 text-white hover:bg-white hover:text-black"
+              href={button.link}
+            >
               {button.label}
             </a>
           )
         }
         <Image
-        src={badges} 
-        class="object-contain translate-y-10"
-        alt="badges"
-        width={400}
-        height={100}
+          src={badges}
+          class="object-contain translate-y-10"
+          alt="badges"
+          width={400}
+          height={100}
         />
       </div>
       <div class="lg:col-6 relative">
-        <div class="blur-[100px] absolute rounded-full z-10 bg-[#FFFAC3] w-96 h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div
+          class="blur-[100px] absolute rounded-full z-10 bg-[#FFFAC3] w-96 h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
         </div>
         <Image
-          class="w-full object-contain z-20 -mt-32 translate-y-20 relative"
+          class="w-full object-contain z-20 -mt-32 translate-y-16 relative"
           alt="banner"
           src={image}
           width={603}
           height={396}
         />
-
       </div>
     </div>
   </div>
-<!-- 
+  <!-- 
   <Image
     class="banner-shape absolute -top-28 right-0 -z-[1] w-full max-w-[30%]"
     alt="banner"
@@ -59,3 +67,9 @@ const { title,secondTitle, button, image, content, badges } = banner;
     height={466}
   /> -->
 </section>
+
+<style>
+  .social-media-link {
+    writing-mode: vertical-lr;
+  }
+</style>
