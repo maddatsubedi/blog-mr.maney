@@ -39,7 +39,7 @@ import { markdownify, slugify } from "@/lib/utils/textConverter";
     </div>
   </div>
   <div
-    class="badge text-primary flex justify-center items-center text-2xl m-0 h-[50px] w-[70px] absolute top-0 mx-auto left-0 right-0 translate-y-[-50%] shadow-medium"
+    class="badge text-primary flex justify-center items-center text-3xl m-0 w-[100px] h-[60px]  absolute top-0 mx-auto left-0 right-0 translate-y-[-50%] shadow-medium"
   >
     {(<LinkIconMap linkTo={link?.link_to} />)}
   </div>
@@ -129,6 +129,12 @@ import { markdownify, slugify } from "@/lib/utils/textConverter";
       width: 250px;
       min-width: 250px;
       height: 200px;
+    }
+
+    .badge {
+      width: 70px;
+      height: 50px;
+      font-size: 1.5rem;
     }
   }
   @media screen and (max-width: 1350px) {
