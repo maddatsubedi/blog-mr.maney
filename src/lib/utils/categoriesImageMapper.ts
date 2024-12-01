@@ -11,7 +11,7 @@ export const readCategoryImagesWithFallback = async (): Promise<{ [key: string]:
   try {
     const categories = await getTaxonomy(config.settings.blog_folder, "categories");
 
-    const categoriesDir = path.join(__dirname, '../../../public/images/categories');
+    const categoriesDir = path.join(process.cwd(), 'public', 'images', 'categories');
     const files = fs.readdirSync(categoriesDir);
 
     const imageMap: { [key: string]: string | null } = {};
