@@ -1,0 +1,131 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+import { FaRegEye, FaRegLightbulb } from "react-icons/fa";
+import { IoDiamondSharp } from "react-icons/io5";
+import { MdDiamond } from "react-icons/md";
+
+const { skills } = Astro.props;
+const {
+  title,
+  image: mainImage,
+  bottom_section: {
+    title: bottomTitle,
+    description: bottomDescription,
+    vision,
+    mission,
+    value,
+  },
+  right_section: { image: rightImage, skills: skillsList },
+} = skills;
+
+console.log(skills);
+---
+
+<section
+  class="section px-10 font-montserrat grid gap-7 grid-cols-[0.6fr_1.4fr]"
+  style="background-color: #fffbf9;"
+>
+  <div class="left flex justify-center">
+    <div class="left-image-wrapper self-end h-[500px]">
+      <Image
+        src={mainImage}
+        class="main-image object-cover object-center h-full w-full"
+        alt="image"
+        width={550}
+        height={1000}
+      />
+    </div>
+  </div>
+  <div class="right flex flex-col gap-10">
+    <h1 class="font-montserrat text-5xl font-medium text-center">
+      {markdownify(title)}
+    </h1>
+    <div
+      class="content bg-[#ffffff] shadow-md rounded-xl grid grid-cols-[1.3fr_0.7fr] overflow-hidden"
+    >
+      <div class="content-left flex flex-col gap-3 p-7">
+        <h2 class="font-montserrat text-3xl font-medium m-0">
+          {markdownify(bottomTitle)}
+        </h2>
+        <p class="m-0 leading-[24px]">{markdownify(bottomDescription)}</p>
+        <div class="right-lists flex flex-col gap-3">
+          <div class="vision flex gap-3">
+            <FaRegEye className="icon text-2xl min-w-6 mt-1" />
+            <div class="text">
+              <h3 class="font-montserrat text-2xl font-medium m-0">Vision</h3>
+              <p class="m-0 leading-[24px]">{markdownify(vision)}</p>
+            </div>
+          </div>
+          <div class="mission flex gap-2">
+            <FaRegLightbulb className="icon text-2xl min-w-6 mt-1" />
+            <div class="text">
+              <h3 class="font-montserrat text-2xl font-medium m-0">Mission</h3>
+              <p class="m-0 leading-[24px]">{markdownify(mission)}</p>
+            </div>
+          </div>
+          <div class="value flex gap-2">
+            <MdDiamond className="icon text-2xl min-w-6 mt-1" />
+            <div class="text">
+              <h3 class="font-montserrat text-2xl font-medium m-0">Value</h3>
+              <p class="m-0 leading-[24px]">{markdownify(value)}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content-right bg-[#f6f6f6] flex flex-col gap-7 p-7 justify-center min-w-[210px]"
+      >
+        <div class="right-image-wrapper">
+          <Image
+            src={rightImage}
+            class="right-image object-cover m-0 object-center"
+            alt="image"
+            width={475}
+            height={320}
+          />
+        </div>
+        <div class="skills-wrapper">
+          <ul class="skills-list list-none m-0 p-0 flex flex-col gap-5">
+            {
+              skillsList.map(
+                (
+                  skill: { title: string; percentage: string },
+                  index: number,
+                ) => {
+                  return (
+                    <li class="skill m-0 p-0">
+                      <div class="sill-title flex items-center gap-3 justify-between">
+                        <h3 class="font-montserrat text-xl font-normal m-0 text-[#0d0d0d]">
+                          {markdownify(skill.title)}
+                        </h3>
+                        <div class="skill-percentage font-semibold">
+                          {skill.percentage}
+                        </div>
+                      </div>
+                      <div class="skill-bar w-full h-1.5 min-h-1.5 mt-2 bg-gray-300 rounded-full overflow-hidden">
+                        <div
+                          class="skill-progress bg-primary rounded-full h-full"
+                          style={`width: ${skill.percentage};`}
+                        />
+                      </div>
+                    </li>
+                  );
+                },
+              )
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .shadow-small {
+    box-shadow: 0px 2px 5px 0px #00000080;
+  }
+  .shadow-medium {
+    box-shadow: 0px 2px 10px 0px #00000080;
+  }
+</style>
