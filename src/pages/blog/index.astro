@@ -35,6 +35,9 @@ const currentPosts = recentPost.slice(0, config.settings.pagination);
   image={blogIndex.data.image}
   isHomePage={false}
 >
+<section class="page-hero pb-6 pt-16">
+  <div class="container"><PageHeader page_data={{content:""}} /></div>
+</section>
   <Shape />
   <section class="section">
     <div class="container">
@@ -49,5 +52,4 @@ const currentPosts = recentPost.slice(0, config.settings.pagination);
       />
     </div>
   </section>
-  <Cta />
 </Base>
