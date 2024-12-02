@@ -3,6 +3,7 @@ import Base from "@/layouts/Base.astro";
 import Banner from "@/layouts/components/Banner.astro";
 import Number from "@/layouts/components/number.astro";
 import Preview from "@/components/preview.astro";
+import PreviewBlog from "@/components/previewBlog.astro";
 import Skills from "@/layouts/components/sections/Skills.astro";
 import About from "@/layouts/components/sections/About.astro";
 import ExploreCategories from "@/components/sections/ExploreCategories.astro";
@@ -18,6 +19,8 @@ const { banner, about, explore_categories, numbers,videos, gaming, skills } = ho
   <About about={about} />
   <Skills skills={skills} />
   <ExploreCategories explore_categories={explore_categories} />
+  <Preview videos={videos}/>
   <Number numbers={numbers} />
-  <Preview videos={videos} gaming={gaming}/>
+  <PreviewBlog gaming={gaming}/>
+
 </Base>

@@ -1,0 +1,20 @@
+---
+import Blogs from "@/components/Blogs.astro";
+import config from "@/config/config.json";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+
+const { blog_folder } = config.settings;
+const posts = await getSinglePage(blog_folder);
+const sortedPosts = sortByDate(posts);
+const recentPost = sortedPosts.filter((item) => !item.data.featured);
+const currentPosts = recentPost.slice(0, 3);
+
+---
+
+<section class="section relative">
+  <div class="container mt-10">
+    <h2 class="font-montserrat mb-4">Latest Blog</h2>
+    <Blogs posts={currentPosts} />
+  </div>
+</section>
