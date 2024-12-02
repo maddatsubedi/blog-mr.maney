@@ -5,9 +5,7 @@ const { banner } = Astro.props;
 const { title, secondTitle, button, image, content, badges } = banner;
 ---
 
-<section
-  class="section banner relative bg-primary overflow-hidden pt-32 pl-[106px] pr-[50px]"
->
+<section class="section banner relative bg-primary overflow-hidden p-0">
   <div
     class="social-media gap-2 absolute flex flex-col h-full justify-around top-0 left-0 p-16 px-10 pt-32"
   >
@@ -15,8 +13,8 @@ const { title, secondTitle, button, image, content, badges } = banner;
     <a href="#" class="social-media-link text-white">YouTube</a>
     <a href="#" class="social-media-link text-white">Instagram</a>
   </div>
-  <div class="grid gap-5 max-w-[1100px] mx-auto grid-cols-[0.65fr_0.35fr]">
-    <div class="left flex flex-col gap-6">
+  <div class="grid gap-5 max-w-[1150px] mx-auto grid-cols-[0.65fr_0.35fr]">
+    <div class="left flex flex-col gap-6 pt-32 pl-[106px] pb-16">
       <div>
         <h1
           class="banner-title text-white text-7xl font-header"
@@ -40,7 +38,7 @@ const { title, secondTitle, button, image, content, badges } = banner;
           </a>
         )
       }
-      <div class="badge-wrapper w-[400px] mt-3">
+      <div class="badge-wrapper max-w-[400px] mt-3">
         <Image
           src={badges}
           class="object-cover object-center w-full"
@@ -50,19 +48,17 @@ const { title, secondTitle, button, image, content, badges } = banner;
         />
       </div>
     </div>
-    <div class="right relative">
-      <div
-        class="blur-[100px] absolute rounded-full z-10 bg-[#FFFAC3] w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-      >
-      </div>
+    <div
+      class="right relative pt-32 pr-[50px] flex justify-center items-center"
+    >
       <div
         class="image-wrapper relative z-20 w-full h-full flex justify-center"
       >
         <Image
-          class="object-cover object-center absolute"
+          class="object-cover object-top h-full absolute bottom-0"
           alt="banner"
           src={image}
-          width={300}
+          width={250}
           height={500}
         />
       </div>
@@ -71,6 +67,17 @@ const { title, secondTitle, button, image, content, badges } = banner;
 </section>
 
 <style>
+  .image-wrapper::before {
+    filter: blur(100px);
+    position: absolute;
+    content: "";
+    border-radius: 9999px;
+    background-color: #fffac3;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
   .social-media-link {
     writing-mode: vertical-lr;
   }

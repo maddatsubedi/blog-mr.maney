@@ -23,14 +23,14 @@ const {
 ---
 
 <section
-  class="section px-10 font-montserrat grid gap-7 grid-cols-[0.6fr_1.4fr]"
+  class="section px-10 font-montserrat grid gap-10 grid-cols-[0.6fr_1.4fr] overflow-hidden"
   style="background-color: #fffbf9;"
 >
   <div class="left flex justify-center">
-    <div class="left-image-wrapper self-end h-[500px]">
+    <div class="left-image-wrapper relative w-full h-full max-w-[400px]">
       <Image
         src={mainImage}
-        class="main-image object-cover object-center h-full w-full"
+        class="main-image object-cover object-top absolute w-full bottom-0 translate-y-16"
         alt="image"
         width={550}
         height={1000}
