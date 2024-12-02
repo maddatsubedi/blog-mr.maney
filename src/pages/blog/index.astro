@@ -33,12 +33,10 @@ const currentPosts = recentPost.slice(0, config.settings.pagination);
   meta_title={blogIndex.data.meta_title}
   description={blogIndex.data.description}
   image={blogIndex.data.image}
+  isHomePage={false}
 >
   <Shape />
   <section class="page-hero pt-16">
-    <div class="container">
-      <PageHeader page_data={blogIndex.data} />
-    </div>
   </section>
   <section class="section">
     <div class="container">

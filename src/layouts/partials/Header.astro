@@ -18,9 +18,11 @@ export interface NavigationLink {
 
 const { main }: { main: NavigationLink[] } = menu;
 const { pathname } = Astro.url;
+
+const {isHomePage} = Astro.props;
 ---
 
-<header class="header bg-transparent text-white flex justify-center  w-full">
+<header class={`header text-white flex justify-center w-full ${isHomePage ? "bg-transparent" : "bg-red-600"}`}>
   <nav class="navbar container m-0">
     <!-- logo -->
     <div class="pl-[120px] order-0">

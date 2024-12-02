@@ -33,11 +33,13 @@ export interface Props {
   image?: string;
   noindex?: boolean;
   canonical?: string;
+  isHomePage?: boolean;
 }
 
 // distructure frontmatters
-const { title, meta_title, description, image, noindex, canonical } =
+const { title, meta_title, description, image, noindex, canonical,isHomePage=true } =
   Astro.props;
+
 ---
 
 <!doctype html>
@@ -171,7 +173,7 @@ const { title, meta_title, description, image, noindex, canonical } =
   </head>
   <body>
     <TwSizeIndicator />
-    <Header />
+    <Header isHomePage={isHomePage} />
     <main id="main-content">
       <slot />
     </main>
