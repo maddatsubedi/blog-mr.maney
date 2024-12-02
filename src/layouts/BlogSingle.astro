@@ -16,16 +16,16 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<section class="section blog-single">
+<section class="section blog-single mt-20">
   <div class="container">
     <div class="row justify-center">
       <div class="lg:col-10">
         <Image
-          class="w-full rounded-xl"
+          class="rounded-xl object-contain max-w-[500px] mx-auto"
           src={post.data.image}
           alt=""
-          width={920}
-          height={450}
+          width={500}
+          height={300}
         />
       </div>
       <div class="mt-10 max-w-[810px] lg:col-9">
