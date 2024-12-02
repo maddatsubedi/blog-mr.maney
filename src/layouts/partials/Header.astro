@@ -23,8 +23,8 @@ const { pathname } = Astro.url;
 <header class="header bg-transparent text-white flex justify-center  w-full">
   <nav class="navbar container m-0">
     <!-- logo -->
-    <div class="order-0">
-      <a href="/" >Blog</a>
+    <div class="pl-[120px] order-0">
+      <a class="text-2xl font-semibold" href="/" >Blog</a>
     </div>
     <!-- navbar toggler -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
@@ -114,21 +114,19 @@ const { pathname } = Astro.url;
       }
     </ul>
     <div class="order-1 ml-auto hidden items-center md:order-2 md:ml-0 lg:flex">
-      <Search />
+      <button>
+        <a
+        class="w-fit btn btn-outline-white text-white hover:bg-white hover:text-black"
+        href={"/contact"}
+      >
+        Contact
+      </a>
+      </button>
     </div>
   </nav>
 </header>
 
 <script is:inline>
-  document.querySelectorAll(".dropdown-button").forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const dropdown = e.target.nextElementSibling;
-      dropdown.classList.toggle(
-        dropdown.style === "hidden" ? "block" : "hidden"
-      );
-    });
-  });
-
   //sticky header
   document.addEventListener("astro:page-load", () => {
     const header = document.querySelector(".header");
