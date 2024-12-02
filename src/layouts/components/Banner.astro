@@ -5,67 +5,69 @@ const { banner } = Astro.props;
 const { title, secondTitle, button, image, content, badges } = banner;
 ---
 
-<section class="section banner relative bg-primary overflow-hidden pt-32 pl-[106px]">
-  <div class="social-media absolute flex flex-col h-full justify-around top-0 left-0 p-4 px-10 pt-32">
+<section
+  class="section banner relative bg-primary overflow-hidden pt-32 pl-[106px] pr-[50px]"
+>
+  <div
+    class="social-media gap-2 absolute flex flex-col h-full justify-around top-0 left-0 p-16 px-10 pt-32"
+  >
     <a href="#" class="social-media-link text-white">Facebook</a>
     <a href="#" class="social-media-link text-white">YouTube</a>
     <a href="#" class="social-media-link text-white">Instagram</a>
   </div>
-  <div class="container">
-    <div class="row items-start">
-      <div class="lg:col-6">
+  <div class="grid gap-5 max-w-[1100px] mx-auto grid-cols-[0.65fr_0.35fr]">
+    <div class="left flex flex-col gap-6">
+      <div>
         <h1
           class="banner-title text-white text-7xl font-header"
           set:html={markdownify(title)}
         />
         <h1
-          class="banner-title text-[#FFFAC3] text-7xl font-header whitespace-nowrap"
+          class="banner-title text-[#FFFAC3] text-7xl font-header"
           set:html={markdownify(secondTitle)}
         />
+      </div>
 
-        <p class="mt-6 text-white w-80" set:html={markdownify(content)} />
+      <p class="text-white w-80" set:html={markdownify(content)} />
 
-        {
-          button.enable && (
-            <a
-              class="btn btn-outline-white mt-8 text-white hover:bg-white hover:text-black"
-              href={button.link}
-            >
-              {button.label}
-            </a>
-          )
-        }
+      {
+        button.enable && (
+          <a
+            class="w-fit btn btn-outline-white text-white hover:bg-white hover:text-black"
+            href={button.link}
+          >
+            {button.label}
+          </a>
+        )
+      }
+      <div class="badge-wrapper w-[400px] mt-3">
         <Image
           src={badges}
-          class="object-contain translate-y-10"
+          class="object-cover object-center w-full"
           alt="badges"
           width={400}
           height={100}
         />
       </div>
-      <div class="lg:col-6 relative">
-        <div
-          class="blur-[100px] absolute rounded-full z-10 bg-[#FFFAC3] w-96 h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-        >
-        </div>
+    </div>
+    <div class="right relative">
+      <div
+        class="blur-[100px] absolute rounded-full z-10 bg-[#FFFAC3] w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+      </div>
+      <div
+        class="image-wrapper relative z-20 w-full h-full flex justify-center"
+      >
         <Image
-          class="w-full object-contain z-20 -mt-32 translate-y-16 relative"
+          class="object-cover object-center absolute"
           alt="banner"
           src={image}
-          width={603}
-          height={396}
+          width={300}
+          height={500}
         />
       </div>
     </div>
   </div>
-  <!-- 
-  <Image
-    class="banner-shape absolute -top-28 right-0 -z-[1] w-full max-w-[30%]"
-    alt="banner"
-    src="/images/banner-shape.png"
-    width={496}
-    height={466}
-  /> -->
 </section>
 
 <style>
