@@ -4,9 +4,6 @@ import { fileURLToPath } from 'url';
 import { getTaxonomy } from '../taxonomyParser.astro';
 import config from "@/config/config.json";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 export const readCategoryImagesWithFallback = async (): Promise<{ [key: string]: string | null }> => {
   try {
     const categories = await getTaxonomy(config.settings.blog_folder, "categories");
