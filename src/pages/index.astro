@@ -9,6 +9,7 @@ import About from "@/layouts/components/sections/About.astro";
 import ExploreCategories from "@/components/sections/ExploreCategories.astro";
 import { getEntryBySlug } from "astro:content";
 import SocialLinks from "@/components/SocialLinks.astro";
+import SocialMediaPosts from "@/components/socialMediaPosts.astro";
 
 const homepage = await getEntryBySlug("homepage", "index");
 const { banner, about, explore_categories, numbers,videos, gaming, skills } = homepage.data;
@@ -24,5 +25,6 @@ const { banner, about, explore_categories, numbers,videos, gaming, skills } = ho
   <Number numbers={numbers} />
   <PreviewBlog/>
   <SocialLinks/>
+  <SocialMediaPosts/>
 
 </Base>
