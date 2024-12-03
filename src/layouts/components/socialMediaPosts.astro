@@ -3,7 +3,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 
 const { posts, links } = Astro.props;
 
-// Fix-Later-1: move this to a separate file
+// Fix-Later: move this to a separate file
 const socialColorMap = {
   default: "#FF3D54", // primary: red
   facebook: "#1877f2",
@@ -18,7 +18,6 @@ const getSocialLink = (platform: string) => {
 };
 ---
 
-<!-- <div class="flex justify-between gap-5"> -->
 <div class="flex gap-10 flex-wrap justify-center">
   {
     posts.map((post: any, i: number) => (
@@ -34,6 +33,7 @@ const getSocialLink = (platform: string) => {
             class={`text-white bg-white rounded-2xl inline-block text-xs p-1 px-2 mb-3 capitalize`}
             style={`background-color: ${socialColorMap[post.platform] || socialColorMap.default};`}
             target="_blank"
+            rel="noopener noreferrer"
           >
             {post.platform}
           </a>
