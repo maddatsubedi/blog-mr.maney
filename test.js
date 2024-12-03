@@ -1,5 +1,3 @@
-const categoriesLength = 9;
+const num = 12312312;
 
-const showMoreColSpan = categoriesLength % 3 === 0 ? 3 : (9 - categoriesLength) % 3;
-
-console.log(showMoreColSpan);
+console.log(num.toLocaleString());
