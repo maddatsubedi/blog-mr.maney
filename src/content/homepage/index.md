@@ -120,7 +120,7 @@ social:
       link: "https://www.facebook.com/share/p/1E7ZLpRXbC/"
     - platform: "facebook"
       image: "https://scontent.fbhr4-1.fna.fbcdn.net/v/t39.30808-6/467504917_1173924411408413_7270269554948294128_n.jpg?stp=cp6_dst-jpg_p526x296&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=J1XbFybPtaEQ7kNvgHlit8f&_nc_zt=23&_nc_ht=scontent.fbhr4-1.fna&_nc_gid=AwLi_uwiYNkmJ58EwrgmBUo&oh=00_AYDR_t-3RoS51PO2ehMYSbfg3yeZr3yb2U0pe76DEDF2YA&oe=6754B8C6"
-      caption: "Hame BG xau hai ❤️ Bikram Ghimire"
+      caption: "Hame BG xau hai ❤️ @Bikram Ghimire"
       link: "https://www.facebook.com/share/p/14qmBGrBRn/"
 
 ##key features
