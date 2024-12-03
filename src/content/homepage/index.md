@@ -38,11 +38,11 @@ about:
     - image: /images/home_about/game6.jpeg
 
 skills:
-  title: "Alone I can do so little, together I can do so much"
+  title: "Creating Worlds, Building Connections"
   image: "/images/skills/mrmaney_transparent_ai.png"
   bottom_section:
-    title: "If you can laugh together, you can work together"
-    description: "I understand that laughter is not only a joyful expression but also a powerful tool that can strengthen."
+    title: "Laugh, play, and grow together"
+    description: "I believe every game played and video created is a story waiting to be told, shared, and celebrated."
     vision: "My vision is to create a community of like-minded individuals who passionate about content creation and gaming."
     mission: "My mission is to provide my audience with the best fun and gaming content on the internet."
     value: "My values are to be authentic, transparent, and honest in everything I do."
@@ -50,11 +50,11 @@ skills:
     image: "/images/skills/image.jpeg"
     skills:
       - title: "Content"
-        percentage: "95%"
+        percentage: "88%"
       - title: "Gaming"
-        percentage: "85%"
-      - title: "Unboxing"
-        percentage: "90%"
+        percentage: "73%"
+      - title: "Editing"
+        percentage: "80%"
 
 explore_categories:
   title: "Explore Categories"
