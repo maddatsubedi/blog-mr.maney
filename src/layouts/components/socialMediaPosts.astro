@@ -1,43 +1,52 @@
 ---
+import { markdownify } from "@/lib/utils/textConverter";
+
+const { posts, links } = Astro.props;
+
+// Fix-Later-1: move this to a separate file
+const socialColorMap = {
+  facebook: "#1877f2",
+  instagram: "#e1306c",
+  twitter: "#1DA1F2",
+  youtube: "#FF0000",
+  linkedin: "#0A66C2",
+} as any;
+
+const getSocialLink = (platform: string) => {
+  return links.find((link: any) => link.platform === platform)?.link || "#";
+};
 
 ---
 
-<section class="relative flex justify-center my-5 mb-10">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="relative bg-cover bg-center h-64 w-64 overflow-hidden rounded-xl ">
-            <img
-            src="/images/career/career-hero-img-1.png"
-            alt="career"
-            class="w-full h-full object-cover brightness-50"
-            />
-            <div class="absolute bottom-0 left-0  p-4 w-full">
-                <a href="/fitness-journey" class=" text-black bg-white rounded-2xl inline-block text-xs p-1 px-2 mb-3">Fitness</a>
-                <a href="/fitness-journey" class="block text-xl text-white font-montserrat font-thin tracking-wide">From Couch to Confident</a>
-            </div>
+<!-- <div class="flex justify-between gap-5"> -->
+<div class="flex gap-10 flex-wrap justify-center">
+  {
+    posts.map((post: any, i: number) => (
+      <div
+        class="relative flex bg-cover bg-center h-64 w-64 overflow-hidden rounded-xl"
+      >
+        <img
+          src={post.image}
+          alt="career"
+          class="w-full h-full object-cover brightness-50 relative z-10"
+        />
+        <div class="absolute bottom-0 left-0 p-4 w-full z-20">
+          <a href={getSocialLink(post.platform)} class={`text-white bg-white rounded-2xl inline-block text-xs p-1 px-2 mb-3 capitalize`}
+          style={`background-color: ${socialColorMap[post.platform]};`}
+          target="_blank"
+          >
+            {post.platform}
+          </a>
+          <a
+            href={post.link}
+            class="caption content text-xl text-white font-montserrat font-medium tracking-wide line-clamp-2"
+            set:html={markdownify(post.caption)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+          </a>
         </div>
-
-        <div class="relative bg-cover bg-center h-64 w-64 overflow-hidden rounded-xl ">
-            <img
-            src="/images/career/career-hero-img-2.png"
-            alt="career"
-            class="w-full h-full object-cover brightness-50"
-            />
-            <div class="absolute bottom-0 left-0  p-4 w-full">
-                <a href="/gardening-tips" class=" text-black bg-white rounded-2xl inline-block text-xs p-1 px-2 mb-3">Grow</a>
-                <a href="/gardening-tips" class="block text-xl text-white font-montserrat font-thin tracking-wide">From Seedlings to Blossoms</a>
-            </div>
-        </div>
-        <div class="relative bg-cover bg-center h-64 w-64 overflow-hidden rounded-xl ">
-            <img
-            src="/images/categories/development.jpg"
-            alt="career"
-            class="w-full h-full object-cover brightness-50"
-            />
-            <div class="absolute bottom-0 left-0  p-4 w-full">
-                <a href="/eco-living" class=" text-black bg-white rounded-2xl inline-block text-xs p-1 px-2 mb-3">Green</a>
-                <a href="/eco-living" class="block text-xl text-white font-montserrat font-thin tracking-wide">Sustainable Choices for Modern Life</a>
-            </div>
-        </div>
-        
-    </div>
-</section>
+      </div>
+    ))
+  }
+</div>
