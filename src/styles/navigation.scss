@@ -14,9 +14,6 @@ input#nav-toggle:checked ~ #nav-menu {
 .header {
   @apply bg-white py-6 transition-all duration-300 lg:bg-transparent absolute top-0 z-50 w-screen;
 
-  &-sticky {
-    @apply bg-white shadow;
-  }
 }
 
 // navbar items
