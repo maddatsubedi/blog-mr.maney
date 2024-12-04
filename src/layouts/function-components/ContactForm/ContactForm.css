@@ -1,0 +1,30 @@
+.input-field .input-wrapper::after {
+    content: "";
+    position: absolute;
+    height: 2.5px;
+    bottom: 0px;
+    margin: 0px auto;
+    left: 0px;
+    right: 0px;
+    width: 0px;
+    background-color: rgb(247 27 53);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.input-field .input-wrapper:has(.input:focus)::after {
+    width: 100%;
+}
+
+.input-field .input-wrapper:has(.input:focus)~label,
+.input-field .input-wrapper:has(.input.valid)~label {
+    bottom: unset;
+    transform: translateY(calc(-100% - 8px));
+    font-size: 14px;
+    color: rgb(247 27 53);
+}
+.input-field .input-wrapper:has(textarea.input:focus)~label,
+.input-field .input-wrapper:has(textarea.input.valid)~label {
+    transform: translateY(calc(-100% - 24px));
+}
