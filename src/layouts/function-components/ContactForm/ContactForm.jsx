@@ -13,15 +13,15 @@ const ContactForm = ({ content }) => {
 
   const { description, contact_details } = content;
 
+  console.log(name, email, message);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setStatus(null);
 
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', email);
-    formData.append('message', message);
+    const formData = new FormData(e.target);
+    // console.log(formData);
 
     try {
       const response = await fetch('/', {
@@ -55,24 +55,23 @@ const ContactForm = ({ content }) => {
       className="contact-main px-8 flex gap-7"
     >
       <form onSubmit={handleSubmit} className='left flex flex-col gap-9 flex-grow' name="contact" data-netlify="true">
-        {/* <input type="hidden" name="form-name" value="contact" /> */}
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
-            <input className={`input ${name !== '' ? `valid` : ''} bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setName(e.target.value)} />
+            <input id='name' name='name' value={name} className={`input ${name !== '' ? `valid` : ''} bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setName(e.target.value)} />
           </div>
-          <label className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-0 bottom-0 whitespace-nowrap my-auto mx-0 h-fit duration-200 ease-in-out'>Name</label>
+          <label htmlFor='name' className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-0 bottom-0 whitespace-nowrap my-auto mx-0 h-fit duration-200 ease-in-out'>Name</label>
         </div>
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
-            <input className={`input ${email !== '' ? `valid` : ''} bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setEmail(e.target.value)} />
+            <input id='email' name='email' value={email} className={`input ${email !== '' ? `valid` : ''} bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setEmail(e.target.value)} />
           </div>
-          <label className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-0 bottom-0 whitespace-nowrap my-auto mx-0 h-fit duration-200 ease-in-out'>Email</label>
+          <label htmlFor='email' className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-0 bottom-0 whitespace-nowrap my-auto mx-0 h-fit duration-200 ease-in-out'>Email</label>
         </div>
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
-            <textarea rows={7} className={`input ${message !== '' ? `valid` : ''} resize-none bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setMessage(e.target.value)} />
+            <textarea id='message' name='message' value={message} rows={7} className={`input ${message !== '' ? `valid` : ''} resize-none bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setMessage(e.target.value)} />
           </div>
-          <label className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-4 whitespace-nowrap h-fit duration-200 ease-in-out'>Message</label>
+          <label htmlFor='message' className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-4 whitespace-nowrap h-fit duration-200 ease-in-out'>Message</label>
         </div>
         {status === 'success' && <p className="text-green-500 my-2">Message sent successfully!</p>}
         {status === 'error' && <p className="text-red-500 mt-2">Failed to send message. Please try again.</p>}
