@@ -172,6 +172,12 @@ const { title, meta_title, description, image, noindex, canonical,isHomePage=tru
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
+    <!-- the contact form is not SSG, so to help netlify bots -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
     <TwSizeIndicator />
     <Header isHomePage={isHomePage} />
     <main id="main-content">
