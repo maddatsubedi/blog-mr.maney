@@ -62,9 +62,9 @@ const ContactForm = ({ content }) => {
         </div>
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
-            <input id='email' name='email' value={email} className={`input ${email !== '' ? `valid` : ''} bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setEmail(e.target.value)} />
+            <input id='email' type='email' name='email' value={email} className={`input ${email !== '' ? `valid` : ''} bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setEmail(e.target.value)} />
           </div>
-          <label htmlFor='email' type="email" className='text-[#616161] bg-transparent border-none p-0 text-lg leading-none absolute pointer-events-none left-4 top-0 bottom-0 whitespace-nowrap my-auto mx-0 h-fit duration-200 ease-in-out'>Email</label>
+          <label htmlFor='email' className='text-[#616161] bg-transparent border-none p-0 text-lg leading-none absolute pointer-events-none left-4 top-0 bottom-0 whitespace-nowrap my-auto mx-0 h-fit duration-200 ease-in-out'>Email</label>
         </div>
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
