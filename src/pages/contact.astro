@@ -1,92 +1,30 @@
 ---
-import PageHeader from "@/components/PageHeader.astro";
-import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import { getEntryBySlug } from "astro:content";
+import ContactFrom from "@/layouts/function-components/ContactForm/ContactForm.jsx";
 
 const entry = await getEntryBySlug("contact", "index");
-const { contact_form_action } = config.params;
 const contact = entry.data;
-const page_data = {
-  ...contact,
-  content: contact.body,
-};
+const { page_data, content } = contact;
+// console.log(page_data);
 ---
 
 <Base
-  title={contact.title}
-  meta_title={contact.meta_title}
-  description={contact.description}
-  image={contact.image}
+  title={page_data.title}
+  meta_title={page_data.meta_title}
+  description={page_data.description}
+  image={page_data.image}
   isHomePage={false}
 >
-  <section class="page-hero pb-6 pt-28">
-    <div class="container"><PageHeader page_data={page_data} /></div>
-  </section>
-
   <section class="section pt-0">
-    <div class="container">
-      <div class="row">
-        <div class="mb-10 text-center md:col-6 md:order-2 md:mb-0 md:pt-9">
-          <div class="contact-img relative inline-flex pb-5 pl-5">
-            <Image
-              src="/images/contact-img.png"
-              height={544}
-              width={500}
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="md:col-6 md:order-1">
-          <form
-            class="lg:max-w-[484px]"
-            action={contact_form_action}
-            method="POST"
-          >
-            <div class="form-group mb-5">
-              <label class="form-label" for="name">Full Name</label>
-              <input
-                class="form-control"
-                type="text"
-                id="name"
-                placeholder="Your Full Name"
-              />
-            </div>
-            <div class="form-group mb-5">
-              <label class="form-label" for="eamil">Email Adrdess</label>
-              <input
-                class="form-control"
-                type="text"
-                id="email"
-                placeholder="Your  Email Address"
-              />
-            </div>
-            <div class="form-group mb-5">
-              <label class="form-label" for="reason">Reason/Purpose</label>
-              <select name="reason" id="reason" class="form-select" required>
-                <option value="">Select reason/purpose</option>
-                <option value="investment plane">Investment Plan</option>
-                <option value="investment plane-2">Investment Plan 2</option>
-                <option value="investment plane-3">Investment Plan 3</option>
-              </select>
-            </div>
-            <div class="form-group mb-5">
-              <label class="form-label" for="message">Message Here</label>
-              <textarea
-                class="form-control h-[150px]"
-                id="message"
-                cols="30"
-                rows="10"></textarea>
-            </div>
-            <input
-              class="btn btn-primary block w-full"
-              type="submit"
-              value="Send Message"
-            />
-          </form>
-        </div>
-      </div>
-    </div>
+    <h1
+      class="mt-[100px] p-5 text-center py-11"
+      set:html={markdownify(
+        page_data?.page_title ? page_data?.page_title : page_data?.title,
+      )}
+    />
+    <ContactFrom client:load content={content} />
   </section>
 </Base>
