@@ -53,11 +53,10 @@ const ContactForm = ({ content }) => {
   return (
     <>
       <div
-      onSubmit={handleSubmit} 
       className="contact-main px-8 flex gap-7"
       >
-        <form className='left flex flex-col gap-9 flex-grow' name="contact" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact" />
+        <form onSubmit={handleSubmit} className='left flex flex-col gap-9 flex-grow' name="contact" data-netlify="true">
+        {/* <input type="hidden" name="form-name" value="contact" /> */}
           <div className="input-field relative">
             <div className="input-wrapper relative w-full rounded-md overflow-hidden">
               <input className={`input ${name !== '' ? `valid` : ''} bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setName(e.target.value)} />
