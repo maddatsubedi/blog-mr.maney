@@ -56,7 +56,7 @@ const ContactForm = ({ content }) => {
         <input type="hidden" name="form-name" value="contact" />
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
-            <input id='name' type='text' name='names' value={name} className={`input ${name !== '' ? `valid` : ''} bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setName(e.target.value)} />
+            <input id='name' type='text' name='name' value={name} className={`input ${name !== '' ? `valid` : ''} bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setName(e.target.value)} />
           </div>
           <label htmlFor='name' className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-0 bottom-0 whitespace-nowrap my-auto mx-0 h-fit duration-200 ease-in-out'>Name</label>
         </div>
@@ -70,7 +70,7 @@ const ContactForm = ({ content }) => {
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
             <textarea id='message' name='message' value={message} rows={7} className={`input ${message !== '' ? `valid` : ''} resize-none bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setMessage(e.target.value)} />
           </div>
-          <label htmlFor='message' className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-4 whitespace-nowrap h-fit duration-200 ease-in-out'>Messages</label>
+          <label htmlFor='message' className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-4 whitespace-nowrap h-fit duration-200 ease-in-out'>Message</label>
         </div>
         {status === 'success' && <p className="text-green-500 my-2">Message sent successfully!</p>}
         {status === 'error' && <p className="text-red-500 mt-2">Failed to send message. Please try again.</p>}
