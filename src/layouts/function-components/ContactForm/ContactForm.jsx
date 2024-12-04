@@ -19,7 +19,7 @@ const ContactForm = ({ content }) => {
     setStatus(null);
 
     const formData = new FormData(e.target);
-    // console.log(formData);
+    console.log(new URLSearchParams(formData).toString());
 
     try {
       const response = await fetch('/', {
@@ -52,7 +52,7 @@ const ContactForm = ({ content }) => {
     <div
       className="contact-main px-8 flex gap-7"
     >
-      <form onSubmit={handleSubmit} className='left flex flex-col gap-9 flex-grow' name="contact" data-netlify="true">
+      <form onSubmit={handleSubmit} className='left flex flex-col gap-9 flex-grow' method='post' name="contact" data-netlify="true">
         <input type="hidden" name="form-name" value="contact" />
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
@@ -68,9 +68,9 @@ const ContactForm = ({ content }) => {
         </div>
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
-            <textarea id='message' name='messagesa' value={message} rows={7} className={`input ${message !== '' ? `valid` : ''} resize-none bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setMessage(e.target.value)} />
+            <textarea id='message' name='message' value={message} rows={7} className={`input ${message !== '' ? `valid` : ''} resize-none bg-[#cfcfcf] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setMessage(e.target.value)} />
           </div>
-          <label htmlFor='message' className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-4 whitespace-nowrap h-fit duration-200 ease-in-out'>Messagelsa</label>
+          <label htmlFor='message' className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-4 whitespace-nowrap h-fit duration-200 ease-in-out'>Message</label>
         </div>
         {status === 'success' && <p className="text-green-500 my-2">Message sent successfully!</p>}
         {status === 'error' && <p className="text-red-500 mt-2">Failed to send message. Please try again.</p>}
