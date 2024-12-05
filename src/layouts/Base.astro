@@ -37,9 +37,15 @@ export interface Props {
 }
 
 // distructure frontmatters
-const { title, meta_title, description, image, noindex, canonical,isHomePage=true } =
-  Astro.props;
-
+const {
+  title,
+  meta_title,
+  description,
+  image,
+  noindex,
+  canonical,
+  isHomePage = true,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -173,6 +179,7 @@ const { title, meta_title, description, image, noindex, canonical,isHomePage=tru
   </head>
   <body>
     <!-- the contact form is not SSG, so to help netlify bots -->
+    <!-- @ts-ignore -->
     <form name="contact" netlify hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
