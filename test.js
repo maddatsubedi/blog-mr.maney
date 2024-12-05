@@ -1,14 +1,31 @@
-const links = [
-    { platform: 'facebook', link: '#test' },
-    { platform: 'x', link: '#' },
-    { platform: 'instagram', link: '#' },
-    { platform: 'youtube', link: '#' },
-    { platform: 'linkedin', link: '#' },
-    { platform: 'mail', link: '#' }
-]
+const validateFrom = (name, email, message) => {
+  const trimmedName = name.trim();
+  const trimmedMessage = message.trim();
 
-const getSocialLink = (platform) => {
-    return links.find((link) => link.platform === platform)?.link || '#';
+  if (!trimmedName) {
+      return "Name is required.";
   }
 
-console.log(getSocialLink('facefbook'));
+  if (trimmedName.length < 3) {
+      return "Name should be at least 3 characters long.";
+  }
+
+  if (trimmedName.length > 50) {
+      return "Name should be less than 50 characters.";
+  }
+
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailRegex.test(email)) {
+      return "Please enter a valid email address.";
+  }
+
+  if (!trimmedMessage) {
+      return "Message is required.";
+  } else if (trimmedMessage.length < 10) {
+      return "Message should be at least 10 characters long.";
+  } else if (trimmedMessage.length > 500) {
+      return "Message should be less than 500 characters.";
+  }
+};
+
+console.log(validateFrom("John", "adsfadsf@dfalk.com", "Hello World!"));
