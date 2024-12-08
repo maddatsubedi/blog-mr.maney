@@ -1,0 +1,19 @@
+media_folder: "/images" # Location where files will be stored in the repo
+public_folder: "/images" # The src attribute for uploaded media
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Display label in the CMS
+    folder: "src/content/blog" # Directory for storing documents
+    create: true # Allow creating new blog posts
+    slug: "{{slug}}" # Template for filenames
+    fields: # Define the fields for each blog post
+      - { label: "ID", name: "id", widget: "string", required: false } # Optional unique identifier
+      - { label: "Title", name: "title", widget: "string" } # Required title
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false } # Optional subtitle
+      - { label: "Date", name: "date", widget: "datetime", required: false } # Optional publication date
+      - { label: "Image", name: "image", widget: "image", required: false } # Optional featured image
+      - { label: "Author", name: "author", widget: "string", required: false } # Optional author name
+      - { label: "Categories", name: "categories", widget: "list", default: ["others"], required: false } # Default to ["others"]
+      - { label: "Draft", name: "draft", widget: "boolean", required: false } # Optional draft status
+      - { label: "Featured", name: "featured", widget: "boolean", required: false } # Optional featured flag
