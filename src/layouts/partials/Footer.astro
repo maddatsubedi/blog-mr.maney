@@ -1,65 +1,104 @@
 ---
 import Logo from "@/components/Logo.astro";
-import Social from "@/components/Social.astro";
 import config from "@/config/config.json";
+import footerConfig from "@/config/footer.json";
 import menu from "@/config/menu.json";
-import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
+import { MdOpenInNew } from "react-icons/md";
 const { footer } = menu;
-const { copyright, location, email, phone, footer_description } = config.params;
+const { location, email, phone, footer_description } = config.params;
+
+const {
+  youtube,
+  "quick-links": quickLinks,
+  "subs-count": subsCount,
+  copyright,
+} = footerConfig;
+
+// console.log(footerConfig);
 ---
 
-<footer class="footer bg-[#F1F1F1]">
-  <div class="container">
-    <div class="gx-5 row m-0 pb-10 pt-[52px]">
-      <div class="col-12 mt-12 md:col-6 lg:col-3">
-        <Logo />
-        <p class="mt-6">
-          {footer_description}
-        </p>
+<footer class="footer bg-[#1A1A29] text-[#FEFEFF] flex flex-col">
+  <div class="top flex gap-10 justify-around p-10">
+    <div class="box flex flex-col items-center gap-8 flex-grow max-w-[500px]">
+      <h3 class="text-[#FEFEFF] font-header text-center font-semibold text-2xl">
+        YouTube
+      </h3>
+      <div class="footer-box-content flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
+          <a
+            href={youtube?.url || "#"}
+            class="yt-link text-xl flex gap-[5px] items-center font-semibold leading-none w-fit hover:text-primary ease-in-out transition duration-[0.25s]"
+            target="_blank"
+          >
+            {youtube?.name || "[name]"}
+            <MdOpenInNew
+              className="icon ease-in-out transition duration-[0.25s] text-[#FEFEFF]"
+            />
+          </a>
+          <div class="text-3xl text-primary font-semibold leading-none">
+            {youtube?.title || "[title]"}
+          </div>
+        </div>
+        <div class="text-[#9290aa]">
+          {youtube?.description || "[description]"}
+        </div>
       </div>
-      <div class="col-12 mt-12 md:col-6 lg:col-3">
-        <h6>Socials</h6>
-
-        <Social source={social} className="social-icons mt-4 lg:mt-6" />
+    </div>
+    <div class="box flex flex-col items-center gap-8 flex-grow max-w-[500px]">
+      <h3 class="text-[#FEFEFF] font-header text-center font-semibold text-2xl">
+        Quick Links
+      </h3>
+      <div class="footer-box-content self-stretch flex gap-10 justify-evenly">
+        {
+          quickLinks.map((item, i) => {
+            return (
+              <div class="flex flex-col gap-2">
+                <div class="text-xl text-gray-400">{item.name}</div>
+                <div class="flex flex-col">
+                  {item.urls.map((url, i) => {
+                    return (
+                      <a
+                        href={url.url}
+                        class="hover:text-primary hover:underline"
+                      >
+                        {url.name}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })
+        }
       </div>
-      <div class="col-12 mt-12 md:col-6 lg:col-3">
-        <h6>Quick Links</h6>
-        <ul>
-          {
-            footer.map((item, i) => (
-              <li class={footer.length - 1 === i ? "mb-0" : "mb-4"}>
-                <a class="hover:text-primary hover:underline " href={item.url}>
-                  {item.name}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-      <div class="col-12 mt-12 md:col-6 lg:col-3">
-        <h6>Location & Contact</h6>
-        <ul>
-          <li class="mb-2">{location}</li>
-          <li class="mb-2">
-            <a class="mb-2 hover:text-primary" href={`mailto:${email}`}
-              >{email}</a
-            >
-          </li>
-          <li>
-            <a class="hover:text-primary hover:underline" href={`tel:${phone}`}
-              >{phone}</a
-            >
-          </li>
-        </ul>
+    </div>
+    <div class="box flex flex-col items-center gap-8 flex-grow max-w-[500px]">
+      <h3 class="text-[#FEFEFF] font-header text-center font-semibold text-2xl">
+        Live Subs Count
+      </h3>
+      <div class="footer-box-content flex flex-col gap-3 items-center">
+        <div class="leading-none text-2xl font-bold">
+          {subsCount?.count ? subsCount?.count.toLocaleString() : "[count]"}
+        </div>
+        <div class="leading-none font-semibold text-gray-400">
+          {subsCount?.["yt-name"] || "[yt-name]"}
+        </div>
       </div>
     </div>
   </div>
-  <div class="container max-w-[1440px]">
-    <div
-      class="footer-copyright mx-auto border-t border-border pb-10 pt-7 text-center"
-    >
-      <p class="content text-text" set:html={markdownify(copyright)} />
-    </div>
+  <div
+    class="bottom content border-t-[1px] border-gray-500 text-center text-[#FEFEFF] p-8"
+  >
+    Copyright &copy; {new Date().getFullYear()} |
+    <a href={copyright.url} target="_blank">{copyright.company}</a> |
+    All Rights Reserved
   </div>
 </footer>
+
+<style>
+  .yt-link:hover .icon {
+    transform: translateX(5px);
+    color: #ff3d54;
+  }
+</style>

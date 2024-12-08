@@ -1,0 +1,52 @@
+{
+    "youtube": {
+        "name": "Mr.Maney",
+        "url": "https://www.youtube.com/@MrManeyofficial",
+        "title": "Content Creator",
+        "description": "Bringing you the best content on the internet"
+    },
+    "quick-links": [
+        {
+            "name": "Home",
+            "urls": [
+                {
+                    "name": "Home",
+                    "url": "/"
+                },
+                {
+                    "name": "Blog",
+                    "url": "/blog"
+                },
+                {
+                    "name": "Contact",
+                    "url": "/contact"
+                }
+            ]
+        },
+        {
+            "name": "Utils",
+            "urls": [
+                {
+                    "name": "terms",
+                    "url": "/terms-and-conditions"
+                },
+                {
+                    "name": "Elements",
+                    "url": "/elements"
+                },
+                {
+                    "name": "Changelog",
+                    "url": "/changelog"
+                }
+            ]
+        }
+    ],
+    "subs-count": {
+        "count": 266189,
+        "yt-name": "Mr.Maney"
+    },
+    "copyright": {
+        "company" : "7x innovations pvt ltd",
+        "url": "https://www.instagram.com/sevenx.innovations"
+    }
+}
