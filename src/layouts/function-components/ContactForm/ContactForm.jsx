@@ -4,7 +4,7 @@ import { MdError, MdLocalPhone, MdMail } from 'react-icons/md';
 import { IoIosPin } from "react-icons/io";
 import { markdownify } from '@/lib/utils/textConverter';
 import { FaCheckCircle } from 'react-icons/fa';
-import validateForm from './ValildateForm';
+import validateForm from './valildateForm';
 
 const ContactForm = ({ content }) => {
   const [name, setName] = useState('');
