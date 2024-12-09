@@ -18,6 +18,7 @@ collections:
       - { label: "ID", name: "id", widget: "string", required: false } # Optional unique identifier
       - { label: "Title", name: "title", widget: "string" } # Required title
       - { label: "Subtitle", name: "subtitle", widget: "string", required: false } # Optional subtitle
+      - {label: "Body", name: "body", widget: "markdown", required: false}
       - { label: "Date", name: "date", widget: "datetime", required: false } # Optional publication date
       - { label: "Image", name: "image", widget: "image", required: false } # Optional featured image
       - { label: "Author", name: "author", widget: "string", required: false } # Optional author name
