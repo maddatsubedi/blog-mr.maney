@@ -16,8 +16,10 @@ const homepage = await getEntryBySlug("homepage", "index");
 const { banner, about, explore_categories, numbers,videos, gaming, skills, social } = homepage.data;
 ---
 
+<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <Base>
   <!-- banner -->
+
   <Banner banner={banner} />
   <About about={about} />
   <Skills skills={skills} />
