@@ -22,11 +22,13 @@ const ContactForm = ({ content }) => {
     setError('');
     setInfo('');
 
-    const formData = new FormData();
-    formData.append('form-name', 'contact');
-    formData.append('name', name);
-    formData.append('email', email);
-    formData.append('message', message);
+    // const formData = new FormData();
+    // formData.append('form-name', 'contact');
+    // formData.append('name', name);
+    // formData.append('email', email);
+    // formData.append('message', message);
+
+    const formData = new FormData(e.target);
 
     const validate = validateForm(name, email, message);
 
