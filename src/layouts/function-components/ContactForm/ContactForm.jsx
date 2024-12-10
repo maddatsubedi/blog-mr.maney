@@ -71,7 +71,7 @@ const ContactForm = ({ content }) => {
     <div
       className="contact-main px-8 flex gap-7"
     >
-      <form data-netlify="true" onSubmit={handleSubmit} className='left flex flex-col gap-9 p-5 bg-white shadow-medium rounded-xl flex-grow' method='post' name="contact">
+      <form onSubmit={handleSubmit} className='left flex flex-col gap-9 p-5 bg-white shadow-medium rounded-xl flex-grow' method='post' name="contact">
         <input type="hidden" name="form-name" value="contact" />
         <div className="title flex flex-col gap-3">
           <h1 className='text-gray-600 font-montserrat text-2xl font-semibold text-center'>Contact Me</h1>
@@ -79,19 +79,19 @@ const ContactForm = ({ content }) => {
         </div>
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
-            <input id='name' type='text' name='name' value={name} className={`input ${name !== '' ? `valid` : ''} bg-[#EBEBEB] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setName(e.target.value)} />
+            <input id='name' type='text' name='name' value={name} className={`input ${name !== '' ? `valid` : ''} bg-[#EBEBEB] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setName(e.target.value)} required />
           </div>
           <label htmlFor='name' className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-0 bottom-0 whitespace-nowrap my-auto mx-0 h-fit duration-200 ease-in-out'>Name</label>
         </div>
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
-            <input id='email' type='email' name='email' value={email} className={`input ${email !== '' ? `valid` : ''} bg-[#EBEBEB] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setEmail(e.target.value)} />
+            <input id='email' type='email' name='email' value={email} className={`input ${email !== '' ? `valid` : ''} bg-[#EBEBEB] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setEmail(e.target.value)} required />
           </div>
           <label htmlFor='email' className='text-[#616161] bg-transparent border-none p-0 text-lg leading-none absolute pointer-events-none left-4 top-0 bottom-0 whitespace-nowrap my-auto mx-0 h-fit duration-200 ease-in-out'>Email</label>
         </div>
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
-            <textarea id='message' name='message' value={message} rows={7} className={`input ${message !== '' ? `valid` : ''} resize-none bg-[#EBEBEB] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setMessage(e.target.value)}></textarea>
+            <textarea id='message' name='message' value={message} rows={7} className={`input ${message !== '' ? `valid` : ''} resize-none bg-[#EBEBEB] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setMessage(e.target.value)} required></textarea>
           </div>
           <label htmlFor='message' className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-4 whitespace-nowrap h-fit duration-200 ease-in-out'>Message</label>
         </div>
