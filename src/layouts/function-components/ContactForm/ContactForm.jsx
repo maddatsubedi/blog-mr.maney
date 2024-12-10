@@ -23,6 +23,7 @@ const ContactForm = ({ content }) => {
     setInfo('');
 
     const formData = new FormData();
+    formData.append('form-name', 'contact');
     formData.append('name', name);
     formData.append('email', email);
     formData.append('message', message);
@@ -41,8 +42,6 @@ const ContactForm = ({ content }) => {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString(),
       });
-
-      await new Promise((resolve) => setTimeout(resolve, 2000));
 
       if (response.ok) {
         setInfo('Message sent successfully!');
