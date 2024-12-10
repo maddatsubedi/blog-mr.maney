@@ -29,6 +29,7 @@ const ContactForm = ({ content }) => {
     formData.append('message', message);
 
     // const formData = new FormData(e.target);
+    // console.log(new URLSearchParams(formData).toString());
 
     const validate = validateForm(name, email, message);
 
