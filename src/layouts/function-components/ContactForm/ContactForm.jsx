@@ -4,7 +4,7 @@ import { MdError, MdLocalPhone, MdMail } from 'react-icons/md';
 import { IoIosPin } from "react-icons/io";
 import { markdownify } from '@/lib/utils/textConverter';
 import { FaCheckCircle } from 'react-icons/fa';
-import validateForm from './valildateForm';
+import validateForm from './validateForm';
 
 const ContactForm = ({ content }) => {
   const [name, setName] = useState('');
@@ -22,13 +22,13 @@ const ContactForm = ({ content }) => {
     setError('');
     setInfo('');
 
-    // const formData = new FormData();
-    // formData.append('form-name', 'contact');
-    // formData.append('name', name);
-    // formData.append('email', email);
-    // formData.append('message', message);
+    const formData = new FormData();
+    formData.append('form-name', 'contact');
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('message', message);
 
-    const formData = new FormData(e.target);
+    // const formData = new FormData(e.target);
 
     const validate = validateForm(name, email, message);
 
@@ -70,7 +70,7 @@ const ContactForm = ({ content }) => {
     <div
       className="contact-main px-8 flex gap-7"
     >
-      <form onSubmit={handleSubmit} className='left flex flex-col gap-9 p-5 bg-white shadow-medium rounded-xl flex-grow' method='post' name="contact">
+      <form data-netlify="true" onSubmit={handleSubmit} className='left flex flex-col gap-9 p-5 bg-white shadow-medium rounded-xl flex-grow' method='post' name="contact">
         <input type="hidden" name="form-name" value="contact" />
         <div className="title flex flex-col gap-3">
           <h1 className='text-gray-600 font-montserrat text-2xl font-semibold text-center'>Contact Me</h1>
