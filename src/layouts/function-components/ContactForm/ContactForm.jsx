@@ -42,22 +42,24 @@ const ContactForm = ({ content }) => {
         body: new URLSearchParams(formData).toString(),
       });
 
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       if (response.ok) {
         setInfo('Message sent successfully!');
         setName('');
         setEmail('');
         setMessage('');
+        setTimeout(() => {
+          setInfo('');
+          setLoading(false);
+        }, 2000);
       } else {
-        setError('Something went wrong. Please try again');
+        setError('Something went wrong. Please try again 1');
+        setLoading(false);
       }
     } catch (error) {
-      setError('Something went wrong. Please try again');
-    } finally {
-      setTimeout(() => {
-        setInfo('');
-        // setError('');
-        setLoading(false);
-      }, 2000);
+      setError('Something went wrong. Please try again 2');
+      setLoading(false);
     }
   };
 
@@ -75,19 +77,19 @@ const ContactForm = ({ content }) => {
         </div>
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
-            <input required id='name' type='text' name='name' value={name} className={`input ${name !== '' ? `valid` : ''} bg-[#EBEBEB] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setName(e.target.value)} />
+            <input id='name' type='text' name='name' value={name} className={`input ${name !== '' ? `valid` : ''} bg-[#EBEBEB] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setName(e.target.value)} required />
           </div>
           <label htmlFor='name' className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-0 bottom-0 whitespace-nowrap my-auto mx-0 h-fit duration-200 ease-in-out'>Name</label>
         </div>
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
-            <input required id='email' type='email' name='email' value={email} className={`input ${email !== '' ? `valid` : ''} bg-[#EBEBEB] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setEmail(e.target.value)} />
+            <input id='email' type='email' name='email' value={email} className={`input ${email !== '' ? `valid` : ''} bg-[#EBEBEB] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setEmail(e.target.value)} required />
           </div>
           <label htmlFor='email' className='text-[#616161] bg-transparent border-none p-0 text-lg leading-none absolute pointer-events-none left-4 top-0 bottom-0 whitespace-nowrap my-auto mx-0 h-fit duration-200 ease-in-out'>Email</label>
         </div>
         <div className="input-field relative">
           <div className="input-wrapper relative w-full rounded-md overflow-hidden">
-            <textarea required id='message' name='message' value={message} rows={7} className={`input ${message !== '' ? `valid` : ''} resize-none bg-[#EBEBEB] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setMessage(e.target.value)} />
+            <textarea id='message' name='message' value={message} rows={7} className={`input ${message !== '' ? `valid` : ''} resize-none bg-[#EBEBEB] text-[#3a3a3a] text-lg leading-none relative p-4 block w-full border-none border-b border-[#757575]`} onChange={(e) => setMessage(e.target.value)} required></textarea>
           </div>
           <label htmlFor='message' className='text-[#616161] text-lg leading-none absolute pointer-events-none left-4 top-4 whitespace-nowrap h-fit duration-200 ease-in-out'>Message</label>
         </div>
