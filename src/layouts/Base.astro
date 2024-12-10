@@ -181,9 +181,9 @@ const {
     <!-- the contact form is not SSG, so to help netlify bots -->
     <!-- @ts-ignore -->
     <form name="contact" netlify hidden>
-      <input type="text" name="name" required />
-      <input type="email" name="email" required />
-      <textarea name="message" required></textarea>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
     </form>
     <TwSizeIndicator />
     <Header isHomePage={isHomePage} />
