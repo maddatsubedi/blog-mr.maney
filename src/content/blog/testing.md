@@ -2,7 +2,7 @@
 title: Testing
 subtitle: testing testing testing
 date: 2024-12-09T21:16:00.000Z
-image: public/images/signup-carousel-img-1.png
+image: images/signup-carousel-img-1.png
 author: rabin
 categories:
   - others
