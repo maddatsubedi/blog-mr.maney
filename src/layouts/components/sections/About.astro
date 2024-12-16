@@ -33,21 +33,21 @@ const descriptionArray = description.split("\n");
     {markdownify(sideText)}
   </div>
   <!-- Fix-Later: remove max-width and adjust the layout for small and big screen -->
-  <div class="flex flex-col gap-[3.5rem] max-w-[1280px]">
+  <div class="main-section flex flex-col gap-[3.5rem] max-w-[1280px]">
     <div class="text-center">
       <h1
-        class="text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] text-[10rem] leading-none font-montserrat font-extrabold"
+        class="first-title text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] text-[10rem] leading-none font-montserrat font-extrabold"
       >
         {markdownify(title)}
       </h1>
       <p
-        class="secont-title mt-[-50px] text-[#3B3A39] font-extrabold leading-none text-[3.3rem]"
+        class="second-title mt-[-50px] text-[#3B3A39] font-extrabold leading-none text-[3.3rem]"
       >
         {markdownify(secondTitle)}
       </p>
     </div>
     <div class="content grid grid-cols-[1fr_300px] gap-14">
-      <div class="flex flex-col gap-14 justify-center">
+      <div class="content-bottom flex flex-col gap-14 justify-center">
         <div class="description">
           <!-- Fix-Later-1: markdownify returning <br> text instead of new line -->
           {
@@ -162,5 +162,38 @@ const descriptionArray = description.split("\n");
       flex-wrap: wrap;
       justify-content: center;
     }
+  }
+
+  @media screen and (max-width: 1025px) {
+    .section {
+      gap: 2rem;
+    }
+    .side-text {
+      font-size: 3.25rem;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    .first-title {
+      font-size: 7.5rem;
+    }
+    .second-title {
+      font-size: 2.5rem;
+      margin-top: -40px;
+    }
+
+    .main-section {
+      gap: 2.25rem;
+    }
+    .bottom-group {
+      gap: 2.25rem;
+    }
+    .content-bottom {
+      gap: 2.25rem;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    
   }
 </style>
