@@ -5,7 +5,7 @@ backend:
 publish_mode: editorial_workflow
 
 
-media_folder: "/images" # Location where files will be stored in the repo
+media_folder: "/public/images" # Location where files will be stored in the repo
 public_folder: "/images" # The src attribute for uploaded media
 
 collections:
