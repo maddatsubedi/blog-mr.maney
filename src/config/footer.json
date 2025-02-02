@@ -22,23 +22,6 @@
                     "url": "/contact"
                 }
             ]
-        },
-        {
-            "name": "Utils",
-            "urls": [
-                {
-                    "name": "terms",
-                    "url": "/terms-and-conditions"
-                },
-                {
-                    "name": "Elements",
-                    "url": "/elements"
-                },
-                {
-                    "name": "Changelog",
-                    "url": "/changelog"
-                }
-            ]
         }
     ],
     "subs-count": {
