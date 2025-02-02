@@ -8,11 +8,11 @@ const { summary_length } = config.settings;
 const { posts } = Astro.props;
 ---
 
-<div class="flex gap-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
   {
     posts.map((item: any) => (
-      <div class="card h-[unset] flex flex-col">
-        <div class="img-wrapper flex-grow h-52 overflow-hidden relative rounded-md">
+      <div class="card flex flex-col">
+        <div class="img-wrapper h-52 overflow-hidden relative rounded-md">
           <Image
             class="card-img absolute"
             width={335}
