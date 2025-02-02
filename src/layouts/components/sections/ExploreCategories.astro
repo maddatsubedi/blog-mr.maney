@@ -17,13 +17,13 @@ const showMoreColSpan =
   categoriesLength % 3 === 0 ? 3 : (9 - categoriesLength) % 3;
 ---
 <section
-  class="section px-10 font-montserrat flex flex-col items-center"
+  class="section md:px-10 px-5 font-montserrat flex flex-col items-center"
   style="background-color: #FFFFFF;"
 >
   <div
     class="section-container max-w-[1120px] w-fit flex flex-col items-center gap-10"
   >
-    <h2 class="font-plusJakartaSans font-medium text-[3rem]">
+    <h2 class="font-plusJakartaSans font-medium md:text-[3rem] text-3xl">
       {markdownify(title)}
     </h2>
     <div class="categories-container grid grid-cols-3 w-fit gap-7">
@@ -40,7 +40,7 @@ const showMoreColSpan =
               width={352}
               height={70}
             />
-            <div class="category-text-overlay text-center p-4 text-[#ffffff] text-2xl font-medium absolute w-full h-full top-0 left-0 flex justify-center items-center bg-[#00000066]">
+            <div class="category-text-overlay text-center p-4 text-[#ffffff] text-md md:text-2xl font-medium absolute w-full h-full top-0 left-0 flex justify-center items-center bg-[#00000066]">
               {capitalize(category)}
             </div>
           </a>

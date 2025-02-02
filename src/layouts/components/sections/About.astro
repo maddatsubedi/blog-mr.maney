@@ -28,7 +28,7 @@ const descriptionArray = description.split("\n");
   style="background-color: #f5f4fe;"
 >
   <div
-    class="side-text px-7 text-primary opacity-60 text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat text-end"
+    class="side-text px-7 text-primary opacity-60 hidden md:flex text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat text-end"
   >
     {markdownify(sideText)}
   </div>
@@ -41,7 +41,7 @@ const descriptionArray = description.split("\n");
         {markdownify(title)}
       </h1>
       <p
-        class="second-title mt-[-50px] text-[#3B3A39] font-extrabold leading-none text-[3.3rem]"
+        class="second-title text-[#3B3A39] font-extrabold leading-none text-[3.3rem]"
       >
         {markdownify(secondTitle)}
       </p>
@@ -194,6 +194,15 @@ const descriptionArray = description.split("\n");
   }
 
   @media screen and (max-width: 800px) {
-    
+    .first-title {
+      font-size: 4rem;
+    }
+    .second-title {
+      font-size: 2.5rem;
+      margin-top: -10px;
+    }
+    .bottom-main-links-group {
+      flex-direction: column;
+    }
   }
 </style>

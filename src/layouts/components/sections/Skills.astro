@@ -23,10 +23,10 @@ const {
 ---
 
 <section
-  class="section px-10 font-montserrat grid gap-10 grid-cols-[0.6fr_1.4fr] overflow-hidden"
+  class="section md:px-10 px-3 font-montserrat grid gap-10 md:grid-cols-[0.6fr_1.4fr] overflow-hidden"
   style="background-color: #fffbf9;"
 >
-  <div class="left flex justify-center">
+  <div class="left md:flex justify-center hidden">
     <div class="left-image-wrapper relative w-full h-full max-w-[375px]">
       <Image
         src={mainImage}
@@ -38,13 +38,13 @@ const {
     </div>
   </div>
   <div class="right flex flex-col gap-10">
-    <h1 class="font-montserrat text-5xl font-medium text-center">
+    <h1 class="font-montserrat md:text-5xl text-3xl font-medium text-center">
       {markdownify(title)}
     </h1>
     <div
-      class="content bg-[#ffffff] shadow-md rounded-xl grid grid-cols-[1.3fr_0.7fr] overflow-hidden"
+      class="content bg-[#ffffff] shadow-md rounded-xl grid md:grid-cols-[1.3fr_0.7fr] overflow-hidden"
     >
-      <div class="content-left flex flex-col gap-3 p-7">
+      <div class="content-left md:flex hidden flex-col gap-3 p-7">
         <h2 class="font-montserrat text-3xl font-medium m-0">
           {markdownify(bottomTitle)}
         </h2>
@@ -74,7 +74,7 @@ const {
         </div>
       </div>
       <div
-        class="content-right bg-[#f6f6f6] flex flex-col gap-7 p-7 justify-center min-w-[210px]"
+        class="content-right bg-[#f6f6f6] flex flex-col gap-7 p-7 justify-center min-w-[210px] "
       >
         <div class="right-image-wrapper">
           <Image

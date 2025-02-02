@@ -5,23 +5,23 @@ const { banner } = Astro.props;
 const { title, secondTitle, button, image, content, badges } = banner;
 ---
 
-<section class="section banner relative bg-primary overflow-hidden p-0">
+<section class="section banner relative bg-primary overflow-hidden p-0 h-[100svh]">
   <div
-    class="social-media gap-2 absolute flex flex-col h-full justify-around top-0 left-0 p-16 px-10 pt-32"
+    class="social-media hidden md:flex gap-2 absolute flex-col h-full justify-around top-0 left-0 p-16 px-10 pt-32"
   >
     <a href="#" class="social-media-link text-white">Facebook</a>
     <a href="#" class="social-media-link text-white">YouTube</a>
     <a href="#" class="social-media-link text-white">Instagram</a>
   </div>
-  <div class="grid gap-5 max-w-[1200px] mx-auto grid-cols-[0.65fr_0.35fr]">
-    <div class="left flex flex-col gap-6 pt-32 pl-[106px] pb-16">
+  <div class="grid gap-5 max-w-[1200px] mx-auto grid-cols-[0.65fr_0.35fr] h-full">
+    <div class="left flex flex-col gap-6 pt-32 md:pl-[106px] px-5 pb-16 z-10">
       <div>
         <h1
-          class="banner-title text-white text-7xl font-header"
+          class="banner-title text-white md:text-7xl text-4xl text-wrap font-header"
           set:html={markdownify(title)}
         />
         <h1
-          class="banner-title text-[#FFFAC3] text-7xl font-header"
+          class="banner-title text-[#FFFAC3] md:text-7xl text-4xl text-wrap font-header"
           set:html={markdownify(secondTitle)}
         />
       </div>
@@ -49,13 +49,13 @@ const { title, secondTitle, button, image, content, badges } = banner;
       </div>
     </div>
     <div
-      class="right relative pt-32 pr-[50px] flex justify-center items-center"
+      class="right md:relative pt-32 md:pr-[50px] flex justify-center items-center absolute inset-0 z-0 md:opacity-100 opacity-40"
     >
       <div
         class="image-wrapper relative z-20 w-full h-full flex justify-center"
       >
         <Image
-          class="object-cover object-top h-full absolute bottom-0"
+          class="object-cover object-top h-full absolute bottom-0 md:right-0 right-[-20%] w-full"
           alt="banner"
           src={image}
           width={250}
