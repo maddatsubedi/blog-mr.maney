@@ -14,7 +14,7 @@ const { title, secondTitle, button, image, content, badges } = banner;
     <a href="#" class="social-media-link text-white">Instagram</a>
   </div>
   <div class="grid gap-5 max-w-[1200px] mx-auto grid-cols-[0.65fr_0.35fr] h-full">
-    <div class="left flex flex-col gap-6 pt-32 md:pl-[106px] px-5 pb-16 z-10">
+    <div class="left flex flex-col gap-6 pt-32 md:pl-[106px] px-5 pb-16 z-10 md:mt-0 mt-5">
       <div>
         <h1
           class="banner-title text-white md:text-7xl text-4xl text-wrap font-header"
@@ -38,7 +38,7 @@ const { title, secondTitle, button, image, content, badges } = banner;
           </a>
         )
       }
-      <div class="badge-wrapper max-w-[400px] mt-3">
+      <div class="badge-wrapper max-w-[400px] md:mt-0 mt-20">
         <Image
           src={badges}
           class="object-cover object-center w-full"
@@ -49,7 +49,7 @@ const { title, secondTitle, button, image, content, badges } = banner;
       </div>
     </div>
     <div
-      class="right md:relative pt-32 md:pr-[50px] flex justify-center items-center absolute inset-0 z-0 md:opacity-100 opacity-40"
+      class="right md:relative pt-32 md:pr-[50px] flex justify-center items-center absolute inset-0 z-0 md:opacity-100 opacity-30"
     >
       <div
         class="image-wrapper relative z-20 w-full h-full flex justify-center"
