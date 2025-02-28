@@ -13,17 +13,16 @@ import { Image } from "astro:assets";
 import { FaChevronCircleRight, FaChevronRight } from "react-icons/fa";
 
 const categoriesLength = categories.length;
-const showMoreColSpan =
-  categoriesLength % 3 === 0 ? 3 : (9 - categoriesLength) % 3;
+const showMoreColSpan = categoriesLength % 3 === 0 ? 3 : (9 - categoriesLength) % 3;
 ---
 <section
-  class="section md:px-10 px-5 font-montserrat flex flex-col items-center"
+  class="section categories-section md:px-10 px-5 font-montserrat flex flex-col items-center"
   style="background-color: #FFFFFF;"
 >
   <div
     class="section-container max-w-[1120px] w-fit flex flex-col items-center gap-10"
   >
-    <h2 class="font-plusJakartaSans font-medium md:text-[3rem] text-3xl">
+    <h2 class="font-plusJakartaSans font-medium md:text-[3rem] text-3xl text-center">
       {markdownify(title)}
     </h2>
     <div class="categories-container grid grid-cols-3 w-fit gap-7">
@@ -52,7 +51,7 @@ const showMoreColSpan =
             href={`/categories`}
             class={`show-more p-4 flex gap-[10px] h-[95px] justify-center items-center rounded-xl overflow-hidden shadow-medium-light col-span-${showMoreColSpan}`}
           >
-            <div class="font-medium text-primary text-center text-2xl">Show More</div>
+            <div class="show-more-text font-medium text-primary text-center text-md md:text-2xl">Show More</div>
             <FaChevronCircleRight className="icon text-[#615a5a] min-w-5 min-h-5 text-xl" />
           </a>
         )
@@ -98,5 +97,23 @@ const showMoreColSpan =
   }
   .shadow-medium-light {
     box-shadow: 0px 2px 10px 0px #69696980;
+  }
+
+  @media screen and (max-width: 650px) {
+    .categories-container {
+      gap: 1rem;
+    }
+  }
+  @media screen and (max-width: 470px) {
+    .categories-section {
+      padding: 4rem 0.75rem;
+    }
+    .categories-container {
+      gap: 0.75rem;
+    }
+    .category-text-overlay,
+    .show-more-text {
+      font-size: 0.9rem;
+    }
   }
 </style>
