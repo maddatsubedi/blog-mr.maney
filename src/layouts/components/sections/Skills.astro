@@ -79,7 +79,7 @@ const {
         <div class="right-image-wrapper">
           <Image
             src={rightImage}
-            class="right-image object-cover m-0 object-center"
+            class="right-image object-cover m-0 object-center "
             alt="image"
             width={475}
             height={320}
@@ -127,5 +127,11 @@ const {
   }
   .shadow-medium {
     box-shadow: 0px 2px 10px 0px #00000080;
+  }
+  @media screen and (max-width: 768px) {
+    .right-image {
+      width: 100%;
+      max-height: 310px;
+    }
   }
 </style>
