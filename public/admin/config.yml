@@ -32,7 +32,7 @@ collections:
     files:
       - name: "homepage"
         label: "Homepage Content"
-        file: "src/content/homepage/homepage.md" # Path to homepage.md
+        file: "src/content/homepage/index.md" # Path to homepage.md
         fields:
           - { label: "Banner Title", name: "banner.title", widget: "string" }
           - { label: "Banner Second Title", name: "banner.secondTitle", widget: "string" }
