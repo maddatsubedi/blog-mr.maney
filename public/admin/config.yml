@@ -1,207 +1,361 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
-
+  branch: master
 publish_mode: editorial_workflow
-
-media_folder: "/public/images/posts" # Location where files will be stored in the repo
-public_folder: "/images/posts" # The src attribute for uploaded media
-
+media_folder: /public/images/posts
+public_folder: /images/posts
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Display label in the CMS
-    folder: "src/content/blog" # Directory for storing documents
-    create: true # Allow creating new blog posts
-    slug: "{{slug}}" # Template for filenames
-    fields: # Define the fields for each blog post
-      - { label: "ID", name: "id", widget: "string", required: false } 
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
-      - { label: "Date", name: "date", widget: "datetime", required: false }
-      - { label: "Image", name: "image", widget: "image", required: false }
-      - { label: "Author", name: "author", widget: "string", required: false }
-      - { label: "Categories", name: "categories", widget: "list", default: ["others"], required: false }
-      - { label: "Draft", name: "draft", widget: "boolean", required: false }
-      - { label: "Featured", name: "featured", widget: "boolean", required: false }
-
-  - name: "homepage"
-    label: "Homepage"
+  - name: blog
+    label: Blog
+    folder: src/content/blog
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - label: ID
+        name: id
+        widget: string
+        required: false
+      - label: Title
+        name: title
+        widget: string
+      - label: Subtitle
+        name: subtitle
+        widget: string
+        required: false
+      - label: Body
+        name: body
+        widget: markdown
+        required: false
+      - label: Date
+        name: date
+        widget: datetime
+        required: false
+      - label: Image
+        name: image
+        widget: image
+        required: false
+      - label: Author
+        name: author
+        widget: string
+        required: false
+      - label: Categories
+        name: categories
+        widget: list
+        default:
+          - others
+        required: false
+      - label: Draft
+        name: draft
+        widget: boolean
+        required: false
+      - label: Featured
+        name: featured
+        widget: boolean
+        required: false
+  - name: homepage
+    label: Homepage
     editor:
       preview: false
     files:
-      - name: "homepage"
-        label: "Homepage Content"
-        file: "src/content/homepage/index.md" # Path to homepage.md
+      - name: homepage
+        label: Homepage Content
+        file: src/content/homepage/index.md
         fields:
-          - { label: "Banner Title", name: "banner.title", widget: "string" }
-          - { label: "Banner Second Title", name: "banner.secondTitle", widget: "string" }
-          - { label: "Banner Content", name: "banner.content", widget: "text" }
-          - { label: "Banner Image", name: "banner.image", widget: "image" }
-          - label: "Banner Button"
-            name: "banner.button"
-            widget: "object"
+          - label: Banner Title
+            name: banner.title
+            widget: string
+          - label: Banner Second Title
+            name: banner.secondTitle
+            widget: string
+          - label: Banner Content
+            name: banner.content
+            widget: text
+          - label: Banner Image
+            name: banner.image
+            widget: image
+          - label: Banner Button
+            name: banner.button
+            widget: object
             fields:
-              - { label: "Label", name: "label", widget: "string" }
-              - { label: "Link", name: "link", widget: "string" }
-              - { label: "Enable", name: "enable", widget: "boolean" }
-          - label: "About Section"
-            name: "about"
-            widget: "object"
+              - label: Label
+                name: label
+                widget: string
+              - label: Link
+                name: link
+                widget: string
+              - label: Enable
+                name: enable
+                widget: boolean
+          - label: About Section
+            name: about
+            widget: object
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Second Title", name: "secondTitle", widget: "string" }
-              - { label: "Side Text", name: "sideText", widget: "string" }
-              - { label: "Description", name: "description", widget: "markdown" }
-                - label: "Main Links Group"
-                  name: "main_links_group"
-                  widget: "list"
-                  fields:
-                    - { label: "Link To", name: "link_to", widget: "string" }
-                    - { label: "Image", name: "image", widget: "image" }
-                    - { label: "Title", name: "title", widget: "string" }
-                    - { label: "Subtitle", name: "subtitle", widget: "string" }
-                - label: "Image Group"
-                  name: "image_group"
-                  widget: "list"
-                  fields:
-                    - { label: "Image", name: "image", widget: "image" }
-          - label: "Skills"
-            name: "skills"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Image", name: "image", widget: "image" }
-              - label: "Bottom Section"
-                name: "bottom_section"
-                widget: "object"
+              - label: Title
+                name: title
+                widget: string
+              - label: Second Title
+                name: secondTitle
+                widget: string
+              - label: Side Text
+                name: sideText
+                widget: string
+              - label: Description
+                name: description
+                widget: markdown
+              - label: Main Links Group
+                name: main_links_group
+                widget: list
                 fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Description", name: "description", widget: "text" }
-                  - { label: "Vision", name: "vision", widget: "text" }
-                  - { label: "Mission", name: "mission", widget: "text" }
-                  - { label: "Value", name: "value", widget: "text" }
-              - label: "Right Section"
-                name: "right_section"
-                widget: "object"
+                  - label: Link To
+                    name: link_to
+                    widget: string
+                  - label: Image
+                    name: image
+                    widget: image
+                  - label: Title
+                    name: title
+                    widget: string
+                  - label: Subtitle
+                    name: subtitle
+                    widget: string
+              - label: Image Group
+                name: image_group
+                widget: list
                 fields:
-                  - { label: "Image", name: "image", widget: "image" }
-                  - label: "Skills"
-                    name: "skills"
-                    widget: "list"
+                  - label: Image
+                    name: image
+                    widget: image
+          - label: Skills
+            name: skills
+            widget: object
+            fields:
+              - label: Title
+                name: title
+                widget: string
+              - label: Image
+                name: image
+                widget: image
+              - label: Bottom Section
+                name: bottom_section
+                widget: object
+                fields:
+                  - label: Title
+                    name: title
+                    widget: string
+                  - label: Description
+                    name: description
+                    widget: text
+                  - label: Vision
+                    name: vision
+                    widget: text
+                  - label: Mission
+                    name: mission
+                    widget: text
+                  - label: Value
+                    name: value
+                    widget: text
+              - label: Right Section
+                name: right_section
+                widget: object
+                fields:
+                  - label: Image
+                    name: image
+                    widget: image
+                  - label: Skills
+                    name: skills
+                    widget: list
                     fields:
-                      - { label: "Title", name: "title", widget: "string" }
-                      - { label: "Percentage", name: "percentage", widget: "string" }
-          - label: "Explore Categories"
-            name: "explore_categories"
-            widget: "object"
+                      - label: Title
+                        name: title
+                        widget: string
+                      - label: Percentage
+                        name: percentage
+                        widget: string
+          - label: Explore Categories
+            name: explore_categories
+            widget: object
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-
-          - label: "Numbers"
-            name: "numbers"
-            widget: "object"
+              - label: Title
+                name: title
+                widget: string
+          - label: Numbers
+            name: numbers
+            widget: object
             fields:
-              - { label: "Experience", name: "experience", widget: "string" }
-              - { label: "Courses", name: "courses", widget: "string" }
-              - { label: "Customers", name: "customers", widget: "string" }
-              - { label: "Awards", name: "awards", widget: "string" }
-
-          - label: "Videos"
-            name: "videos"
-            widget: "object"
+              - label: Experience
+                name: experience
+                widget: string
+              - label: Courses
+                name: courses
+                widget: string
+              - label: Customers
+                name: customers
+                widget: string
+              - label: Awards
+                name: awards
+                widget: string
+          - label: Videos
+            name: videos
+            widget: object
             fields:
-              - label: "Data"
-                name: "data"
-                widget: "list"
+              - label: Data
+                name: data
+                widget: list
                 fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Views", name: "views", widget: "string" }
-                  - { label: "Time", name: "time", widget: "string" }
-                  - { label: "Image", name: "image", widget: "image" }
-                  - { label: "Link", name: "link", widget: "string" }
-
-          - label: "Gaming"
-            name: "gaming"
-            widget: "object"
+                  - label: Title
+                    name: title
+                    widget: string
+                  - label: Views
+                    name: views
+                    widget: string
+                  - label: Time
+                    name: time
+                    widget: string
+                  - label: Image
+                    name: image
+                    widget: image
+                  - label: Link
+                    name: link
+                    widget: string
+          - label: Gaming
+            name: gaming
+            widget: object
             fields:
-              - label: "Gdata"
-                name: "gdata"
-                widget: "list"
+              - label: Gdata
+                name: gdata
+                widget: list
                 fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Image", name: "image", widget: "image" }
-                  - { label: "Link", name: "link", widget: "string" }
-          - label: "Social Links"
-            name: "social.links"
-            widget: "list"
+                  - label: Title
+                    name: title
+                    widget: string
+                  - label: Image
+                    name: image
+                    widget: image
+                  - label: Link
+                    name: link
+                    widget: string
+          - label: Social Links
+            name: social.links
+            widget: list
             fields:
-              - { label: "Platform", name: "platform", widget: "string" }
-              - { label: "Link", name: "link", widget: "string" }
-          - label: "Social Posts"
-            name: "social.posts"
-            widget: "list"
+              - label: Platform
+                name: platform
+                widget: string
+              - label: Link
+                name: link
+                widget: string
+          - label: Social Posts
+            name: social.posts
+            widget: list
             fields:
-              - { label: "Platform", name: "platform", widget: "string" }
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "Caption", name: "caption", widget: "string" }
-              - { label: "Link", name: "link", widget: "string" }
-          
-          - label: "Key Features"
-            name: "key_features"
-            widget: "object"
+              - label: Platform
+                name: platform
+                widget: string
+              - label: Image
+                name: image
+                widget: image
+              - label: Caption
+                name: caption
+                widget: string
+              - label: Link
+                name: link
+                widget: string
+          - label: Key Features
+            name: key_features
+            widget: object
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - label: "Feature List"
-                name: "feature_list"
-                widget: "list"
+              - label: Title
+                name: title
+                widget: string
+              - label: Description
+                name: description
+                widget: text
+              - label: Feature List
+                name: feature_list
+                widget: list
                 fields:
-                  - { label: "Icon", name: "icon", widget: "string" }
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Content", name: "content", widget: "text" }
-          - label: "Service"
-            name: "service"
-            widget: "object"
+                  - label: Icon
+                    name: icon
+                    widget: string
+                  - label: Title
+                    name: title
+                    widget: string
+                  - label: Content
+                    name: content
+                    widget: text
+          - label: Service
+            name: service
+            widget: object
             fields:
-              - label: "Homepage Tab"
-                name: "homepage_tab"
-                widget: "object"
+              - label: Homepage Tab
+                name: homepage_tab
+                widget: object
                 fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Description", name: "description", widget: "text" }
-                  - label: "Tab List"
-                    name: "tab_list"
-                    widget: "list"
+                  - label: Title
+                    name: title
+                    widget: string
+                  - label: Description
+                    name: description
+                    widget: text
+                  - label: Tab List
+                    name: tab_list
+                    widget: list
                     fields:
-                      - { label: "Title", name: "title", widget: "string" }
-                      - { label: "Icon", name: "icon", widget: "string" }
-                      - { label: "Image", name: "image", widget: "image" }
-              - label: "Our Service"
-                name: "our_service"
-                widget: "list"
+                      - label: Title
+                        name: title
+                        widget: string
+                      - label: Icon
+                        name: icon
+                        widget: string
+                      - label: Image
+                        name: image
+                        widget: image
+              - label: Our Service
+                name: our_service
+                widget: list
                 fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Description", name: "description", widget: "text" }
-                  - { label: "Image", name: "image", widget: "image" }
-                  - label: "List"
-                    name: "list"
-                    widget: "list"
-                    field: { label: "Item", name: "item", widget: "string" }
-
-          - label: "Testimonial"
-            name: "testimonial"
-            widget: "object"
+                  - label: Title
+                    name: title
+                    widget: string
+                  - label: Description
+                    name: description
+                    widget: text
+                  - label: Image
+                    name: image
+                    widget: image
+                  - label: List
+                    name: list
+                    widget: list
+                    field:
+                      label: Item
+                      name: item
+                      widget: string
+          - label: Testimonial
+            name: testimonial
+            widget: object
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - label: "Testimonial List"
-                name: "testimonial_list"
-                widget: "list"
+              - label: Title
+                name: title
+                widget: string
+              - label: Description
+                name: description
+                widget: text
+              - label: Testimonial List
+                name: testimonial_list
+                widget: list
                 fields:
-                  - { label: "Author", name: "author", widget: "string" }
-                  - { label: "Avatar", name: "avatar", widget: "image" }
-                  - { label: "Organization", name: "organization", widget: "string" }
-                  - { label: "Rating", name: "rating", widget: "string" }
-                  - { label: "Content", name: "content", widget: "text" }
-
+                  - label: Author
+                    name: author
+                    widget: string
+                  - label: Avatar
+                    name: avatar
+                    widget: image
+                  - label: Organization
+                    name: organization
+                    widget: string
+                  - label: Rating
+                    name: rating
+                    widget: string
+                  - label: Content
+                    name: content
+                    widget: text
