@@ -1,3 +1,4 @@
+---
 banner:
   title: "Mr.Maney"
   secondTitle: "Content creator"

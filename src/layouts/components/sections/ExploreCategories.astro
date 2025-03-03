@@ -3,8 +3,9 @@ import { markdownify, slugify } from "@/lib/utils/textConverter";
 import { readCategoryImagesWithFallback } from "@/lib/utils/categoriesImageMapper";
 import { capitalize } from "@/lib/utils/textConverter";
 
-const { explore_categories } = Astro.props;
-const { title } = explore_categories;
+const explore_categories = Astro.props.explore_categories || { title: "Explore Categories" };
+const title = explore_categories.title || "Explore Categories";
+
 
 const categoriesImageMap = await readCategoryImagesWithFallback();
 const categories = Object.keys(categoriesImageMap);
