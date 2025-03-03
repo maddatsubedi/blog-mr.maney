@@ -2,8 +2,7 @@
 banner:
   title: "Mr.Maney"
   secondTitle: "Content creator"
-  content: "Bringing you the best unboxing videos of the latest
-technology, games, and toys ."
+  content: "Bringing you the best unboxing videos of the latest technology, games, and toys ."
   image: /images/users/mrmaney.png
   button:
     label: Subscribe Now
