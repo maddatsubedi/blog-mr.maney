@@ -28,7 +28,7 @@ collections:
   - name: "homepage"
     label: "Homepage"
     editor:
-      preview: false
+      preview: true
     files:
       - name: "homepage"
         label: "Homepage Content"
