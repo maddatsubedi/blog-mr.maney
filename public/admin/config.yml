@@ -53,12 +53,100 @@ collections:
               - { label: "Second Title", name: "secondTitle", widget: "string" }
               - { label: "Side Text", name: "sideText", widget: "string" }
               - { label: "Description", name: "description", widget: "markdown" }
+                - label: "Main Links Group"
+                  name: "main_links_group"
+                  widget: "list"
+                  fields:
+                    - { label: "Link To", name: "link_to", widget: "string" }
+                    - { label: "Image", name: "image", widget: "image" }
+                    - { label: "Title", name: "title", widget: "string" }
+                    - { label: "Subtitle", name: "subtitle", widget: "string" }
+                - label: "Image Group"
+                  name: "image_group"
+                  widget: "list"
+                  fields:
+                    - { label: "Image", name: "image", widget: "image" }
+          - label: "Skills"
+            name: "skills"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - label: "Bottom Section"
+                name: "bottom_section"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Vision", name: "vision", widget: "text" }
+                  - { label: "Mission", name: "mission", widget: "text" }
+                  - { label: "Value", name: "value", widget: "text" }
+              - label: "Right Section"
+                name: "right_section"
+                widget: "object"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - label: "Skills"
+                    name: "skills"
+                    widget: "list"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Percentage", name: "percentage", widget: "string" }
+          - label: "Explore Categories"
+            name: "explore_categories"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+
+          - label: "Numbers"
+            name: "numbers"
+            widget: "object"
+            fields:
+              - { label: "Experience", name: "experience", widget: "string" }
+              - { label: "Courses", name: "courses", widget: "string" }
+              - { label: "Customers", name: "customers", widget: "string" }
+              - { label: "Awards", name: "awards", widget: "string" }
+
+          - label: "Videos"
+            name: "videos"
+            widget: "object"
+            fields:
+              - label: "Data"
+                name: "data"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Views", name: "views", widget: "string" }
+                  - { label: "Time", name: "time", widget: "string" }
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Link", name: "link", widget: "string" }
+
+          - label: "Gaming"
+            name: "gaming"
+            widget: "object"
+            fields:
+              - label: "Gdata"
+                name: "gdata"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Link", name: "link", widget: "string" }
           - label: "Social Links"
             name: "social.links"
             widget: "list"
             fields:
               - { label: "Platform", name: "platform", widget: "string" }
               - { label: "Link", name: "link", widget: "string" }
+          - label: "Social Posts"
+            name: "social.posts"
+            widget: "list"
+            fields:
+              - { label: "Platform", name: "platform", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+          
           - label: "Key Features"
             name: "key_features"
             widget: "object"
