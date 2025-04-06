@@ -7,6 +7,17 @@ banner.button:
   label: f
   link: f
   enable: true
+banner:
+  title: Mr.Maney
+  secondTitle: Content creator
+  content: Bringing you the best unboxing videos of the latest technology, games,
+    and toys .
+  image: /images/users/mrmaney.png
+  button:
+    label: Subscribe Now
+    link: https://themefisher.com/astro-themes/pinwheel-astro
+    enable: true
+  badges: /images/users/Badges.svg
 about:
   title: ABOUTh
   secondTitle: Let me introduce myself
@@ -64,17 +75,6 @@ numbers:
   courses: "700"
   customers: 1k
   awards: "100"
-banner:
-  title: Mr.Maney
-  secondTitle: Content creator
-  content: Bringing you the best unboxing videos of the latest technology, games,
-    and toys .
-  image: /images/users/mrmaney.png
-  button:
-    label: Subscribe Now
-    link: https://themefisher.com/astro-themes/pinwheel-astro
-    enable: true
-  badges: /images/users/Badges.svg
 social:
   links:
     - platform: facebook

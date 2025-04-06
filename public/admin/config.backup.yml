@@ -37,7 +37,6 @@ collections:
           - label: "Banner"
             name: "banner"
             widget: "object"
-            collapsed: true
             fields:
               - { label: "Banner Title", name: "title", widget: "string" }
               - { label: "Banner Second Title", name: "secondTitle", widget: "string" }
@@ -53,7 +52,6 @@ collections:
           - label: "About Section"
             name: "about"
             widget: "object"
-            collapsed: true
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Second Title", name: "secondTitle", widget: "string" }
@@ -75,7 +73,6 @@ collections:
           - label: "Skills"
             name: "skills"
             widget: "object"
-            collapsed: true
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Image", name: "image", widget: "image" }
@@ -102,14 +99,12 @@ collections:
           - label: "Explore Categories"
             name: "explore_categories"
             widget: "object"
-            collapsed: true
             fields:
               - { label: "Title", name: "title", widget: "string" }
 
           - label: "Numbers"
             name: "numbers"
             widget: "object"
-            collapsed: true
             fields:
               - { label: "Experience", name: "experience", widget: "string" }
               - { label: "Courses", name: "courses", widget: "string" }
@@ -119,7 +114,6 @@ collections:
           - label: "Videos"
             name: "videos"
             widget: "object"
-            collapsed: true
             fields:
               - label: "Data"
                 name: "data"
@@ -134,7 +128,6 @@ collections:
           - label: "Gaming"
             name: "gaming"
             widget: "object"
-            collapsed: true
             fields:
               - label: "Gdata"
                 name: "gdata"
@@ -144,20 +137,14 @@ collections:
                   - { label: "Image", name: "image", widget: "image" }
                   - { label: "Link", name: "link", widget: "string" }
           - label: "Social Links"
-            name: "social"
-            widget: "object"
-            collapsed: true
+            name: "social.links"
+            widget: "list"
             fields:
-              - label: "Links"
-                name: "links"
-                widget: "list"
-                fields:
-                  - { label: "Platform", name: "platform", widget: "string" }
-                  - { label: "Link", name: "link", widget: "string" }
+              - { label: "Platform", name: "platform", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
           - label: "Social Posts"
             name: "social.posts"
             widget: "list"
-            collapsed: true
             fields:
               - { label: "Platform", name: "platform", widget: "string" }
               - { label: "Image", name: "image", widget: "image" }
@@ -167,7 +154,6 @@ collections:
           - label: "Key Features"
             name: "key_features"
             widget: "object"
-            collapsed: true
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
@@ -181,7 +167,6 @@ collections:
           - label: "Service"
             name: "service"
             widget: "object"
-            collapsed: true
             fields:
               - label: "Homepage Tab"
                 name: "homepage_tab"
@@ -211,7 +196,6 @@ collections:
           - label: "Testimonial"
             name: "testimonial"
             widget: "object"
-            collapsed: true
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }

@@ -34,6 +34,8 @@ export interface Props {
   noindex?: boolean;
   canonical?: string;
   isHomePage?: boolean;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
 }
 
 // distructure frontmatters
@@ -45,6 +47,8 @@ const {
   noindex,
   canonical,
   isHomePage = true,
+  hideHeader = false,
+  hideFooter = false,
 } = Astro.props;
 ---
 
@@ -189,10 +193,12 @@ const {
       <textarea name="message" required></textarea>
     </form>
     <TwSizeIndicator />
-    <Header isHomePage={isHomePage} />
+    {hideHeader ? null : (
+      <Header isHomePage={isHomePage} />
+    )}
     <main id="main-content">
       <slot />
     </main>
-    <Footer />
+    {hideFooter ? null : <Footer />}
   </body>
 </html>

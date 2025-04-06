@@ -68,3 +68,15 @@ export type TIntegrationsIndex = {
   };
   render: () => Promise<void>;
 };
+
+declare global {
+  interface Window {
+    netlifyIdentity: {
+      on: (event: string, callback: (user: any) => void) => void;
+      open: () => void;
+      close: () => void;
+      init: () => void;
+      on: (event: string, callback: () => void) => void;
+    };
+  }
+}
