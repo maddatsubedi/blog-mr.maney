@@ -22,15 +22,6 @@
           "url": "/contact"
         }
       ]
-    },
-    {
-      "name": "adfs",
-      "urls": [
-        {
-          "name": "adsf",
-          "url": "#"
-        }
-      ]
     }
   ],
   "subs-count": {
