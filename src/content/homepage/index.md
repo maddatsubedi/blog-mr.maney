@@ -1,12 +1,37 @@
 ---
-banner.title: headfehy
+skills:
+  title: Creating Worlds, Building Connections
+  image: /images/posts/post-5.png
+  bottom_section:
+    title: Laugh, play, and grow together
+    description: I believe every game played and video created is a story waiting to
+      be told, shared, and celebrated.
+    vision: My vision is to create a community of like-minded individuals who
+      passionate about content creation and gaming.
+    mission: My mission is to provide my audience with the best fun and gaming
+      content on the internet.
+    value: My values are to be authentic, transparent, and honest in everything I do.
+  right_section:
+    image: /images/skills/image.jpeg
+    skills:
+      - title: Content
+        percentage: 88%
+      - title: Gaming
+        percentage: 73%
+      - title: Editing
+        percentage: 80%
 banner.secondTitle: hsffadf
-banner.content: gaaaaawe are the asldkjfa;lds
-banner.image: /images/posts/post-1.png
-banner.button:
-  label: f
-  link: f
-  enable: true
+banner:
+  title: Mr.Maney
+  secondTitle: Content creator
+  content: Bringing you the best unboxing videos of the latest technology, games,
+    and toys .
+  image: /images/users/mrmaney.png
+  button:
+    label: Subscribe Now
+    link: https://themefisher.com/astro-themes/pinwheel-astro
+    enable: true
+  badges: /images/users/Badges.svg
 about:
   title: ABOUTher
   secondTitle: Let me introduce myselfer
@@ -36,27 +61,6 @@ about:
     - image: /images/home_about/game4.jpeg
     - image: /images/home_about/game5.jpeg
     - image: /images/home_about/game6.jpeg
-skills:
-  title: Creating Worlds, Building Connections
-  image: /images/skills/mrmaney_transparent_ai.png
-  bottom_section:
-    title: Laugh, play, and grow together
-    description: I believe every game played and video created is a story waiting to
-      be told, shared, and celebrated.
-    vision: My vision is to create a community of like-minded individuals who
-      passionate about content creation and gaming.
-    mission: My mission is to provide my audience with the best fun and gaming
-      content on the internet.
-    value: My values are to be authentic, transparent, and honest in everything I do.
-  right_section:
-    image: /images/skills/image.jpeg
-    skills:
-      - title: Content
-        percentage: 88%
-      - title: Gaming
-        percentage: 73%
-      - title: Editing
-        percentage: 80%
 explore_categories:
   title: Explore Categories
 numbers:
@@ -64,44 +68,6 @@ numbers:
   courses: "700"
   customers: 1k
   awards: "100"
-banner:
-  title: Mr.Maney
-  secondTitle: Content creator
-  content: Bringing you the best unboxing videos of the latest technology, games,
-    and toys .
-  image: /images/users/mrmaney.png
-  button:
-    label: Subscribe Now
-    link: https://themefisher.com/astro-themes/pinwheel-astro
-    enable: true
-  badges: /images/users/Badges.svg
-social:
-  links:
-    - platform: facebook
-      link: "#"
-    - platform: x
-      link: "#"
-    - platform: instagram
-      link: "#"
-    - platform: youtube
-      link: "#"
-    - platform: linkedin
-      link: "#"
-    - platform: mail
-      link: "#"
-  posts:
-    - platform: facebook
-      image: /images/social_posts/post-1.jpg
-      caption: NPL Herau hai sathi haru ❤️
-      link: https://www.facebook.com/share/p/19dMH74A59/
-    - platform: instagram
-      image: /images/social_posts/post-2.jpg
-      caption: Restart or Regret 🫥
-      link: https://www.facebook.com/share/p/1E7ZLpRXbC/
-    - platform: facebook
-      image: /images/social_posts/post-3.jpg
-      caption: Hame BG xau hai ❤️ @Bikram Ghimire
-      link: https://www.facebook.com/share/p/14qmBGrBRn/
 videos:
   data:
     - title: Top 10 Best Places in Japan to Get Deluxe Edition Boxes
@@ -130,41 +96,37 @@ gaming:
     - title: We Unbox the 'Power Computer Bundle' for Gaming
       image: /images/videos/gallery-img-3.png
       link: "#"
-key_features:
-  title: The Highlighting Part Of Our Solution
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-    egestas Werat viverra id et aliquet. vulputate egestas sollicitudin.
-  feature_list:
-    - icon: map
-      title: Live Caption
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: lock
-      title: Smart Reply
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: link
-      title: Sound Amplifier
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: bell
-      title: Sound Amplifier
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: monitor
-      title: Smart Reply
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: map
-      title: Live Caption
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: link
-      title: Sound Amplifier
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: bell
-      title: Sound Amplifier
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: map
-      title: Smart Reply
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: monitor
-      title: Live Caption
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+social:
+  links:
+    - platform: facebook
+      link: "#"
+    - platform: x
+      link: "#"
+    - platform: instagram
+      link: "#"
+    - platform: youtube
+      link: "#"
+    - platform: linkedin
+      link: "#"
+    - platform: mail
+      link: "#"
+  posts:
+    - platform: facebook
+      image: /images/social_posts/post-1.jpg
+      caption: NPL Herau hai sathi haru ❤️
+      link: https://www.facebook.com/share/p/19dMH74A59/
+    - platform: instagram
+      image: /images/social_posts/post-2.jpg
+      caption: Restart or Regret 🫥
+      link: https://www.facebook.com/share/p/1E7ZLpRXbC/
+    - platform: facebook
+      image: /images/social_posts/post-3.jpg
+      caption: Hame BG xau hai ❤️ @Bikram Ghimire
+      link: https://www.facebook.com/share/p/14qmBGrBRn/
+banner.button:
+  label: f
+  link: f
+  enable: true
 service:
   homepage_tab:
     title: Prevent failure from to impacting your reputation
@@ -203,6 +165,44 @@ service:
         link: "#"
         enable: true
       image: /images/posts/post-10.png
+banner.title: headfehy
+banner.content: gaaaaawe are the asldkjfa;lds
+banner.image: /images/posts/post-1.png
+key_features:
+  title: The Highlighting Part Of Our Solution
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+    egestas Werat viverra id et aliquet. vulputate egestas sollicitudin.
+  feature_list:
+    - icon: map
+      title: Live Caption
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: lock
+      title: Smart Reply
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: link
+      title: Sound Amplifier
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: bell
+      title: Sound Amplifier
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: monitor
+      title: Smart Reply
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: map
+      title: Live Caption
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: link
+      title: Sound Amplifier
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: bell
+      title: Sound Amplifier
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: map
+      title: Smart Reply
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: monitor
+      title: Live Caption
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 testimonial:
   title: Our customers have nice things to say about us
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
