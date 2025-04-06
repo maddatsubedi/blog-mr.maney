@@ -4,8 +4,8 @@ backend:
 
 publish_mode: editorial_workflow
 
-media_folder: "/public/images/posts" # Location where files will be stored in the repo
-public_folder: "/images/posts" # The src attribute for uploaded media
+media_folder: "/public/images/cms" # Location where files will be stored in the repo
+public_folder: "/images/cms" # The src attribute for uploaded media
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
@@ -50,7 +50,7 @@ collections:
                   - { label: "Label", name: "label", widget: "string" }
                   - { label: "Link", name: "link", widget: "string" }
                   - { label: "Enable", name: "enable", widget: "boolean" }
-          - label: "About Section"
+          - label: "About"
             name: "about"
             widget: "object"
             collapsed: true
@@ -131,97 +131,139 @@ collections:
                   - { label: "Image", name: "image", widget: "image" }
                   - { label: "Link", name: "link", widget: "string" }
 
-          - label: "Gaming"
-            name: "gaming"
-            widget: "object"
-            collapsed: true
-            fields:
-              - label: "Gdata"
-                name: "gdata"
-                widget: "list"
-                fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Image", name: "image", widget: "image" }
-                  - { label: "Link", name: "link", widget: "string" }
-          - label: "Social Links"
+          - label: "Social"
             name: "social"
             widget: "object"
             collapsed: true
             fields:
-              - label: "Links"
+              - label: "Social Links"
                 name: "links"
                 widget: "list"
                 fields:
                   - { label: "Platform", name: "platform", widget: "string" }
                   - { label: "Link", name: "link", widget: "string" }
-          - label: "Social Posts"
-            name: "social.posts"
-            widget: "list"
-            collapsed: true
-            fields:
-              - { label: "Platform", name: "platform", widget: "string" }
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "Caption", name: "caption", widget: "string" }
-              - { label: "Link", name: "link", widget: "string" }
-          
-          - label: "Key Features"
-            name: "key_features"
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - label: "Feature List"
-                name: "feature_list"
+              - label: "Social Posts"
+                name: "posts"
                 widget: "list"
                 fields:
-                  - { label: "Icon", name: "icon", widget: "string" }
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Content", name: "content", widget: "text" }
-          - label: "Service"
-            name: "service"
-            widget: "object"
-            collapsed: true
-            fields:
-              - label: "Homepage Tab"
-                name: "homepage_tab"
-                widget: "object"
-                fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Description", name: "description", widget: "text" }
-                  - label: "Tab List"
-                    name: "tab_list"
-                    widget: "list"
-                    fields:
-                      - { label: "Title", name: "title", widget: "string" }
-                      - { label: "Icon", name: "icon", widget: "string" }
-                      - { label: "Image", name: "image", widget: "image" }
-              - label: "Our Service"
-                name: "our_service"
-                widget: "list"
-                fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Platform", name: "platform", widget: "string" }
                   - { label: "Image", name: "image", widget: "image" }
-                  - label: "List"
-                    name: "list"
-                    widget: "list"
-                    field: { label: "Item", name: "item", widget: "string" }
+                  - { label: "Caption", name: "caption", widget: "string" }
+                  - { label: "Link", name: "link", widget: "string" }
+          # - label: "Gaming"
+          #   name: "gaming"
+          #   widget: "object"
+          #   collapsed: true
+          #   fields:
+          #     - label: "Gdata"
+          #       name: "gdata"
+          #       widget: "list"
+          #       fields:
+          #         - { label: "Title", name: "title", widget: "string" }
+          #         - { label: "Image", name: "image", widget: "image" }
+          #         - { label: "Link", name: "link", widget: "string" }          
+          # - label: "Key Features"
+          #   name: "key_features"
+          #   widget: "object"
+          #   collapsed: true
+          #   fields:
+          #     - { label: "Title", name: "title", widget: "string" }
+          #     - { label: "Description", name: "description", widget: "text" }
+          #     - label: "Feature List"
+          #       name: "feature_list"
+          #       widget: "list"
+          #       fields:
+          #         - { label: "Icon", name: "icon", widget: "string" }
+          #         - { label: "Title", name: "title", widget: "string" }
+          #         - { label: "Content", name: "content", widget: "text" }
+          # - label: "Service"
+          #   name: "service"
+          #   widget: "object"
+          #   collapsed: true
+          #   fields:
+          #     - label: "Homepage Tab"
+          #       name: "homepage_tab"
+          #       widget: "object"
+          #       fields:
+          #         - { label: "Title", name: "title", widget: "string" }
+          #         - { label: "Description", name: "description", widget: "text" }
+          #         - label: "Tab List"
+          #           name: "tab_list"
+          #           widget: "list"
+          #           fields:
+          #             - { label: "Title", name: "title", widget: "string" }
+          #             - { label: "Icon", name: "icon", widget: "string" }
+          #             - { label: "Image", name: "image", widget: "image" }
+          #     - label: "Our Service"
+          #       name: "our_service"
+          #       widget: "list"
+          #       fields:
+          #         - { label: "Title", name: "title", widget: "string" }
+          #         - { label: "Description", name: "description", widget: "text" }
+          #         - { label: "Image", name: "image", widget: "image" }
+          #         - label: "List"
+          #           name: "list"
+          #           widget: "list"
+          #           field: { label: "Item", name: "item", widget: "string" }
 
-          - label: "Testimonial"
-            name: "testimonial"
+          # - label: "Testimonial"
+          #   name: "testimonial"
+          #   widget: "object"
+          #   collapsed: true
+          #   fields:
+          #     - { label: "Title", name: "title", widget: "string" }
+          #     - { label: "Description", name: "description", widget: "text" }
+          #     - label: "Testimonial List"
+          #       name: "testimonial_list"
+          #       widget: "list"
+          #       fields:
+          #         - { label: "Author", name: "author", widget: "string" }
+          #         - { label: "Avatar", name: "avatar", widget: "image" }
+          #         - { label: "Organization", name: "organization", widget: "string" }
+          #         - { label: "Rating", name: "rating", widget: "string" }
+          #         - { label: "Content", name: "content", widget: "text" }
+
+  - name: "footer"
+    label: "Footer"
+    files:
+      - name: "footer"
+        label: "Footer Config"
+        file: "src/config/footer.json"
+        extension: "json"
+        format: json
+        fields:
+          - label: "Youtube Details"
+            name: "youtube"
             widget: "object"
             collapsed: true
             fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Link", name: "url", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - label: "Testimonial List"
-                name: "testimonial_list"
+              - { label: "Description", name: "description", widget: "string" }
+          - label: "Quick Links"
+            name: "quick-links"
+            widget: "list"
+            # allow_add: false
+            max: 2
+            min: 1
+            collapsed: true
+            minimize_collapsed: true
+            fields:
+              - label: "Title"
+                name: "name"
+                widget: "string"
+              - label: "Links"
+                name: "urls"
                 widget: "list"
                 fields:
-                  - { label: "Author", name: "author", widget: "string" }
-                  - { label: "Avatar", name: "avatar", widget: "image" }
-                  - { label: "Organization", name: "organization", widget: "string" }
-                  - { label: "Rating", name: "rating", widget: "string" }
-                  - { label: "Content", name: "content", widget: "text" }
+                  - { label: "Label", name: "name", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+          - label: "YT Subs Count"
+            name: "subs-count"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Count", name: "count", widget: "string" }
+              - { label: "YT Name", name: "yt-name", widget: "string" }
 

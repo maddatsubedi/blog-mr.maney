@@ -1,12 +1,4 @@
 ---
-banner.title: h
-banner.secondTitle: h
-banner.content: g
-banner.image: /images/posts/post-1.png
-banner.button:
-  label: f
-  link: f
-  enable: true
 banner:
   title: Mr.Maney
   secondTitle: Content creator
