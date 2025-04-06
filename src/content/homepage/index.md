@@ -94,23 +94,6 @@ social:
       image: /images/social_posts/post-3.jpg
       caption: Hame BG xau hai ❤️ @Bikram Ghimire
       link: https://www.facebook.com/share/p/14qmBGrBRn/
-videos:
-  data:
-    - title: Top 10 Best Places in Japan to Get Deluxe Edition Boxes
-      views: 734,000
-      time: 6 Hours ago
-      image: /images/videos/gallery-img-1.png
-      link: "#"
-    - title: Ranking the Best Sunglasses Bundles for This Summer
-      views: 204,000
-      time: 7 Hours ago
-      image: /images/videos/gallery-img-2.png
-      link: "#"
-    - title: We Unbox the 'Power Computer Bundle' for Gaming
-      views: 7,190,000
-      time: 13 Hours ago
-      image: /images/videos/gallery-img-3.png
-      link: "#"
 gaming:
   gdata:
     - title: Top 10 Best Places in Japan to Get Deluxe Edition Boxes
@@ -122,41 +105,6 @@ gaming:
     - title: We Unbox the 'Power Computer Bundle' for Gaming
       image: /images/videos/gallery-img-3.png
       link: "#"
-key_features:
-  title: The Highlighting Part Of Our Solution
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-    egestas Werat viverra id et aliquet. vulputate egestas sollicitudin.
-  feature_list:
-    - icon: map
-      title: Live Caption
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: lock
-      title: Smart Reply
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: link
-      title: Sound Amplifier
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: bell
-      title: Sound Amplifier
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: monitor
-      title: Smart Reply
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: map
-      title: Live Caption
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: link
-      title: Sound Amplifier
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: bell
-      title: Sound Amplifier
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: map
-      title: Smart Reply
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: monitor
-      title: Live Caption
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 service:
   homepage_tab:
     title: Prevent failure from to impacting your reputation
@@ -195,6 +143,58 @@ service:
         link: "#"
         enable: true
       image: /images/posts/post-10.png
+videos:
+  data:
+    - title: Top 10 Best Places in Japan to Get Deluxe Edition Boxes
+      views: 734,000
+      time: 6 Hours ago
+      image: /images/videos/gallery-img-1.png
+      link: "#"
+    - title: Ranking the Best Sunglasses Bundles for This Summer
+      views: 204,000
+      time: 7 Hours ago
+      image: /images/videos/gallery-img-2.png
+      link: "#"
+    - title: We Unbox the 'Power Computer Bundle' for Gaming
+      views: 7,190,000
+      time: 13 Hours ago
+      image: /images/videos/gallery-img-3.png
+      link: "#"
+key_features:
+  title: The Highlighting Part Of Our Solution
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+    egestas Werat viverra id et aliquet. vulputate egestas sollicitudin.
+  feature_list:
+    - icon: map
+      title: Live Caption
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: lock
+      title: Smart Reply
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: link
+      title: Sound Amplifier
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: bell
+      title: Sound Amplifier
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: monitor
+      title: Smart Reply
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: map
+      title: Live Caption
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: link
+      title: Sound Amplifier
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: bell
+      title: Sound Amplifier
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: map
+      title: Smart Reply
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - icon: monitor
+      title: Live Caption
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 testimonial:
   title: Our customers have nice things to say about us
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
