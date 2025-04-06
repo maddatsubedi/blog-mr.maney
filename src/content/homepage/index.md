@@ -1,21 +1,21 @@
 ---
-banner.title: h
-banner.secondTitle: h
-banner.content: g
+banner.title: headfehy
+banner.secondTitle: hsffadf
+banner.content: gaaaaawe are the asldkjfa;lds
 banner.image: /images/posts/post-1.png
 banner.button:
   label: f
   link: f
   enable: true
 about:
-  title: ABOUTh
-  secondTitle: Let me introduce myself
-  sideText: MR.MANEY
+  title: ABOUTher
+  secondTitle: Let me introduce myselfer
+  sideText: MR.MANEYer
   description: >-
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed
-    urna in justo euismod condimentum.  
+    urna in justo euismod condimentum.\
 
-    Vestibulum dignissim orci vitae eros rutrum euismod. Vestibulum tempor, sem et molestie egestas, dui tortor laoreet tellus, id rhoncus mauris neque malesuada augue. Lorem ipsum hi hello how are you ? I a hi hello how are you ? I 
+    Vestibulum dignissim orci vitae eros rutrum euismod. Vestibulum tempor, sem et molestie egestas, dui tortor laoreet tellus, id rhoncus mauris neque malesuada augue. Lorem ipsum hi hello how are you ? I a hi hello how are you ? I er
   main_links_group:
     - link_to: blog
       image: /images/home_about/mrmaney.jpg
