@@ -3,7 +3,9 @@ import { markdownify, slugify } from "@/lib/utils/textConverter";
 import { readCategoryImagesWithFallback } from "@/lib/utils/categoriesImageMapper";
 import { capitalize } from "@/lib/utils/textConverter";
 
-const explore_categories = Astro.props.explore_categories || { title: "Explore Categories" };
+const explore_categories = Astro.props.explore_categories || {
+  title: "Explore Categories",
+};
 const title = explore_categories.title || "Explore Categories";
 
 const categoriesImageMap = await readCategoryImagesWithFallback();
@@ -13,55 +15,61 @@ import { Image } from "astro:assets";
 import { FaChevronCircleRight, FaChevronRight } from "react-icons/fa";
 
 const categoriesLength = categories.length;
-const showMoreColSpan = categoriesLength % 3 === 0 ? 3 : (9 - categoriesLength) % 3;
+const showMoreColSpan =
+  categoriesLength % 3 === 0 ? 3 : (9 - categoriesLength) % 3;
 const showMoreColSpanStyle = {
   "grid-column": `span ${showMoreColSpan}`,
-}
+};
 ---
-<section
-  class="section categories-section md:px-10 px-5 font-montserrat flex flex-col items-center"
-  style="background-color: #FFFFFF;"
->
-  <div
-    class="section-container max-w-[1120px] w-fit flex flex-col items-center gap-10"
-  >
-    <h2 class="font-plusJakartaSans font-medium md:text-[3rem] text-3xl text-center">
-      {markdownify(title)}
-    </h2>
-    <div class="categories-container grid grid-cols-3 w-fit gap-7">
-      {
-        categoriesUpToNine.map((category: string) => (
-          <a
-            href={`/categories/${slugify(category)}`}
-            class="category relative flex rounded-xl overflow-hidden shadow-md"
-          >
-            <Image
-              src={categoriesImageMap[category] || "/images/fallback_images/category_fallback.jpg"}
-              class="category-image object-cover object-center rounded-xl h-[95px]"
-              alt="image"
-              width={352}
-              height={70}
-            />
-            <div class="category-text-overlay text-center p-4 text-[#ffffff] text-md md:text-2xl font-medium absolute w-full h-full top-0 left-0 flex justify-center items-center bg-[#00000066]">
-              {capitalize(category)}
-            </div>
-          </a>
-        ))
-      }
-      {
-        (
-          <a
-            href={`/categories`}
-            class={`show-more p-4 flex gap-[10px] h-[95px] justify-center items-center rounded-xl overflow-hidden col-spa shadow-medium-light`} style={showMoreColSpanStyle}
-          >
-            <div class="show-more-text font-medium text-primary text-center text-md md:text-2xl">Show More</div>
-            <FaChevronCircleRight className="icon text-[#615a5a] min-w-5 min-h-5 text-xl" />
-          </a>
-        )
-      }
-    </div>
-  </div>
-</section>
+
+{
+  categoriesLength > 0 && (
+    <section
+      class="section categories-section md:px-10 px-5 font-montserrat flex flex-col items-center"
+      style="background-color: #FFFFFF;"
+    >
+      <div class="section-container max-w-[1120px] w-fit flex flex-col items-center gap-10">
+        <h2 class="font-plusJakartaSans font-medium md:text-[3rem] text-3xl text-center">
+          {markdownify(title)}
+        </h2>
+        <div class="categories-container grid grid-cols-3 w-fit gap-7">
+          {categoriesUpToNine.map((category: string) => (
+            <a
+              href={`/categories/${slugify(category)}`}
+              class="category relative flex rounded-xl overflow-hidden shadow-md"
+            >
+              <Image
+                src={
+                  categoriesImageMap[category] ||
+                  "/images/fallback_images/category_fallback.jpg"
+                }
+                class="category-image object-cover object-center rounded-xl h-[95px]"
+                alt="image"
+                width={352}
+                height={70}
+              />
+              <div class="category-text-overlay text-center p-4 text-[#ffffff] text-md md:text-2xl font-medium absolute w-full h-full top-0 left-0 flex justify-center items-center bg-[#00000066]">
+                {capitalize(category)}
+              </div>
+            </a>
+          ))}
+          {
+            <a
+              href={`/categories`}
+              class={`show-more p-4 flex gap-[10px] h-[95px] justify-center items-center rounded-xl overflow-hidden col-spa shadow-medium-light`}
+              style={showMoreColSpanStyle}
+            >
+              <div class="show-more-text font-medium text-primary text-center text-md md:text-2xl">
+                Show More
+              </div>
+              <FaChevronCircleRight className="icon text-[#615a5a] min-w-5 min-h-5 text-xl" />
+            </a>
+          }
+        </div>
+      </div>
+    </section>
+  )
+}
 
 <style>
   .test {
@@ -73,7 +81,7 @@ const showMoreColSpanStyle = {
   .category-text-overlay {
     transition: 0.25s ease-in-out;
   }
-  
+
   .category:hover .category-image {
     transform: scale(1.175);
   }

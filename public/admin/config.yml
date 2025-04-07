@@ -110,8 +110,9 @@ collections:
             name: "profile_data"
             widget: "list"
             collapsed: true
+            minimize_collapsed: true
             fields:
-              - { label: "Title", name: "text", widget: "string" }
+              - { label: "Text", name: "text", widget: "string" }
               - { label: "Label", name: "label", widget: "string" }
 
           - label: "Videos"
@@ -148,78 +149,7 @@ collections:
                   - { label: "Image", name: "image", widget: "image" }
                   - { label: "Caption", name: "caption", widget: "string" }
                   - { label: "Link", name: "link", widget: "string" }
-          # - label: "Gaming"
-          #   name: "gaming"
-          #   widget: "object"
-          #   collapsed: true
-          #   fields:
-          #     - label: "Gdata"
-          #       name: "gdata"
-          #       widget: "list"
-          #       fields:
-          #         - { label: "Title", name: "title", widget: "string" }
-          #         - { label: "Image", name: "image", widget: "image" }
-          #         - { label: "Link", name: "link", widget: "string" }          
-          # - label: "Key Features"
-          #   name: "key_features"
-          #   widget: "object"
-          #   collapsed: true
-          #   fields:
-          #     - { label: "Title", name: "title", widget: "string" }
-          #     - { label: "Description", name: "description", widget: "text" }
-          #     - label: "Feature List"
-          #       name: "feature_list"
-          #       widget: "list"
-          #       fields:
-          #         - { label: "Icon", name: "icon", widget: "string" }
-          #         - { label: "Title", name: "title", widget: "string" }
-          #         - { label: "Content", name: "content", widget: "text" }
-          # - label: "Service"
-          #   name: "service"
-          #   widget: "object"
-          #   collapsed: true
-          #   fields:
-          #     - label: "Homepage Tab"
-          #       name: "homepage_tab"
-          #       widget: "object"
-          #       fields:
-          #         - { label: "Title", name: "title", widget: "string" }
-          #         - { label: "Description", name: "description", widget: "text" }
-          #         - label: "Tab List"
-          #           name: "tab_list"
-          #           widget: "list"
-          #           fields:
-          #             - { label: "Title", name: "title", widget: "string" }
-          #             - { label: "Icon", name: "icon", widget: "string" }
-          #             - { label: "Image", name: "image", widget: "image" }
-          #     - label: "Our Service"
-          #       name: "our_service"
-          #       widget: "list"
-          #       fields:
-          #         - { label: "Title", name: "title", widget: "string" }
-          #         - { label: "Description", name: "description", widget: "text" }
-          #         - { label: "Image", name: "image", widget: "image" }
-          #         - label: "List"
-          #           name: "list"
-          #           widget: "list"
-          #           field: { label: "Item", name: "item", widget: "string" }
-
-          # - label: "Testimonial"
-          #   name: "testimonial"
-          #   widget: "object"
-          #   collapsed: true
-          #   fields:
-          #     - { label: "Title", name: "title", widget: "string" }
-          #     - { label: "Description", name: "description", widget: "text" }
-          #     - label: "Testimonial List"
-          #       name: "testimonial_list"
-          #       widget: "list"
-          #       fields:
-          #         - { label: "Author", name: "author", widget: "string" }
-          #         - { label: "Avatar", name: "avatar", widget: "image" }
-          #         - { label: "Organization", name: "organization", widget: "string" }
-          #         - { label: "Rating", name: "rating", widget: "string" }
-          #         - { label: "Content", name: "content", widget: "text" }
+                  
       - name: "contact"
         label: "Contact Page Content"
         file: "src/content/contact/index.md"

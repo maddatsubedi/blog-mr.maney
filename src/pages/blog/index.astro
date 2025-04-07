@@ -35,11 +35,9 @@ const currentPosts = recentPost.slice(0, config.settings.pagination);
   image={blogIndex.data.image}
   isHomePage={false}
 >
-<section class="page-hero pb-6 pt-16">
-  <div class="container"><PageHeader page_data={{content:""}} /></div>
-</section>
+  <PageHeader page_data={{ title: "Blog" }} />
   <Shape />
-  <section class="section">
+  <section class="section pt-0">
     <div class="container">
       <FeaturedBlog posts={featuredPost} />
       <BlogCategories categories={categories} />

@@ -7,7 +7,7 @@ banner:
   image: /images/users/mrmaney.png
   button:
     label: Subscribe Now
-    link: https://themefisher.com/astro-themes/pinwheel-astro
+    link: "#"
     enable: true
   badges: /images/users/Badges.svg
 about:

@@ -63,7 +63,7 @@ const ContactForm = ({ content }) => {
   };
 
   return (
-    <div className="contact-main px-8 flex flex-col md:flex-row gap-7">
+    <div className="contact-main px-4 sm:px-8 flex flex-col md:flex-row gap-7">
       <form
         onSubmit={handleSubmit}
         className="left flex flex-col gap-6 p-6 bg-white rounded-md border border-gray-300 flex-grow"

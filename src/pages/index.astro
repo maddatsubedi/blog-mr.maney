@@ -12,21 +12,31 @@ import SocialLinks from "@/components/SocialLinks.astro";
 import SocialMediaPosts from "@/components/socialMediaPosts.astro";
 import Social from "@/components/sections/Social.astro";
 import { getEntry } from "astro:content";
+import { undefined } from "astro:schema";
+import { fade } from "astro:transitions";
 
 const homepage = await getEntry("homepage", "index");
-const { banner, about, explore_categories, profile_data, videos, gaming, skills, social } = homepage.data;
+const {
+  banner,
+  about,
+  explore_categories,
+  profile_data,
+  videos,
+  gaming,
+  skills,
+  social,
+} = homepage.data;
 ---
 
-<Base>
-
+<Base isHomePage={true} headerMargin={false}>
   <!-- banner -->
 
   <Banner banner={banner} />
   <About about={about} />
   <Skills skills={skills} />
   <ExploreCategories explore_categories={explore_categories} />
-  <Preview videos={videos}/>
+  <Preview videos={videos} />
   <ProfileData profile_data={profile_data} />
-  <PreviewBlog/>
-  <Social social={social}/>
+  <PreviewBlog />
+  <Social social={social} />
 </Base>

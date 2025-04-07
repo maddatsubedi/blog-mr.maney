@@ -1,8 +1,8 @@
 ---
 title: Blog
-page_title: Insight and advice from <br /> our expert team.
-subtitle: Hi
+subtitle: My thoughts and ideas
+meta_title: Blog
+description: "Welcome to my blog!"
 date: 2025-03-02T00:07:00.000Z
-image: /images/posts/post-10.png
+image: /images/default_images/default_blogs_image.jpg
 ---
-happy

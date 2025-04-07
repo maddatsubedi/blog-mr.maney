@@ -9,12 +9,15 @@ const posts = await getSinglePage(blog_folder);
 const sortedPosts = sortByDate(posts);
 const recentPost = sortedPosts.filter((item) => !item.data.featured);
 const currentPosts = recentPost.slice(0, 3);
-
 ---
 
-<section class="section relative">
-  <div class="container mt-10">
-    <h2 class="font-montserrat mb-4">Latest Blogs</h2>
-    <Blogs posts={currentPosts} />
-  </div>
-</section>
+{
+  posts.length > 0 && (
+    <section class="section relative">
+      <div class="container mt-10">
+        <h2 class="font-montserrat mb-4">Latest Blogs</h2>
+        <Blogs posts={currentPosts} />
+      </div>
+    </section>
+  )
+}

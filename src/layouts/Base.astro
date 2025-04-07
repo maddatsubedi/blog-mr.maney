@@ -33,6 +33,7 @@ export interface Props {
   image?: string;
   noindex?: boolean;
   canonical?: string;
+  headerMargin?: boolean;
   isHomePage?: boolean;
   hideHeader?: boolean;
   hideFooter?: boolean;
@@ -46,7 +47,8 @@ const {
   image,
   noindex,
   canonical,
-  isHomePage = true,
+  headerMargin = true,
+  isHomePage = false,
   hideHeader = false,
   hideFooter = false,
 } = Astro.props;
@@ -197,7 +199,7 @@ const {
     {hideHeader ? null : (
       <Header isHomePage={isHomePage} />
     )}
-    <main id="main-content">
+    <main id="main-content" class=`main-content ${headerMargin ? "mt-20 lg:mt-28" : ""}`>
       <slot />
     </main>
     {hideFooter ? null : <Footer />}
