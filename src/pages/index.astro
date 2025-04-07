@@ -1,7 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 import Banner from "@/layouts/components/Banner.astro";
-import Number from "@/layouts/components/number.astro";
+import ProfileData from "@/layouts/components/ProfileData.astro";
 import Preview from "@/components/preview.astro";
 import PreviewBlog from "@/components/previewBlog.astro";
 import Skills from "@/layouts/components/sections/Skills.astro";
@@ -14,7 +14,7 @@ import Social from "@/components/sections/Social.astro";
 import { getEntry } from "astro:content";
 
 const homepage = await getEntry("homepage", "index");
-const { banner, about, explore_categories, numbers,videos, gaming, skills, social } = homepage.data;
+const { banner, about, explore_categories, profile_data, videos, gaming, skills, social } = homepage.data;
 ---
 
 <Base>
@@ -26,7 +26,7 @@ const { banner, about, explore_categories, numbers,videos, gaming, skills, socia
   <Skills skills={skills} />
   <ExploreCategories explore_categories={explore_categories} />
   <Preview videos={videos}/>
-  <Number numbers={numbers} />
+  <ProfileData profile_data={profile_data} />
   <PreviewBlog/>
   <Social social={social}/>
 </Base>

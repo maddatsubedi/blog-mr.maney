@@ -106,7 +106,7 @@ collections:
             fields:
               - { label: "Title", name: "title", widget: "string" }
 
-          - label: "Numbers"
+          - label: "Profile Data"
             name: "numbers"
             widget: "object"
             collapsed: true

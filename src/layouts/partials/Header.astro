@@ -44,9 +44,9 @@ const { isHomePage } = Astro.props;
 <header
   class={`header text-white flex justify-center w-full ${isHomePage ? "bg-transparent" : "bg-red-600"}`}
 >
-  <nav class="navbar container m-0 px-4">
+  <nav class="navbar container m-0 px-5 gap-5">
     <!-- logo -->
-    <div class="md:pl-[120px] px-5 order-0">
+    <div class="md:pl-[90px] pr-5 pl-0 order-0">
       <a class="text-2xl font-semibold" href={logo.url}>
         {logo.name}
       </a>

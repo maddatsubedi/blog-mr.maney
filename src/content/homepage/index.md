@@ -62,11 +62,15 @@ skills:
         percentage: 80%
 explore_categories:
   title: Explore Categories
-numbers:
-  experience: "22"
-  courses: "700"
-  customers: 1k
-  awards: "100"
+profileData:
+  - text: "Years of Experience"
+    label: 5+
+  - text: "Videos Created"
+    label: 700+
+  - text: "Followers"
+    label: 20K+
+  - text: "Subscribers"
+    label: 50K+
 social:
   links:
     - platform: facebook

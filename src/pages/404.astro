@@ -7,23 +7,23 @@ import config from "@/config/config.json";
 
 const { logo } = config.site;
 const entry = await getEntryBySlug("pages", "404");
-const { Content } = await entry.render();
 ---
 
-<Base title={entry.data.title}>
-  <section class="section">
-    <div class="container">
-      <div class="flex h-[40vh] items-center justify-center">
-        <div class="text-center">
+<Base isHomePage={false} title={entry.data.title}>
+  <section class="section mt-20 lg:mt-28">
+    <div class="container px-[15px]">
+      <div class="flex h-fit items-center justify-center">
+        <div class="text-center flex flex-col gap-7 items-center font-montserrat">
           <Image
-            src="/images/404.png"
-            class="mb-4 inline"
+            src="/images/404-1.png"
             alt="logo"
             height={120}
-            width={120}
+            width={400}
           />
-          <h1 class="mb-4" set:html={markdownify(entry.data.title)} />
-          <Content />
+          <!-- <h1 class="mb-4" set:html={markdownify(entry.data.title)} /> -->
+          <h2 class="font-montserrat">
+           {entry.body}
+          </h2>
         </div>
       </div>
     </div>
