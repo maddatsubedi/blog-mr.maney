@@ -129,7 +129,7 @@ const ContactForm = ({ content }) => {
         )}
         <button
           type="submit"
-          className="bg-primary transition duration-200 ease-in-out hover:bg-primary-dark text-white p-3 rounded text-base font-medium"
+          className="bg-primary flex justify-center transition duration-200 ease-in-out hover:bg-primary-dark text-white p-3 rounded text-base font-medium"
           disabled={loading}
         >
           {loading ? (
@@ -155,30 +155,30 @@ const ContactForm = ({ content }) => {
           <h1 className="text-gray-800 font-sans text-2xl font-medium text-center">Reach Me</h1>
           <div className="line border-t-2 border-primary w-12 mx-auto"></div>
         </div>
-        <p className="text-gray-700 text-base mt-4">{markdownify(description)}</p>
+        <p className="text-gray-700 text-base font-medium mt-4">{markdownify(description)}</p>
         <div className="channels flex flex-col gap-4 mt-6">
           {contact_details?.email && (
             <div className="channel flex items-center gap-3">
-              <div className="icon-wrapper p-2 border border-gray-400 rounded-full">
-                <MdMail className="text-xl text-gray-800" />
+              <div className="icon-wrapper p-2 border border-red-500 rounded-full">
+                <MdMail className="text-xl text-primary" />
               </div>
-              <span className="text-gray-800 text-base">{contact_details.email}</span>
+              <span className="text-gray-800 text-base font-medium">{contact_details.email}</span>
             </div>
           )}
           {contact_details?.phone && (
             <div className="channel flex items-center gap-3">
-              <div className="icon-wrapper p-2 border border-gray-400 rounded-full">
-                <MdLocalPhone className="text-xl text-gray-800" />
+              <div className="icon-wrapper p-2 border border-red-500 rounded-full">
+                <MdLocalPhone className="text-xl text-primary" />
               </div>
-              <span className="text-gray-800 text-base">{contact_details.phone}</span>
+              <span className="text-gray-800 text-base font-medium">{contact_details.phone}</span>
             </div>
           )}
           {contact_details?.location && (
             <div className="channel flex items-center gap-3">
-              <div className="icon-wrapper p-2 border border-gray-400 rounded-full">
-                <IoIosPin className="text-xl text-gray-800" />
+              <div className="icon-wrapper p-2 border border-red-500 rounded-full">
+                <IoIosPin className="text-xl text-primary" />
               </div>
-              <span className="text-gray-800 text-base">{contact_details.location}</span>
+              <span className="text-gray-800 text-base font-medium">{contact_details.location}</span>
             </div>
           )}
         </div>

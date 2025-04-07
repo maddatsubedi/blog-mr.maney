@@ -1,6 +1,6 @@
 ---
 import Logo from "@/components/Logo.astro";
-import menu from "@/config/menu.json";
+import header from "@/config/header.json";
 
 import Search from "@/components/search.astro";
 import { RiMessage3Line } from "react-icons/ri";
@@ -18,7 +18,7 @@ export interface NavigationLink {
   children?: ChildNavigationLink[];
 }
 
-const { main }: { main: NavigationLink[] } = menu;
+const { nav_links }: { nav_links: NavigationLink[] } = header;
 const { pathname } = Astro.url;
 
 const { isHomePage } = Astro.props;
@@ -63,7 +63,7 @@ const { isHomePage } = Astro.props;
       class="navbar-nav order-3 hidden w-full lg:order-1 lg:flex lg:w-auto lg:space-x-2 md:bg-transparent bg-red-400/70 p-3 backdrop-blur-md"
     >
       {
-        main.map((menu) => (
+        nav_links.map((menu) => (
           <>
             {menu.hasChildren ? (
               <li class="nav-item nav-dropdown group relative cursor-pointer  dropdown-button">

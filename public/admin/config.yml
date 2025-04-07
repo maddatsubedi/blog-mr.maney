@@ -25,8 +25,8 @@ collections:
       - { label: "Draft", name: "draft", widget: "boolean", required: false }
       - { label: "Featured", name: "featured", widget: "boolean", required: false }
 
-  - name: "homepage"
-    label: "Homepage"
+  - name: "pages"
+    label: "Pages"
     files:
       - name: "homepage"
         label: "Homepage Content"
@@ -222,10 +222,50 @@ collections:
           #         - { label: "Organization", name: "organization", widget: "string" }
           #         - { label: "Rating", name: "rating", widget: "string" }
           #         - { label: "Content", name: "content", widget: "text" }
+      - name: "contact"
+        label: "Contact Page Content"
+        file: "src/content/contact/index.md"
+        extension: "md"
+        format: frontmatter
+        fields:
+          - label: "Page Data"
+            name: "page_data"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Page Title", name: "page_title", widget: "string" }
+          
+          - label: "Reach Me Section"
+            name: "content"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Contact Details"
+                name: "contact_details"
+                widget: "object"
+                fields:
+                  - { label: "Email", name: "email", widget: "string" }
+                  - { label: "Phone", name: "phone", widget: "string" }
+                  - { label: "Location", name: "location", widget: "string" }
 
-  - name: "footer"
-    label: "Footer"
+  - name: "components"
+    label: "Components"
     files:
+      - name: "header"
+        label: "Header Config"
+        file: "src/config/header.json"
+        extension: "json"
+        format: json
+        fields:
+          - label: "Nav Links"
+            name: "nav_links"
+            widget: "list"
+            collapsed: true
+            fields:
+              - { label: "Label", name: "name", widget: "string" }
+              - { label: "Link", name: "url", widget: "string" }
+
       - name: "footer"
         label: "Footer Config"
         file: "src/config/footer.json"
