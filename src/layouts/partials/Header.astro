@@ -18,7 +18,24 @@ export interface NavigationLink {
   children?: ChildNavigationLink[];
 }
 
-const { nav_links }: { nav_links: NavigationLink[] } = header;
+export interface HeaderLogo {
+  name: string;
+  url: string;
+}
+
+export interface RightButton {
+  name: string;
+  url: string;
+  icon: string;
+}
+
+export interface Header {
+  logo: HeaderLogo;
+  nav_links: NavigationLink[];
+  right_button: RightButton;
+}
+
+const { nav_links, logo, right_button } = header as Header;
 const { pathname } = Astro.url;
 
 const { isHomePage } = Astro.props;
@@ -30,7 +47,9 @@ const { isHomePage } = Astro.props;
   <nav class="navbar container m-0 px-4">
     <!-- logo -->
     <div class="md:pl-[120px] px-5 order-0">
-      <a class="text-2xl font-semibold" href="/">Blog</a>
+      <a class="text-2xl font-semibold" href={logo.url}>
+        {logo.name}
+      </a>
     </div>
     <!-- navbar toggler -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
@@ -122,10 +141,11 @@ const { isHomePage } = Astro.props;
     <div class="order-1 ml-auto hidden items-center md:order-2 md:ml-0 lg:flex">
       <a
         class="w-fit btn flex gap-2 px-6 text-[0.95rem] items-center btn-outline-white text-white hover:bg-white hover:text-black"
-        href={"/contact"}
+        href={right_button.url}
       >
-        Contact
-        <TbMessageFilled size={20} />
+        {right_button.name}
+        <!-- <TbMessageFilled size={20} /> -->
+        <i class={right_button.icon}></i>
       </a>
     </div>
   </nav>

@@ -258,13 +258,29 @@ collections:
         extension: "json"
         format: json
         fields:
+          - label: "logo"
+            name: "logo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Logo Text", name: "name", widget: "string" }
+              - { label: "Logo URL", name: "url", widget: "string" }
           - label: "Nav Links"
             name: "nav_links"
             widget: "list"
             collapsed: true
+            minimize_collapsed: true
             fields:
               - { label: "Label", name: "name", widget: "string" }
               - { label: "Link", name: "url", widget: "string" }
+          - label: "Right Button"
+            name: "right_button"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Label", name: "name", widget: "string" }
+              - { label: "Link", name: "url", widget: "string" }
+              - { label: "Icon (Use full class names from fontawesome.com/icons)", name: "icon", widget: "string" }
 
       - name: "footer"
         label: "Footer Config"

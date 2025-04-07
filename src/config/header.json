@@ -1,4 +1,8 @@
 {
+  "logo": {
+    "name": "Mr.Maney",
+    "url": "/"
+  },
   "nav_links": [
     {
       "name": "Home",
@@ -12,5 +16,10 @@
       "name": "Contact",
       "url": "/contact"
     }
-  ]
+  ],
+  "right_button": {
+    "name": "Contact",
+    "url": "/contact",
+    "icon": "fa-solid fa-message"
+  }
 }
