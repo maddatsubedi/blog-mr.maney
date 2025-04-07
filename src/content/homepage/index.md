@@ -63,14 +63,14 @@ skills:
 explore_categories:
   title: Explore Categories
 profile_data:
-  - text: "Years of Experience"
-    label: 5+
-  - text: "Videos Created"
-    label: 700+
-  - text: "Followers"
-    label: 20K+
-  - text: "Subscribers"
-    label: 50K+
+  - text: 5+
+    label: "Years of Experience"
+  - text: 700+
+    label: "Videos Created"
+  - text: 20K+
+    label: "Followers"
+  - text: 50K+
+    label: "Subscribers"
 social:
   links:
     - platform: facebook
