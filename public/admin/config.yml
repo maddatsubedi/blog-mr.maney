@@ -107,14 +107,12 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
 
           - label: "Profile Data"
-            name: "numbers"
-            widget: "object"
+            name: "profile_data"
+            widget: "list"
             collapsed: true
             fields:
-              - { label: "Experience", name: "experience", widget: "string" }
-              - { label: "Courses", name: "courses", widget: "string" }
-              - { label: "Customers", name: "customers", widget: "string" }
-              - { label: "Awards", name: "awards", widget: "string" }
+              - { label: "Title", name: "text", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
 
           - label: "Videos"
             name: "videos"

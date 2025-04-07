@@ -62,7 +62,7 @@ skills:
         percentage: 80%
 explore_categories:
   title: Explore Categories
-profileData:
+profile_data:
   - text: "Years of Experience"
     label: 5+
   - text: "Videos Created"
