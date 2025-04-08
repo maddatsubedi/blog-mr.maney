@@ -251,3 +251,19 @@ collections:
               - { label: "Count", name: "count", widget: "string" }
               - { label: "YT Name", name: "yt-name", widget: "string" }
 
+  - name: "site_config"
+    label: "Site Config"
+    files:
+      - name: "contact"
+        label: "Contact Config"
+        file: "src/config/contact.json"
+        extension: "json"
+        format: json
+        fields:
+          - label: "Contact Form"
+            name: "contact_form"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Enable", name: "enable", widget: "boolean" }
+              - { label: "Notify Email (for form submissions)", name: "notify_email", widget: "string" }
