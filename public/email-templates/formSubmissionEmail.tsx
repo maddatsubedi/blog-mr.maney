@@ -17,7 +17,7 @@ export const FormSubmissionTemplate = ({
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <title>New Form Submission - {formName}</title>
+      <title>New Form Submission</title>
     </head>
     <body style={{ margin: 0, padding: 0, backgroundColor: '#f6f9fc' }}>
       <table width="100%" border={0} cellPadding="0" cellSpacing="0">

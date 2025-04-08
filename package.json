@@ -13,9 +13,10 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^3.1.9",
+    "@astrojs/netlify": "^5.4.0",
     "@astrojs/react": "^3.6.2",
     "@astrojs/rss": "^4.0.9",
-    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/sitemap": "^3.3.0",
     "@astrojs/tailwind": "^5.1.2",
     "@types/react-icons": "^3.0.0",
     "astro": "^4.16.9",

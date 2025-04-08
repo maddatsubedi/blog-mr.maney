@@ -8,6 +8,7 @@ import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
 import dotenv from "dotenv";
+import netlify from '@astrojs/netlify';
 
 dotenv.config();
 
@@ -16,7 +17,8 @@ export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
-  output: "hybrid",
+  output: "server",
+  adapter: netlify(),
   image: {},
   integrations: [
     react(),
