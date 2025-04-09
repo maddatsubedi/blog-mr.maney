@@ -30,6 +30,26 @@
     transform: translateY(calc(-100% - 24px));
 }
 
+.form-submit-btn {
+    background-color: #F71B35;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.form-submit-btn:hover {
+    background-color: #D01027;
+}
+
+.form-submit-btn.loading {
+    background-color: #D65A64;
+    padding: 15px 12px;
+    cursor: not-allowed;
+}
+
+.form-submit-btn.loading:hover {
+    background-color: #D65A64;
+}
+
 .shadow-small {
     box-shadow: 0px 2px 5px 0px #00000080;
 }
