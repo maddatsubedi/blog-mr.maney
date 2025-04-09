@@ -1,6 +1,15 @@
 {
   "contact_form": {
     "enable": true,
-    "notify_email": "eipambinal@gmail.com"
+    "notify_email": "eipambinal@gmail.com",
+    "noti_config": {
+      "notify_from": {
+        "display_name": "MrManey",
+        "local_part": "maney"
+      },
+      "notify_email_config": {
+        "footer_name": "MrManey"
+      }
+    }
   }
 }

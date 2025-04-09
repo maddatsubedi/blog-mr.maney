@@ -1,88 +1,172 @@
 import React from 'react';
 
-interface FormSubmissionEmailProps {
+type SubmissionData = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+export type NotiData = {
+  submissionData: SubmissionData;
+  submissionDate: string;
   formName: string;
-  data: Record<string, any>;
-  submissionId: string;
-  submissionTime: string;
+  formLabel: string;
+};
+
+export type NotifyEmailConfig = {
+  footer_name: string;
 }
 
-export const FormSubmissionTemplate = ({
-  formName,
-  data,
-  submissionId,
-  submissionTime
-}: FormSubmissionEmailProps) => (
-  <html>
-    <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <title>New Form Submission</title>
-    </head>
-    <body style={{ margin: 0, padding: 0, backgroundColor: '#f6f9fc' }}>
-      <table width="100%" border={0} cellPadding="0" cellSpacing="0">
-        <tr>
-          <td align="center" style={{ padding: '40px 20px' }}>
-            <table width="100%" max-width="600px" border={0} cellPadding="0" cellSpacing="0" style={{ backgroundColor: '#ffffff', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
-              {/* Header */}
-              <tr>
-                <td style={{ padding: '40px 30px', borderBottom: '1px solid #eaeaea' }}>
-                  <h1 style={{ margin: 0, fontSize: '24px', color: '#1a1a1a' }}>
-                    New Form Submission
-                  </h1>
-                  <p style={{ margin: '10px 0 0', color: '#666666' }}>
-                    From {formName}
-                  </p>
-                </td>
-              </tr>
+export type Receiver = 'user' | 'admin';
 
-              {/* Content */}
-              <tr>
-                <td style={{ padding: '30px' }}>
-                  <table width="100%">
-                    {/* Submission ID */}
-                    <tr>
-                      <td style={{ padding: '10px 0', borderBottom: '1px solid #eeeeee' }}>
-                        <strong>Submission ID:</strong> {submissionId}
-                      </td>
-                    </tr>
+export const FormSubmissionTemplate = (
+  { notiData }: { notiData: NotiData },
+  notifyEmailConfig: NotifyEmailConfig,
+  receiver: Receiver
+) => {
+  const { submissionData, submissionDate, formName, formLabel } = notiData;
+  const formattedDate = new Date(submissionDate).toLocaleString();
+  const isAdmin = receiver === 'admin';
 
-                    {/* Form Data */}
-                    {Object.entries(data).map(([key, value]) => (
-                      <tr key={key}>
-                        <td style={{ padding: '15px 0', borderBottom: '1px solid #eeeeee' }}>
-                          <div style={{ fontSize: '16px', color: '#1a1a1a', marginBottom: '4px' }}>
-                            {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
-                          </div>
-                          <div style={{ color: '#4a4a4a', fontSize: '14px' }}>
-                            {Array.isArray(value) ? value.join(', ') : value}
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
+  const themeColors = {
+    primary: "#F71B35",
+    secondary: "#FEE140",
+    body: "#fafafa",
+    border: "#EBEBEB",
+    themeLight: "#E5E5E5",
+    themeDark: "#1a202c",
+    textDefault: "#888888",
+    textDark: "#222",
+    textLight: "#ceced0",
+    white: "#ffffff"
+  };
 
-                    {/* Timestamp */}
-                    <tr>
-                      <td style={{ padding: '20px 0 0', color: '#999999', fontSize: '12px' }}>
-                        Submitted at: {new Date(submissionTime).toLocaleString()}
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
+  return (
+    <div style={{
+      maxWidth: '600px',
+      margin: '0 auto',
+      padding: '1.25rem',
+      backgroundColor: themeColors.white,
+      fontFamily: 'Arial, sans-serif',
+      borderRadius: '8px',
+      border: '1px solid #e1e1e1',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+    }}>
+      <header style={{
+        textAlign: 'center',
+      }}>
+        <img
+          src="https://i.ibb.co/T1wrb9Z/logo.png"
+          alt="Gharsewa Logo"
+          style={{ width: '80px', height: 'auto' }}
+        />
+        <h1 style={{
+          color: themeColors.textDark,
+          fontSize: '1.5rem',
+        }}>
+          {isAdmin ? `New ${formLabel} Submission` : 'Thank You For Contacting'}
+        </h1>
+        {/* <p style={{
+          color: themeColors.textDefault,
+          fontSize: '0.9rem',
+          margin: '0.5rem 0 0'
+        }}>
+          {formattedDate}
+        </p> */}
+      </header>
 
-              {/* Footer */}
-              <tr>
-                <td style={{ padding: '20px 30px', backgroundColor: '#f8f9fa', borderTop: '1px solid #eaeaea' }}>
-                  <p style={{ margin: 0, fontSize: '12px', color: '#666666', textAlign: 'center' }}>
-                    This is an automated message from {process.env.SITE_NAME || 'your website'}
-                  </p>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-    </body>
-  </html>
-);
+      {/* Main Content */}
+      <div style={{ marginTop: '30px', backgroundColor: themeColors.body }}>
+        {isAdmin ? (
+          <>
+            <div style={{
+              borderRadius: '8px',
+              padding: '1.5rem',
+              boxShadow: `0 2px 8px ${themeColors.themeLight}`,
+              borderBottom: `2px solid ${themeColors.border}`,
+              borderTop: `2px solid ${themeColors.border}`
+            }}>
+              <h2 style={{
+                color: themeColors.primary,
+                fontSize: '1.25rem',
+                margin: '0 0 1rem'
+              }}>Submission Details</h2>
+
+              {Object.entries(submissionData).map(([key, value], index) => (
+                <div key={key} style={{
+                  marginBottom: index < Object.entries(submissionData).length - 1 ? '1rem' : '0',
+                  paddingBottom: index < Object.entries(submissionData).length - 1 ? '1rem' : '0',
+                  borderBottom: index < Object.entries(submissionData).length - 1 ? `1px solid ${themeColors.border}` : 'none'
+                }}>
+                  <span style={{
+                    display: 'block',
+                    color: themeColors.textDark,
+                    fontWeight: '500',
+                    textTransform: 'capitalize'
+                  }}>{key}:</span>
+                  <span style={{
+                    color: themeColors.textDefault,
+                    wordBreak: 'break-word'
+                  }}>{value}</span>
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <div style={{ textAlign: 'center' }}>
+            <div style={{
+              backgroundColor: themeColors.secondary,
+              borderRadius: '50%',
+              width: '80px',
+              height: '80px',
+              margin: '0 auto 1.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={themeColors.textDark} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <h2 style={{
+              color: themeColors.textDark,
+              fontSize: '1.5rem',
+              margin: '0 0 1rem'
+            }}>We've Received Your Message</h2>
+            <p style={{ color: themeColors.textDefault }}>
+              Thank you <strong>{submissionData.name}</strong> for reaching out through our {formName} form.
+              We'll review your message and get back to you within 24-48 hours.
+            </p>
+          </div>
+        )}
+      </div>
+
+      <footer style={{
+        textAlign: 'center',
+        fontSize: '14px',
+        color: '#555',
+        borderTop: '1px solid #e1e1e1',
+        padding: '15px',
+        marginTop: '30px',
+        backgroundColor: '#f9f9f9',
+        borderRadius: '0 0 8px 8px'
+      }}>
+        <p style={{ margin: '0', fontSize: '15px' }}>
+          {
+            isAdmin ?
+              'Best regards,' :
+              'Best regards,'
+          }
+        </p>
+        <p style={{ margin: '5px 0 0 0', fontSize: '16px', fontWeight: 'bold', color: themeColors.primary }}>
+          <strong>
+            {
+              notifyEmailConfig.footer_name
+            }
+          </strong>
+        </p>
+      </footer>
+    </div>
+  );
+};

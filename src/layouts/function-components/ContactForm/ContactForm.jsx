@@ -6,6 +6,41 @@ import { markdownify } from '@/lib/utils/textConverter';
 import { FaCheckCircle } from 'react-icons/fa';
 import validateForm from './validateForm';
 
+const FORM_NAME = 'contact';
+const FORM_LABEL = 'Contact';
+
+const handleSubmitNotification = async (data) => {
+  try {
+    const response = await fetch('/api/netlify-form-submission', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+
+    console.log(response);
+    console.log("hello");
+
+    return;
+
+    if (response.ok) {
+      setInfo('Message sent successfully!');
+      setName('');
+      setEmail('');
+      setMessage('');
+      setTimeout(() => {
+        setInfo('');
+        setLoading(false);
+      }, 2000);
+    } else {
+      setError('Something went wrong. Please try again.');
+      setLoading(false);
+    }
+  } catch (error) {
+    console.log(error);
+    setError('Something went wrong. Please try again.');
+    setLoading(false);
+  }
+}
+
 const ContactForm = ({ content }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -18,12 +53,30 @@ const ContactForm = ({ content }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const submissionData = {
+      name,
+      email,
+      message,
+    }
+    const submissionDate = new Date().toISOString();
+
+    const notiData = {
+      submissionData,
+      submissionDate,
+      formName: FORM_NAME,
+      formLabel: FORM_LABEL,
+    }
+
+    await handleSubmitNotification(notiData);
+    return;
+
     setLoading(true);
     setError('');
     setInfo('');
 
     const formData = new FormData();
-    formData.append('form-name', 'contact');
+    formData.append('form-name', FORM_NAME);
     formData.append('name', name);
     formData.append('email', email);
     formData.append('message', message);
@@ -68,9 +121,9 @@ const ContactForm = ({ content }) => {
         onSubmit={handleSubmit}
         className="left flex flex-col gap-6 p-6 bg-white rounded-md border border-gray-300 flex-grow"
         method="post"
-        name="contact"
+        name={FORM_NAME}
       >
-        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="form-name" value={FORM_NAME} />
         <div className="title flex flex-col gap-2">
           <h1 className="text-gray-700 font-sans text-2xl font-medium text-center">Contact Me</h1>
           <div className="line border-t-2 border-primary w-12 mx-auto"></div>

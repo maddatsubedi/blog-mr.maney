@@ -11,6 +11,10 @@
     "logo_text": "Mr.Maney"
   },
 
+  "server_config": {
+    "mail_domain": "maddat.online"
+  },
+
   "settings": {
     "pagination": 6,
     "summary_length": 100,
