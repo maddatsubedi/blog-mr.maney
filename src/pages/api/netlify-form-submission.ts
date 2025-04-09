@@ -29,6 +29,8 @@ function isValidSignature(signature: string, rawBody: Buffer, secret: string): b
  */
 export const POST: APIRoute = async ({ request }) => {
 
+  console.log('Received request:', request.method, request.url);
+
   if (request.method !== 'POST') {
     return new Response('Method Not Allowed', { status: 405 });
   }
