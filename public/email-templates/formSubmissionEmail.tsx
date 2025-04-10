@@ -1,50 +1,16 @@
+import type { Contact } from '@/config/types';
+import type { NotiData, Receiver } from '@/pages/api/netlify-form-submission';
 import React from 'react';
 
-type SubmissionData = {
-  name: string;
-  email: string;
-  message: string;
-};
-
-export type NotifyConfig = {
-  adminNotifyEnabled: boolean;
-  userNotifyEnabled: boolean;
-}
-
-export type NotiData = {
-  submissionData: SubmissionData;
-  submissionDate: string;
-  formName: string;
-  formLabel: string;
-  notifyConfig: NotifyConfig;
-};
-
-export type NotifyEmailConfig = {
-  header: {
-    text: string
-  },
-  description: {
-    text: string
-  },
-  note: {
-    text: string
-  },
-  footer: {
-    text: string;
-    name: string;
-  }
-}
-
-export type Receiver = 'user' | 'admin';
-
 export const FormSubmissionTemplate = (
-  { notiData }: { notiData: NotiData },
-  notifyEmailConfig: NotifyEmailConfig,
+  notiData: NotiData,
+  contactConfig: Contact,
   receiver: Receiver
 ) => {
   const { submissionData, submissionDate, formName, formLabel } = notiData;
   const formattedDate = new Date(submissionDate).toLocaleString();
   const isAdmin = receiver === 'admin';
+  const notifyEmailConfig = contactConfig?.noti_config?.notify_email_config;
 
   const themeColors = {
     primary: "#F71B35",

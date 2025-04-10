@@ -12,8 +12,8 @@ const FORM_LABEL = 'Contact';
 
 const handleSubmitNotification = async (data) => {
 
-  const userNotifyEnabled = data.notifyConfig.userNotifyEnabled;
-  const adminNotifyEnabled = data.notifyConfig.adminNotifyEnabled;
+  const userNotifyEnabled = data.reqNotifyConfig.user;
+  const adminNotifyEnabled = data.reqNotifyConfig.admin;
 
   if (!userNotifyEnabled && !adminNotifyEnabled) {
     return {
@@ -24,24 +24,15 @@ const handleSubmitNotification = async (data) => {
     }
   }
 
-  let submitNotificationResponse = null;
-
   try {
     const response = await fetch('/api/netlify-form-submission', {
       method: 'POST',
       body: JSON.stringify(data),
     });
 
-    try {
-      submitNotificationResponse = await response.json();
-    } catch (error) {
-      submitNotificationResponse = false;
-    }
-
-    console.log(submitNotificationResponse);
+    const submitNotificationResponse = await response.json().catch(() => null);
 
     if (response.ok) {
-      // console.log('Notification sent successfully!');
       return {
         success: true,
         message: 'Notification sent successfully!',
@@ -50,7 +41,6 @@ const handleSubmitNotification = async (data) => {
         }
       }
     } else {
-      // console.log('Failed to send notification:', response.statusText);
       return {
         success: false,
         errorCode: "API:NOTIFICATION_HANDLER_ERROR",
@@ -62,15 +52,11 @@ const handleSubmitNotification = async (data) => {
       }
     }
   } catch (error) {
-    // console.log('Error sending notification:', error);
     return {
       success: false,
       message: 'Error sending notification',
       errorCode: "EXCEPTION:NOTIFICATION_HANDLER_ERROR",
       error: error,
-      data: {
-        response: submitNotificationResponse,
-      }
     }
   }
 }
@@ -120,9 +106,9 @@ const ContactForm = ({ content }) => {
       submissionDate,
       formName: FORM_NAME,
       formLabel: FORM_LABEL,
-      notifyConfig: {
-        userNotifyEnabled,
-        adminNotifyEnabled,
+      reqNotifyConfig: {
+        user: userNotifyEnabled,
+        admin: adminNotifyEnabled,
       }
     }
 

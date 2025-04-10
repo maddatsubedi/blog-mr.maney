@@ -3,32 +3,67 @@ import jwt from 'jsonwebtoken';
 import crypto from 'node:crypto';
 import axios from 'axios';
 import { Resend } from 'resend';
-import { FormSubmissionTemplate, type NotiData, type NotifyConfig, type NotifyEmailConfig, type Receiver } from 'public/email-templates/formSubmissionEmail';
-import contact from "src/config/contact.json";
+import { FormSubmissionTemplate } from 'public/email-templates/formSubmissionEmail';
+import _contact from "src/config/contact.json";
 import config from "src/config/config.json";
+import type { Contact, ContactFormConfig, Notify, NotifyEmailConfig } from 'src/config/types';
+
+const contactConfig = _contact as Contact;
 
 export const prerender = false;
 
 const resendApiKey = import.meta.env.RESEND_API_KEY;
 const resend = new Resend(resendApiKey);
 
+export type SubmissionData = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+export type NotiData = {
+  submissionData: SubmissionData;
+  submissionDate: string;
+  formName: string;
+  formLabel: string;
+  reqNotifyConfig: Notify;
+};
+
+export type Receiver = 'user' | 'admin';
+
 const sendMail = async (
-  fromEmail: string,
-  notify_email: string,
   notiData: NotiData,
-  notifyEmailConfig: NotifyEmailConfig,
+  contactConfig: Contact,
   receiver: Receiver
 ) => {
 
+  const notiConfig = contactConfig?.noti_config;
+  const notifyFrom = notiConfig?.notify_from;
+
+  const siteConfig = config?.server_config;
+  const mailDomain = siteConfig?.mail_domain;
+
+  const displayName = notifyFrom?.display_name || 'MrManey';
+  const localPart = notifyFrom?.local_part || 'maney';
+  const fromEmail = `${displayName} <${localPart}@${mailDomain}>`;
+
+  const contactFormConfig: ContactFormConfig = contactConfig?.contact_form;
+  const notify_email = contactFormConfig?.notify_email;
+
+  const userEmail = notiData.submissionData.email;
+  const isAdmin = receiver === 'admin';
+
+  const toEmail = isAdmin ? notify_email : userEmail;
+
   let emailResponse;
-  
+
   try {
 
     const emailPayload = {
       from: fromEmail,
-      to: notify_email,
+      to: toEmail,
       subject: 'New Form Submission Received',
-      react: FormSubmissionTemplate({ notiData }, notifyEmailConfig, receiver),
+      react: FormSubmissionTemplate(notiData, contactConfig, receiver),
     };
 
     emailResponse = await resend.emails.send(emailPayload);
@@ -68,7 +103,26 @@ const sendMail = async (
   };
 }
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, clientAddress }) => {
+
+  console.log(clientAddress);
+
+  return new Response(
+    JSON.stringify(
+      {
+        success: false,
+        message: 'Not implemented',
+        errorCode: "NOT_IMPLEMENTED",
+        error: 'Not implemented',
+      }
+    ),
+    {
+      status: 501,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
 
   try {
 
@@ -76,9 +130,10 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response('Method Not Allowed', { status: 405 });
     }
 
-    const configNotifyConfig = contact?.noti_config?.notify;
-    const userNotifyEnabled = configNotifyConfig?.user;
-    const adminNotifyEnabled = configNotifyConfig?.admin;
+    const notify_email = contactConfig?.contact_form?.notify_email;
+
+    const userNotifyEnabled = contactConfig?.noti_config?.notify?.user;
+    const adminNotifyEnabled = contactConfig?.noti_config?.notify?.admin;
 
     if (!userNotifyEnabled && !adminNotifyEnabled) {
       console.log('Notification is disabled in contact.json');
@@ -123,8 +178,6 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const reqNotifyConfig = notiData.notifyConfig;
-
     if (!notiData || !notiData.submissionData) {
       console.log('Invalid form submission data:', notiData);
       return new Response(
@@ -164,9 +217,6 @@ export const POST: APIRoute = async ({ request }) => {
         }
       );
     }
-
-    const contactFormData = contact?.contact_form;
-    const notify_email = contactFormData?.notify_email;
 
     if (!notify_email) {
       console.log('Missing notify_email in contact.json');
@@ -211,29 +261,6 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const notiConfig = contact?.noti_config;
-    const notifyFrom = notiConfig?.notify_from;
-
-    const notifyEmailConfig = notiConfig?.notify_email_config || {
-      header: {
-        text: "Thank You For Contacting"
-      },
-      description: {
-        text: "Your message has been received. I will get back to you soon."
-      },
-      note: {
-        "text": "If you did not initiate this request, please ignore this email."
-      },
-      footer: {
-        text: "Best regards,",
-        name: "Mr Maney"
-      }
-    };
-
-    const displayName = notifyFrom?.display_name || 'MrManey';
-    const localPart = notifyFrom?.local_part || 'maney';
-    const fromEmail = `${displayName} <${localPart}@${mailDomain}>`;
-
     const userEmail = notiData.submissionData.email;
 
     const adminUserSame = notify_email === userEmail;
@@ -241,27 +268,24 @@ export const POST: APIRoute = async ({ request }) => {
     let adminEmailResponse: any = null;
     if (adminNotifyEnabled) {
       adminEmailResponse = await sendMail(
-        fromEmail,
-        notify_email,
         notiData,
-        notifyEmailConfig,
+        contactConfig,
         'admin'
       )
     }
 
     let userEmailResponse: any = null;
-    if (userNotifyEnabled && !adminUserSame) {
+    const userSendCondition = userNotifyEnabled && (!adminUserSame || !adminNotifyEnabled);
+    if (userSendCondition) {
       userEmailResponse = await sendMail(
-        fromEmail,
-        userEmail,
         notiData,
-        notifyEmailConfig,
+        contactConfig,
         'user'
       )
     }
 
-    const adminSuccess = adminNotifyEnabled ? adminEmailResponse.success : null;
-    const userSuccess = userNotifyEnabled ? adminUserSame ? adminEmailResponse?.success : userEmailResponse.success : null;
+    const adminSuccess = adminNotifyEnabled ? adminEmailResponse?.success : null;
+    const userSuccess = userSendCondition ? userEmailResponse?.success : null;
 
     if (adminSuccess === false && userSuccess === false) {
       console.log("======= Error sending email =======");
@@ -271,7 +295,16 @@ export const POST: APIRoute = async ({ request }) => {
       console.log("===================================");
       return new Response(
         JSON.stringify(
-          adminEmailResponse
+          {
+            success: false,
+            message: 'Error sending email',
+            errorCode: "API:RESEND_API_ERROR",
+            error: 'Error sending email',
+            data: {
+              adminEmailResponse,
+              userEmailResponse,
+            }
+          }
         ),
         {
           status: 500,
@@ -297,17 +330,15 @@ export const POST: APIRoute = async ({ request }) => {
       JSON.stringify(
         {
           success: true,
+          message: message,
           adminSuccess,
           userSuccess,
-          message: message,
           data: {
-            notifyConfig: {
-              configNotifyConfig,
-              reqNotifyConfig,
-            },
-            adminEmailResponse,
-            userEmailResponse: adminUserSame ? adminEmailResponse : userEmailResponse,
+            notiData,
+            contactConfig,
             adminUserSame,
+            adminEmailResponse,
+            userEmailResponse,
           }
         }
       ),

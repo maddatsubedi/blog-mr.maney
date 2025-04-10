@@ -55,11 +55,11 @@ skills:
     image: /images/skills/image.jpeg
     skills:
       - title: Content
-        percentage: 88%
+        percentage: 88
       - title: Gaming
-        percentage: 73%
+        percentage: 73
       - title: Editing
-        percentage: 80%
+        percentage: 80
 explore_categories:
   title: Explore Categories
 profile_data:

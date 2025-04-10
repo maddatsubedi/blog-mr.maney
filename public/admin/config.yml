@@ -98,7 +98,7 @@ collections:
                     widget: "list"
                     fields:
                       - { label: "Title", name: "title", widget: "string" }
-                      - { label: "Percentage", name: "percentage", widget: "string" }
+                      - { label: "Value (in %)", name: "percentage", widget: "number" }
           - label: "Explore Categories"
             name: "explore_categories"
             widget: "object"
