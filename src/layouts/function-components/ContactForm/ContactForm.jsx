@@ -63,7 +63,6 @@ const generateFormAuthToken = async (payload) => {
       }
     };
   } catch (error) {
-    console.error('Error generating form token:', error);
     return {
       success: false,
       errorCode: "EXCEPTION:FORM_TOKEN_GENERATION_ERROR",
@@ -215,10 +214,6 @@ const ContactForm = ({ content }) => {
         admin: adminNotifyEnabled,
       }
     }
-
-    setLoading(false);
-    await handleSubmitNotification(notiData);
-    return;
 
     const formData = new FormData();
     formData.append('form-name', FORM_NAME);

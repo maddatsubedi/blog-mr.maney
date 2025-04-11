@@ -50,7 +50,7 @@ export const readCategoryImagesWithFallback = async (): Promise<{ [key: string]:
     // console.log(updatedImageMap);
     return updatedImageMap;
   } catch (error) {
-    console.error('Error reading category images with fallback:', error);
+    console.log('Error reading category images with fallback:', error);
     return {};
   }
 };

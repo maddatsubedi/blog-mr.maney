@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET as string;
+const JWT_SECRET = import.meta.env.JWT_SECRET;
 const JWT_FORM_KEY = import.meta.env.PUBLIC_JWT_CONTACT_FORM_KEY;
 
 export interface ContactFormTokenPayload {
@@ -42,7 +42,7 @@ export const generateFormToken = (tokenPayload: ContactFormTokenPayload, expires
       }
     }
   } catch (error) {
-    console.error("Error generating JWT token:", error);
+    console.log("Error generating JWT token:", error);
     return {
       success: false,
       error,
@@ -100,7 +100,7 @@ export const verifyFormToken = (token: string) => {
     }
 
   } catch (error) {
-    // console.error("Error verifying JWT token:", error);
+    console.error("Error verifying JWT token:", error);
     return {
       success: false,
       error: error,
