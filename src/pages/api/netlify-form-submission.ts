@@ -1,7 +1,4 @@
 import type { APIRoute } from 'astro';
-import jwt from 'jsonwebtoken';
-import crypto from 'node:crypto';
-import axios from 'axios';
 import { Resend } from 'resend';
 import { FormSubmissionTemplate } from 'public/email-templates/formSubmissionEmail';
 import _contact from "src/config/contact.json";

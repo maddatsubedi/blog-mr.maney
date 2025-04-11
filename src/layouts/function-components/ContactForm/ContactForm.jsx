@@ -22,6 +22,8 @@ const generateFormAuthToken = async (payload) => {
     });
 
     if (!response.ok) {
+      console.log(response);
+      console.log(await response.json());
       return {
         success: false,
         errorCode: "API:FORM_TOKEN_GENERATION_ERROR",
@@ -215,6 +217,10 @@ const ContactForm = ({ content }) => {
         admin: adminNotifyEnabled,
       }
     }
+
+    setLoading(false);
+    await handleSubmitNotification(notiData);
+    return;
 
     const formData = new FormData();
     formData.append('form-name', FORM_NAME);
