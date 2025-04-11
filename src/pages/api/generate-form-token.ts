@@ -28,6 +28,7 @@ export const POST: APIRoute = async ({ request }) => {
     const contentType = request.headers.get('Content-Type');
 
     if (!contentType || !contentType.includes('application/json')) {
+      console.log('Invalid Content-Type:', contentType);
       return new Response(
         JSON.stringify({
           success: false,
@@ -48,6 +49,7 @@ export const POST: APIRoute = async ({ request }) => {
     const { formKey } = data;
 
     if (!formKey) {
+      console.log('Form Key is required:', data);
       return new Response(
         JSON.stringify({
           success: false,
@@ -67,6 +69,8 @@ export const POST: APIRoute = async ({ request }) => {
     const tokenRes = generateFormToken(data, JWT_TOKEN_EXPIRATION);
 
     if (!tokenRes.success) {
+      console.log('Token generation failed');
+      console.log(tokenRes);
       return new Response(
         JSON.stringify({
           success: false,
@@ -89,6 +93,7 @@ export const POST: APIRoute = async ({ request }) => {
     const token = tokenRes.data?.token;
 
     if (!token) {
+      console.log('Token is missing:', tokenRes);
       return new Response(
         JSON.stringify({
           success: false,
