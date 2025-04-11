@@ -267,3 +267,54 @@ collections:
             fields:
               - { label: "Enable", name: "enable", widget: "boolean" }
               - { label: "Notify Email (for form submissions)", name: "notify_email", widget: "string" }
+          - label: "Email Notification Config"
+            name: "noti_config"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Notify"
+                name: "notify"
+                widget: "object"
+                fields:
+                  - { label: "Admin", name: "admin", widget: "boolean" }
+                  - { label: "User", name: "user", widget: "boolean" }
+              - label: "Email Config"
+                name: "notify_email_config"
+                widget: "object"
+                fields:
+                  - label: "Notifier Email Handle (<display_name> <local_part>@maddat.online)"
+                    name: "notify_from"
+                    widget: "object"
+                    fields:
+                      - { label: "Display Name", name: "display_name", widget: "string" }
+                      - { label: "Local Part", name: "local_part", widget: "string" }
+                  - label: "Subject"
+                    name: "subject"
+                    widget: "object"
+                    fields:
+                      - { label: "Text", name: "text", widget: "string" }
+                  - label: "Email Body"
+                    name: "email_content"
+                    widget: "object"
+                    fields:
+                      - label: "Header"
+                        name: "header"
+                        widget: "object"
+                        fields:
+                          - { label: "Text", name: "text", widget: "string" }
+                      - label: "Description"
+                        name: "description"
+                        widget: "object"
+                        fields:
+                          - { label: "Text", name: "text", widget: "string" }
+                      - label: "Note"
+                        name: "note"
+                        widget: "object"
+                        fields:
+                          - { label: "Text", name: "text", widget: "string" }
+                      - label: "Footer"
+                        name: "footer"
+                        widget: "object"
+                        fields:
+                          - { label: "Footer Note", name: "text", widget: "string" }
+                          - { label: "Footer Name (Highlighted)", name: "name", widget: "string" }

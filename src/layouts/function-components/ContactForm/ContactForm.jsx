@@ -9,11 +9,74 @@ import contact from 'src/config/contact.json';
 
 const FORM_NAME = 'contact';
 const FORM_LABEL = 'Contact';
+const JWT_FORM_KEY = import.meta.env.PUBLIC_JWT_CONTACT_FORM_KEY;
 
-const handleSubmitNotification = async (data) => {
+const generateFormAuthToken = async (payload) => {
+  try {
+    const response = await fetch('/api/generate-form-token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
 
-  const userNotifyEnabled = data.reqNotifyConfig.user;
-  const adminNotifyEnabled = data.reqNotifyConfig.admin;
+    if (!response.ok) {
+      return {
+        success: false,
+        errorCode: "API:FORM_TOKEN_GENERATION_ERROR",
+        error: 'Failed to generate security token',
+        message: 'Failed to generate security token',
+      };
+    }
+
+    const data = await response.json();
+
+    if (!data.success) {
+      return {
+        success: false,
+        errorCode: "API:FORM_TOKEN_GENERATION_ERROR",
+        error: "Failed to generate security token",
+        message: 'Failed to generate security token',
+        data: {
+          response: data,
+        }
+      };
+    }
+
+    const { token } = data.data;
+
+    if (!token) {
+      return {
+        success: false,
+        errorCode: "API:FORM_TOKEN_GENERATION_ERROR",
+        error: 'Token not found in response',
+        message: 'Failed to generate security token',
+      };
+    }
+
+    return {
+      success: true,
+      message: 'Token generated successfully',
+      data: {
+        token,
+      }
+    };
+  } catch (error) {
+    console.error('Error generating form token:', error);
+    return {
+      success: false,
+      errorCode: "EXCEPTION:FORM_TOKEN_GENERATION_ERROR",
+      error: error,
+      message: 'Failed to generate security token',
+    };
+  }
+};
+
+const handleSubmitNotification = async (notiData) => {
+
+  const userNotifyEnabled = notiData.reqNotifyConfig.user;
+  const adminNotifyEnabled = notiData.reqNotifyConfig.admin;
 
   if (!userNotifyEnabled && !adminNotifyEnabled) {
     return {
@@ -24,23 +87,43 @@ const handleSubmitNotification = async (data) => {
     }
   }
 
+  const tokenPayload = {
+    formKey: JWT_FORM_KEY,
+  }
+  const tokenRes = await generateFormAuthToken(tokenPayload);
+
+  if (!tokenRes.success) {
+    return {
+      success: false,
+      errorCode: "AUTH:TOKEN_GENERATION_FAILED",
+      error: 'Failed to generate security token'
+    };
+  }
+
+  const { token } = tokenRes.data;
+
+  if (!token) {
+    return {
+      success: false,
+      errorCode: "AUTH:TOKEN_GENERATION_FAILED",
+      error: 'Token not found in response',
+      message: 'Failed to generate security token',
+    };
+  }
+
   try {
     const response = await fetch('/api/netlify-form-submission', {
       method: 'POST',
-      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(notiData),
     });
 
     const submitNotificationResponse = await response.json().catch(() => null);
 
-    if (response.ok) {
-      return {
-        success: true,
-        message: 'Notification sent successfully!',
-        data: {
-          response: submitNotificationResponse,
-        }
-      }
-    } else {
+    if (!response.ok) {
       return {
         success: false,
         errorCode: "API:NOTIFICATION_HANDLER_ERROR",
@@ -49,6 +132,27 @@ const handleSubmitNotification = async (data) => {
         data: {
           response: submitNotificationResponse,
         }
+
+      }
+    }
+
+    if (!submitNotificationResponse.success) {
+      return {
+        success: false,
+        errorCode: "API:NOTIFICATION_HANDLER_ERROR",
+        error: submitNotificationResponse.error,
+        message: 'Failed to send notification',
+        data: {
+          response: submitNotificationResponse,
+        }
+      }
+    }
+
+    return {
+      success: true,
+      message: 'Notification sent successfully!',
+      data: {
+        response: submitNotificationResponse,
       }
     }
   } catch (error) {

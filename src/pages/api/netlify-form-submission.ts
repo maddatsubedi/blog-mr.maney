@@ -7,13 +7,18 @@ import { FormSubmissionTemplate } from 'public/email-templates/formSubmissionEma
 import _contact from "src/config/contact.json";
 import config from "src/config/config.json";
 import type { Contact, ContactFormConfig, Notify, NotifyEmailConfig } from 'src/config/types';
+import { verifyFormToken } from '@/lib/utils/jwt';
 
 const contactConfig = _contact as Contact;
 
 export const prerender = false;
 
+const JWT_FORM_KEY = import.meta.env.PUBLIC_JWT_CONTACT_FORM_KEY;
 const resendApiKey = import.meta.env.RESEND_API_KEY;
+
 const resend = new Resend(resendApiKey);
+
+const authHeaderRegex = /^Bearer\s+(.+)$/;
 
 export type SubmissionData = {
   name: string;
@@ -38,7 +43,9 @@ const sendMail = async (
 ) => {
 
   const notiConfig = contactConfig?.noti_config;
-  const notifyFrom = notiConfig?.notify_from;
+  const notifyFrom = notiConfig?.notify_email_config?.notify_from;
+
+  const emailSubject = notiConfig?.notify_email_config?.subject?.text || 'Thank You For Reaching Out';
 
   const siteConfig = config?.server_config;
   const mailDomain = siteConfig?.mail_domain;
@@ -55,6 +62,8 @@ const sendMail = async (
 
   const toEmail = isAdmin ? notify_email : userEmail;
 
+  const subject = isAdmin ? "New Form Submission Received" : emailSubject;
+
   let emailResponse;
 
   try {
@@ -62,7 +71,7 @@ const sendMail = async (
     const emailPayload = {
       from: fromEmail,
       to: toEmail,
-      subject: 'New Form Submission Received',
+      subject: subject,
       react: FormSubmissionTemplate(notiData, contactConfig, receiver),
     };
 
@@ -103,31 +112,131 @@ const sendMail = async (
   };
 }
 
-export const POST: APIRoute = async ({ request, clientAddress }) => {
-
-  console.log(clientAddress);
-
-  return new Response(
-    JSON.stringify(
-      {
-        success: false,
-        message: 'Not implemented',
-        errorCode: "NOT_IMPLEMENTED",
-        error: 'Not implemented',
-      }
-    ),
-    {
-      status: 501,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  );
+export const POST: APIRoute = async ({ request }) => {
 
   try {
 
     if (request.method !== 'POST') {
-      return new Response('Method Not Allowed', { status: 405 });
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Method Not Allowed',
+          message: 'Method Not Allowed',
+          errorCode: 'VALIDATION:METHOD_NOT_ALLOWED',
+        }),
+        {
+          status: 405,
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }
+      );
+    }
+
+    const contentType = request.headers.get('Content-Type');
+
+    if (!contentType || !contentType.includes('application/json')) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Invalid Content-Type',
+          message: 'Invalid Content-Type',
+          errorCode: 'VALIDATION:INVALID_CONTENT_TYPE',
+        }),
+        {
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }
+      );
+    }
+
+    const authHeader = request.headers.get('Authorization');
+    const authToken = authHeader?.match(authHeaderRegex)?.[1];
+
+    if (!authToken) {
+      console.log('Missing auth token');
+      return new Response(
+        JSON.stringify(
+          {
+            success: false,
+            message: 'Missing auth token',
+            errorCode: "AUTH:MISSING_AUTH_TOKEN",
+            error: 'Missing auth token',
+          }
+        ),
+        {
+          status: 401,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+    }
+
+    const verifyTokenRes = verifyFormToken(authToken);
+
+    if (!verifyTokenRes.success) {
+      console.log('Invalid auth token:', verifyTokenRes.error);
+      return new Response(
+        JSON.stringify(
+          {
+            success: false,
+            message: 'Invalid auth token',
+            errorCode: "AUTH:INVALID_AUTH_TOKEN",
+            error: 'Invalid auth token',
+          }
+        ),
+        {
+          status: 401,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+    }
+
+    const decoded = verifyTokenRes.data?.decoded;
+    if (!decoded || !decoded.data || !decoded.data.formKey) {
+      console.log('Invalid token data:', decoded);
+      return new Response(
+        JSON.stringify(
+          {
+            success: false,
+            message: 'Invalid token data',
+            errorCode: "VALIDATION:INVALID_TOKEN_DATA",
+            error: 'Invalid token data',
+          }
+        ),
+        {
+          status: 401,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+    }
+
+    const { formKey } = decoded.data;
+    if (formKey !== JWT_FORM_KEY) {
+      console.log('Invalid form key:', formKey);
+      return new Response(
+        JSON.stringify(
+          {
+            success: false,
+            message: 'Invalid form key',
+            errorCode: "VALIDATION:INVALID_FORM_KEY",
+            error: 'Invalid form key',
+          }
+        ),
+        {
+          status: 401,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
     }
 
     const notify_email = contactConfig?.contact_form?.notify_email;

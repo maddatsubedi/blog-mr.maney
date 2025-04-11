@@ -11,6 +11,7 @@ export const FormSubmissionTemplate = (
   const formattedDate = new Date(submissionDate).toLocaleString();
   const isAdmin = receiver === 'admin';
   const notifyEmailConfig = contactConfig?.noti_config?.notify_email_config;
+  const emailContent = notifyEmailConfig?.email_content;
 
   const themeColors = {
     primary: "#F71B35",
@@ -54,7 +55,7 @@ export const FormSubmissionTemplate = (
           {
             isAdmin ?
               `New ${formLabel} Submission` :
-              notifyEmailConfig.header.text || "Thank You For Contacting"
+              emailContent.header.text || "Thank You For Contacting"
           }
         </h1>
         <hr style={{
@@ -98,7 +99,7 @@ export const FormSubmissionTemplate = (
         ) : (
           <>
             {
-              notifyEmailConfig.description.text || "Your message has been received. I will get back to you soon."
+              emailContent.description.text || "Your message has been received. I will get back to you soon."
             }
           </>
         )}
@@ -159,7 +160,7 @@ export const FormSubmissionTemplate = (
         ) : (
           <>
             {
-              notifyEmailConfig.note.text || "If you did not initiate this request, please ignore this email."
+              emailContent.note.text || "If you did not initiate this request, please ignore this email."
             }
           </>
         )}
@@ -179,13 +180,13 @@ export const FormSubmissionTemplate = (
           {
             isAdmin ?
               'Best regards,' :
-              notifyEmailConfig.footer.text || "Best regards,"
+              emailContent.footer.text || "Best regards,"
           }
         </p>
         <p style={{ margin: '5px 0 0 0', fontSize: '16px', fontWeight: 'bold', color: themeColors.primary }}>
           <strong>
             {
-              notifyEmailConfig.footer.name || "Mr Maney"
+              emailContent.footer.name || "Mr Maney"
             }
           </strong>
         </p>

@@ -14,7 +14,7 @@ export type NotifyFrom = {
     local_part: string
 }
 
-export type NotifyEmailConfig = {
+export type EmailContent = {
     header: {
         text: string
     },
@@ -30,9 +30,16 @@ export type NotifyEmailConfig = {
     }
 }
 
+export type NotifyEmailConfig = {
+    notify_from: NotifyFrom,
+    subject: {
+        text: string
+    },
+    email_content: EmailContent,
+}
+
 export type NotiConfig = {
     notify: Notify,
-    notify_from: NotifyFrom,
     notify_email_config: NotifyEmailConfig
 }
 
