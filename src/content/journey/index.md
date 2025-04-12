@@ -7,7 +7,8 @@ content:
     - date: v1.0.4 (January 19,2020)
       items:
         - badge:
-            text: changed
+            icon: "fa-solid fa-trophy"
+            text: New Achievement
             color: "#3a9cff"
           description: |-
             ![Hi](/images/cms/ronb-post.jpg "HO")
@@ -17,7 +18,8 @@ content:
             - Send emails and updates about Conclude, including news and requests for agreement to amended [legal documents](#!) such
             - Perform any other function that we believe in [proper functioning](#!) of our Site.
         - badge:
-            text: added
+            icon: "fa-solid fa-star"
+            text: New Project
             color: green
           description: |- 
             - Including about Conclude [Site or respond to](#!) inquiries.
@@ -28,6 +30,7 @@ content:
     - date: v1.0.3 (October 23,2019)
       items:
         - badge:
+            icon: null
             text: remove
             color: blue
           description: |-
@@ -37,6 +40,7 @@ content:
             - Send emails and updates about Conclude, including news and requests for agreement to amended [legal documents](#!) such
             - Perform any other function that we believe in [proper functioning](#!) of our Site.
         - badge:
+            icon: null
             text: depreciate
             color: "#ff3158"
           description: |-
@@ -46,6 +50,7 @@ content:
     - date: v1.0.2 (May 19,2019)
       items:
         - badge:
+            icon: null
             text: security
             color: "#9c275f"
           description: |-
@@ -55,6 +60,7 @@ content:
             - Send emails and updates about Conclude, including news and requests for agreement to amended [legal documents](#!) such
             - Perform any other function that we believe in [proper functioning](#!) of our Site.
         - badge:
+            icon: null
             text: added
             color: green
           description: |-

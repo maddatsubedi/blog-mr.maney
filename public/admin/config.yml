@@ -208,6 +208,7 @@ collections:
                     name: "badge"
                     widget: "object"
                     fields:
+                      - { label: "Icon", name: "icon", widget: "string" }
                       - { label: "Text", name: "text", widget: "string" }
                       - { label: "Color", name: "color", widget: "string" }
                   - Label: "Description"
