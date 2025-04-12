@@ -204,13 +204,13 @@ collections:
                 widget: "list"
                 summary: "{{fields.badge.text}}"
                 fields:
-                  - Label: "Badge"
+                  - label: "Badge"
                     name: "badge"
                     widget: "object"
                     fields:
-                      - { label: "Icon", name: "icon", widget: "string" }
+                      - { label: "Icon (Use full class names from fontawesome.com/icons)", name: "icon", widget: "string", required: false }
                       - { label: "Text", name: "text", widget: "string" }
-                      - { label: "Color", name: "color", widget: "string" }
+                      - { label: "Color", name: "color", widget: "string", required: false}
                   - Label: "Description"
                     name: "description"
                     widget: "markdown"

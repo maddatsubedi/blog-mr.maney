@@ -40,7 +40,7 @@ export default defineConfig({
         "@/shortcodes/Blockquote",
         "@/shortcodes/Badge",
         "@/shortcodes/ContentBlock",
-        "@/shortcodes/Journey",
+        "@/shortcodes/JourneyCard",
         "@/shortcodes/Tab",
         "@/shortcodes/Tabs",
       ],
