@@ -196,11 +196,13 @@ collections:
             name: "content"
             widget: "list"
             collapsed: true
+            minimize_collapsed: true
             fields:
               - { label: "Date", name: "date", widget: "string" }
               - label: "Items"
                 name: "items"
                 widget: "list"
+                summary: "{{fields.badge.text}}"
                 fields:
                   - Label: "Badge"
                     name: "badge"

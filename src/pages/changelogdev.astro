@@ -44,7 +44,7 @@ const { page_data, content: changelogs } = changelog;
             return (
               <Changelog date={date} isLast={isLast}>
                 {items.map((item: any) => {
-                  const { badge, desc: description } = item;
+                  const { badge, description } = item;
                   return (
                     <>
                     <div class="flex flex-col gap-3">

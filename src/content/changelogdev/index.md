@@ -9,7 +9,7 @@ content:
         - badge:
             text: changed
             color: "#3a9cff"
-          desc: |-
+          description: |-
             - Enhance or improve [User experience](#!), our Site, or our Service.
             - Process transactions.
             - Send emails about our [Site or respond to](#!) inquiries.
@@ -18,7 +18,7 @@ content:
         - badge:
             text: added
             color: green
-          desc: |- 
+          description: |- 
             - Including about Conclude [Site or respond to](#!) inquiries.
             - Function that we believe in [proper functioning](#!) of our Site.
             - News and requests for agreement Process transactions.
@@ -29,7 +29,7 @@ content:
         - badge:
             text: remove
             color: blue
-          desc: |-
+          description: |-
             - Enhance or improve [User experience](#!), our Site, or our Service.
             - Process transactions.
             - Send emails about our [Site or respond to](#!) inquiries.
@@ -38,7 +38,7 @@ content:
         - badge:
             text: depreciate
             color: "#ff3158"
-          desc: |-
+          description: |-
             - Including about Conclude [Site or respond to](#!) inquiries.
             - Function that we believe in [proper functioning](#!) of our Site.
             - News and requests for agreement Process transactions.
@@ -47,7 +47,7 @@ content:
         - badge:
             text: security
             color: "#9c275f"
-          desc: |-
+          description: |-
             - Enhance or improve [User experience](#!), our Site, or our Service.
             - Process transactions.
             - Send emails about our [Site or respond to](#!) inquiries.
@@ -56,7 +56,7 @@ content:
         - badge:
             text: added
             color: green
-          desc: |-
+          description: |-
             - Including about Conclude [Site or respond to](#!) inquiries.
             - Function that we believe in [proper functioning](#!) of our Site.
             - News and requests for agreement Process transactions.
