@@ -552,8 +552,8 @@ select:invalid {
   }
 }
 
-//changelogs
-.changelogs {
+//journeys
+.journeys {
   .date-section {
     @apply relative;
     &::before {
@@ -562,27 +562,32 @@ select:invalid {
   }
 
   &-content {
-    // @apply relative;
-    // &::before {
-    //   @apply absolute -top-[38px] left-0 h-[18px] w-[18px] rounded-full border-4 border-primary bg-body content-[''] lg:-left-[49px] lg:top-0;
-    // }
-
-    p {
-      @apply m-0;
-    }
-
-    ul {
-      @apply list-disc pl-6 marker:text-dark m-0 flex flex-col gap-2;
-
-      + .changelogs-tag {
-        @apply mt-6;
+    .journeys-content-inner {
+      p {
+        @apply m-0;
       }
 
-      & > li {
-        @apply m-0 p-0;
+      img {
+        @apply my-3 mx-auto border-primary border-2 rounded-lg max-h-[350px] object-cover object-center;
+      }
 
-        span {
-          @apply text-primary;
+      ul {
+        @apply list-disc pl-6 marker:text-dark m-0 flex flex-col gap-2;
+
+        img {
+          @apply my-4;
+        }
+
+        + .journeys-tag {
+          @apply mt-6;
+        }
+
+        & > li {
+          @apply m-0 p-0;
+
+          span {
+            @apply text-primary;
+          }
         }
       }
     }

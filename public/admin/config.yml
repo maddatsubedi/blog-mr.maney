@@ -178,9 +178,9 @@ collections:
                   - { label: "Phone", name: "phone", widget: "string" }
                   - { label: "Location", name: "location", widget: "string" }
 
-      - name: "change_log"
-        label: "Change Log Page Content"
-        file: "src/content/changelogdev/index.md"
+      - name: "journey"
+        label: "Journey Page Content"
+        file: "src/content/journey/index.md"
         extension: "md"
         format: frontmatter
         fields:
@@ -263,7 +263,7 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "string" }
           - label: "Quick Links"
-            name: "quick-links"
+            name: "quick_links"
             widget: "list"
             # allow_add: false
             max: 2
@@ -281,7 +281,7 @@ collections:
                   - { label: "Label", name: "name", widget: "string" }
                   - { label: "URL", name: "url", widget: "string" }
           - label: "YT Subs Count"
-            name: "subs-count"
+            name: "subs_count"
             widget: "object"
             collapsed: true
             fields:

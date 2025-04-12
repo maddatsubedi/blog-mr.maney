@@ -1,7 +1,7 @@
 ---
 page_data:
-    title: Change Log
-    page_title: Change Log
+    title: My Journey
+    page_title: My Journey
 
 content:
     - date: v1.0.4 (January 19,2020)
@@ -10,6 +10,7 @@ content:
             text: changed
             color: "#3a9cff"
           description: |-
+            ![Hi](/images/cms/ronb-post.jpg "HO")
             - Enhance or improve [User experience](#!), our Site, or our Service.
             - Process transactions.
             - Send emails about our [Site or respond to](#!) inquiries.

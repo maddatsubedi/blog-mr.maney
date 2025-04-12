@@ -5,7 +5,7 @@
         "title": "Content Creator",
         "description": "Bringing you the best content on the internet"
     },
-    "quick-links": [
+    "quick_links": [
         {
             "name": "Home",
             "urls": [
@@ -24,7 +24,7 @@
             ]
         }
     ],
-    "subs-count": {
+    "subs_count": {
         "count": 266189,
         "yt-name": "Mr.Maney"
     },

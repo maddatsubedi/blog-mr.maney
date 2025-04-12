@@ -1,8 +1,8 @@
 import React from "react";
 
-const Changelog = ({ children, date, isLast }) => {
+const Journey = ({ children, date, isLast }) => {
   return (
-    <section className="section changelogs p-0">
+    <section className="section journeys p-0">
       <div className="container">
         <div className="row justify-center">
           <div className="lg:col-10">
@@ -11,7 +11,7 @@ const Changelog = ({ children, date, isLast }) => {
                 <h6 className="my-4 pl-7 text-lg lg:mt-0 lg:pl-0">{date}</h6>
               </div>
               <div className={`border-[#e9e9e9] lg:col-9 lg:border-l-2 ${isLast ? "" : "lg:pb-20"} lg:pl-10`}>
-                <div className="changelogs-content rounded-xl bg-white p-6 shadow-lg lg:p-10 flex flex-col gap-5">
+                <div className="journeys-content rounded-xl bg-white p-6 shadow-lg lg:p-10 flex flex-col gap-5">
                   {children}
                 </div>
               </div>
@@ -23,4 +23,4 @@ const Changelog = ({ children, date, isLast }) => {
   );
 };
 
-export default Changelog;
+export default Journey;
