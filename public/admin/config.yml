@@ -161,6 +161,7 @@ collections:
             widget: "object"
             collapsed: true
             fields:
+              - { label: "Title", name: "title", widget: "string" }
               - { label: "Page Title", name: "page_title", widget: "string" }
           
           - label: "Reach Me Section"
@@ -176,6 +177,40 @@ collections:
                   - { label: "Email", name: "email", widget: "string" }
                   - { label: "Phone", name: "phone", widget: "string" }
                   - { label: "Location", name: "location", widget: "string" }
+
+      - name: "change_log"
+        label: "Change Log Page Content"
+        file: "src/content/changelogdev/index.md"
+        extension: "md"
+        format: frontmatter
+        fields:
+          - label: "Page Data"
+            name: "page_data"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Page Title", name: "page_title", widget: "string" }
+          
+          - label: "Content"
+            name: "content"
+            widget: "list"
+            collapsed: true
+            fields:
+              - { label: "Date", name: "date", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - Label: "Badge"
+                    name: "badge"
+                    widget: "object"
+                    fields:
+                      - { label: "Text", name: "text", widget: "string" }
+                      - { label: "Color", name: "color", widget: "string" }
+                  - Label: "Description"
+                    name: "description"
+                    widget: "markdown"
 
   - name: "components"
     label: "Components"

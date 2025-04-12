@@ -7,9 +7,11 @@ import config from "@/config/config.json";
 
 const { logo } = config.site;
 const entry = await getEntryBySlug("pages", "404");
+const data = entry.data;
+const body = entry.body;
 ---
 
-<Base isHomePage={false} title={entry.data.title}>
+<Base isHomePage={false} title={data.title}>
   <section class="section">
     <div class="container px-[15px]">
       <div class="flex h-fit items-center justify-center">
@@ -20,9 +22,9 @@ const entry = await getEntryBySlug("pages", "404");
             height={120}
             width={400}
           />
-          <!-- <h1 class="mb-4" set:html={markdownify(entry.data.title)} /> -->
+          <!-- <h1 class="mb-4" set:html={markdownify(data.title)} /> -->
           <h2 class="font-montserrat">
-           {entry.body}
+           {body}
           </h2>
         </div>
       </div>

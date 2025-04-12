@@ -1,0 +1,64 @@
+---
+import Base from "@/layouts/Base.astro";
+import Banner from "@/layouts/components/Banner.astro";
+import ProfileData from "@/layouts/components/ProfileData.astro";
+import Preview from "@/components/preview.astro";
+import PreviewBlog from "@/components/previewBlog.astro";
+import Skills from "@/layouts/components/sections/Skills.astro";
+import About from "@/layouts/components/sections/About.astro";
+import ExploreCategories from "@/components/sections/ExploreCategories.astro";
+import { getEntryBySlug } from "astro:content";
+import SocialLinks from "@/components/SocialLinks.astro";
+import SocialMediaPosts from "@/components/socialMediaPosts.astro";
+import Social from "@/components/sections/Social.astro";
+import { getEntry } from "astro:content";
+import { fade } from "astro:transitions";
+import PageHeader from "@/components/PageHeader.astro";
+import Shape from "@/components/Shape.astro";
+import Changelog from "@/layouts/shortcodes/Changelog";
+import Badge from "@/layouts/shortcodes/Badge";
+import Default from "@/layouts/Default.astro";
+import { markdownifyBlock } from "@/lib/utils/textConverter";
+
+const entry = await getEntry("changelogdev", "index");
+const changelog = entry.data;
+const { page_data, content: changelogs } = changelog;
+---
+
+<Base
+  title={page_data.title}
+  meta_title={page_data.meta_title}
+  description={page_data.description}
+  image={page_data.image}
+  isHomePage={false}
+>
+  <Shape />
+  <PageHeader page_data={page_data} />
+  <section class="section pt-0 pb-[4.5rem] lg:pb-24">
+    <div class="container">
+      <div class="content">
+        {
+          changelogs.map((changelog: any, index:number) => {
+            const { date, items } = changelog;
+            const isLast = index === changelogs.length - 1;
+            return (
+              <Changelog date={date} isLast={isLast}>
+                {items.map((item: any) => {
+                  const { badge, desc: description } = item;
+                  return (
+                    <>
+                    <div class="flex flex-col gap-3">
+                      <Badge color={badge.color}>{badge.text}</Badge>
+                      <div set:html={markdownifyBlock(description)} class="flex flex-col gap-3" />
+                    </div>
+                    </>
+                  );
+                })}
+              </Changelog>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+</Base>

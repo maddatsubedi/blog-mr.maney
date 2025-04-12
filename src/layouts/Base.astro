@@ -34,6 +34,7 @@ export interface Props {
   noindex?: boolean;
   canonical?: string;
   headerMargin?: boolean;
+  extraBodyStyle?: boolean;
   isHomePage?: boolean;
   hideHeader?: boolean;
   hideFooter?: boolean;
@@ -48,6 +49,7 @@ const {
   noindex,
   canonical,
   headerMargin = true,
+  extraBodyStyle = true,
   isHomePage = false,
   hideHeader = false,
   hideFooter = false,
@@ -187,7 +189,7 @@ const {
       type="text/javascript"
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
-  <body>
+  <body class={`${extraBodyStyle ? "min-h-screen flex flex-col" : ""}`}>
     <!-- the contact form is not SSG, so to help netlify bots -->
     <!-- @ts-ignore -->
     <form name="contact" netlify hidden>
@@ -199,7 +201,7 @@ const {
     {hideHeader ? null : (
       <Header isHomePage={isHomePage} />
     )}
-    <main id="main-content" class=`main-content ${headerMargin ? "mt-20 lg:mt-28" : ""}`>
+    <main id="main-content" class=`main-content ${headerMargin ? "mt-20 lg:mt-28" : ""} mb-auto`>
       <slot />
     </main>
     {hideFooter ? null : <Footer />}
