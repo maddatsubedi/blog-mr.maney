@@ -4,67 +4,75 @@ page_data:
     page_title: My Journey
 
 content:
-    - date: v1.0.4 (January 19,2020)
+    - date: 2020 - Gaming Beginnings
       items:
         - badge:
-            icon: "fa-solid fa-trophy"
-            text: New Achievement
+            icon: "fa-solid fa-gamepad"
+            text: launched
             color: "#3a9cff"
           description: |-
-            ![Hi](/images/cms/ronb-post.jpg "HO")
-            - Enhance or improve [User experience](#!), our Site, or our Service.
-            - Process transactions.
-            - Send emails about our [Site or respond to](#!) inquiries.
-            - Send emails and updates about Conclude, including news and requests for agreement to amended [legal documents](#!) such
-            - Perform any other function that we believe in [proper functioning](#!) of our Site.
+            ![Streaming Setup](/images/cms/mr-maney-streaming.jpg "Mr. Maney Streaming")
+            - Started PUBG Mobile streaming career on YouTube
+            - Created channel [@MrManeyofficial](https://www.youtube.com/@MrManeyofficial)
+            - Built initial audience with engaging gameplay commentary
+            - Developed unique streaming style combining humor and skill
+
+    - date: 2022 - Gaming Entrepreneurship
+      items:
         - badge:
-            icon: "fa-solid fa-star"
-            text: New Project
+            icon: "fa-solid fa-building"
+            text: founded
             color: green
-          description: |- 
-            - Including about Conclude [Site or respond to](#!) inquiries.
-            - Function that we believe in [proper functioning](#!) of our Site.
-            - News and requests for agreement Process transactions.
+          description: |-
+            - Established [Arman Games](https://www.arman.games/) company
+            - Initiated development of JUCTION LUDO - online multiplayer Ludo game
+            - Key features: Voice chat, custom tournaments, reward system
+            - Assembled team of developers and game designers
+            ![JUCTION LUDO Preview](/images/cms/juction-ludo-concept.png "Game Concept Art")
+
+        - badge:
+            icon: "fa-solid fa-chart-line"
+            text: expanded
+            color: "#9c27b0"
+          description: |-
+            - Gream YouTube following to 50k+ subscribers
+            - Collaborated with gaming peripheral brands
+            - Started mentoring aspiring streamers
+            - Appeared as guest on Nepali gaming podcasts
+
+    - date: 2023 - Content Evolution
+      items:
+        - badge:
+            icon: "fa-solid fa-robot"
+            text: innovated
+            color: "#ff9800"
+          description: |-
+            ![Faceless Stream](/images/cms/faceless-stream.jpg "YouTube Automation")
+            - Launched faceless YouTube streams
+            - Created "Gaming & Chocolates" content series
+            - Implemented AI-powered video editing tools
+            - Reached 100k+ combined subscribers
             
-            This is the start of dummy description text. You can change it whenever you want. This is the start of dummy description text. You can change it whenever you want.
-    - date: v1.0.3 (October 23,2019)
+    - date: 2025 - New Horizons
       items:
         - badge:
-            icon: null
-            text: remove
-            color: blue
+            icon: "fa-solid fa-car"
+            text: achieved
+            color: "#e91e63"
           description: |-
-            - Enhance or improve [User experience](#!), our Site, or our Service.
-            - Process transactions.
-            - Send emails about our [Site or respond to](#!) inquiries.
-            - Send emails and updates about Conclude, including news and requests for agreement to amended [legal documents](#!) such
-            - Perform any other function that we believe in [proper functioning](#!) of our Site.
+            - Purchased first car (BYD Dolphin)
+            - Featured on [Routine of Nepal Banda](https://www.facebook.com/share/p/1A9UDsD5ss/)
+            ![Facebook Feature](/images/cms/ronb-post.jpg "Social Media Feature")
+            - Launched personal vlogging channel
+            - Initiated plans for innovative web projects
+
         - badge:
-            icon: null
-            text: depreciate
-            color: "#ff3158"
+            icon: "fa-solid fa-house-chimney"
+            text: milestone
+            color: "#4caf50"
           description: |-
-            - Including about Conclude [Site or respond to](#!) inquiries.
-            - Function that we believe in [proper functioning](#!) of our Site.
-            - News and requests for agreement Process transactions.
-    - date: v1.0.2 (May 19,2019)
-      items:
-        - badge:
-            icon: null
-            text: security
-            color: "#9c275f"
-          description: |-
-            - Enhance or improve [User experience](#!), our Site, or our Service.
-            - Process transactions.
-            - Send emails about our [Site or respond to](#!) inquiries.
-            - Send emails and updates about Conclude, including news and requests for agreement to amended [legal documents](#!) such
-            - Perform any other function that we believe in [proper functioning](#!) of our Site.
-        - badge:
-            icon: null
-            text: added
-            color: green
-          description: |-
-            - Including about Conclude [Site or respond to](#!) inquiries.
-            - Function that we believe in [proper functioning](#!) of our Site.
-            - News and requests for agreement Process transactions.
+            - Built family home in Chitwan
+            - Established Maney Media production house
+            - Working 18hrs/day on content creation
+            - Planning international collaborations
 ---

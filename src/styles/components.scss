@@ -557,7 +557,7 @@ select:invalid {
   .date-section {
     @apply relative;
     &::before {
-      @apply absolute top-0 left-[1rem] my-auto bottom-0 lg:translate-x-[calc(50%+1px)] lg:bottom-[unset] lg:right-0 lg:left-[unset] h-[18px] w-[18px] rounded-full border-4 border-primary bg-body content-[''];
+      @apply absolute top-0 my-auto bottom-0 lg:translate-x-[calc(50%+1px)] lg:bottom-[unset] lg:right-0 h-[18px] w-[18px] rounded-full border-4 border-primary bg-body content-[''];
     }
   }
 
