@@ -42,7 +42,7 @@ content:
 
           * Send ema
 
-          * ![adsf](/images/cms/mrmaney_1.jpg)
+          * ![Hi](/images/cms/mrmaney_1.jpg "HO")
 
             ils about our [Site or respond to](#!) inquiries.
           * Send emails and updates about Conclude, including news and reques*ts for agree*ment to amended [legal documents](#!) such
