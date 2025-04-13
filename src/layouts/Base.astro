@@ -35,7 +35,7 @@ export interface Props {
   canonical?: string;
   headerMargin?: boolean;
   extraBodyStyle?: boolean;
-  isHomePage?: boolean;
+  transparentBackground?: boolean;
   hideHeader?: boolean;
   hideFooter?: boolean;
 }
@@ -50,7 +50,7 @@ const {
   canonical,
   headerMargin = true,
   extraBodyStyle = true,
-  isHomePage = false,
+  transparentBackground = false,
   hideHeader = false,
   hideFooter = false,
 } = Astro.props;
@@ -199,9 +199,9 @@ const {
     </form>
     <TwSizeIndicator />
     {hideHeader ? null : (
-      <Header isHomePage={isHomePage} />
+      <Header transparentBackground={transparentBackground} />
     )}
-    <main id="main-content" class=`main-content ${headerMargin ? "mt-20 lg:mt-28" : ""} mb-auto`>
+    <main id="main-content" class=`main-content ${headerMargin ? "mt-20 md2:mt-[100px]" : ""} mb-auto`>
       <slot />
     </main>
     {hideFooter ? null : <Footer />}

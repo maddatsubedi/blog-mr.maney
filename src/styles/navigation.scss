@@ -1,19 +1,44 @@
 // navbar toggler
-input#nav-toggle:checked ~ label#show-button {
-  @apply hidden;
+input#nav-toggle:checked~label.menu-icon-wrapper {
+  .menu-icon {
+    span:nth-child(1) {
+      @apply top-[calc(50%-1.5px)] w-0 left-1/2;
+    }
+
+    span:nth-child(2) {
+      @apply rotate-45;
+    }
+
+    span:nth-child(3) {
+      @apply -rotate-45;
+    }
+
+    span:nth-child(4) {
+      @apply top-[calc(50%-1.5px)] w-0 left-1/2;
+    }
+  }
 }
 
-input#nav-toggle:checked ~ label#hide-button {
-  @apply flex lg:hidden;
-}
-
-input#nav-toggle:checked ~ #nav-menu {
-  @apply block lg:flex;
+.header:has(> .navbar > input#nav-toggle:checked) {
+  @apply h-full md2:h-fit items-start md2:items-center backdrop-blur-[10px] bg-slate-700/30 md2:bg-transparent md2:backdrop-blur-none;
+  .navbar {
+    #nav-menu {
+      @apply flex flex-col md2:flex-row;
+    }
+    .left-logo {
+      @apply pl-0 md2:pl-[90px];
+    }
+  }
 }
 
 .header {
-  @apply bg-white py-6 transition-all duration-300 lg:bg-transparent absolute top-0 z-50 w-screen;
-
+  @apply bg-white py-6 transition-all duration-300 lg:bg-transparent fixed top-0 z-50 text-white flex justify-center w-full;
+  &.scrolled {
+    @apply -translate-y-[100%];
+  }
+  &.scrolled-down {
+    @apply backdrop-blur-[10px] bg-red-600;
+  }
 }
 
 // navbar items
@@ -35,13 +60,12 @@ input#nav-toggle:checked ~ #nav-menu {
 .nav-link {
   @apply block p-3 py-2 text-[15px] text-white transition hover:text-slate-200 md:px-2 lg:inline-block;
 
-  &.active {
-    @apply relative;
-
-    &::after {
-      @apply absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-tl content-[''];
-    }
-  }
+  // &.active {
+  //   @apply relative;
+  //   &::after {
+  //     @apply absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-tl content-[''];
+  //   }
+  // }
 }
 
 .nav-dropdown {

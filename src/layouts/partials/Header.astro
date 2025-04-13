@@ -37,15 +37,17 @@ export interface Header {
 const { nav_links, logo, right_button } = header as Header;
 const { pathname } = Astro.url;
 
-const { isHomePage } = Astro.props;
+const { transparentBackground } = Astro.props;
 ---
 
 <header
-  class={`header text-white flex justify-center w-full ${isHomePage ? "bg-transparent" : "bg-red-600"}`}
+  id="header"
+  class={`header ${transparentBackground ? "bg-transparent" : "bg-red-600"}`}
 >
+  <!-- <nav class="navbar container m-0 px-5 md:pl-[110px] md:pr-[40px] md2:px-5 gap-5"> -->
   <nav class="navbar container m-0 px-5 gap-5">
     <!-- logo -->
-    <div class="md:pl-[90px] pr-5 pl-0 order-0">
+    <div class="left-logo transition-all duration-300 md:pl-[90px] order-0">
       <a class="text-2xl font-semibold" href={logo.url}>
         {logo.name}
       </a>
@@ -53,32 +55,31 @@ const { isHomePage } = Astro.props;
     <!-- navbar toggler -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
-      id="show-button"
+      id="menu-icon-wrapper"
       for="nav-toggle"
-      class="order-2 flex cursor-pointer items-center lg:order-1 lg:hidden"
+      class="menu-icon-wrapper min-w-[27.5px] h-[22.5px] order-2 flex transition duration-[250ms] cursor-pointer justify-center items-center md2:order-1 md2:hidden"
     >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Open</title>
-        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-      </svg>
+      <div
+        class="menu-icon w-full h-full relative rotate-0 transition duration-[500ms] ease-in-out"
+      >
+        <span
+          class="block absolute top-0 h-[3px] bg-white w-full rounded-full left-0 rotate-0 transition-all duration-[250ms] ease-in-out"
+        ></span>
+        <span
+          class="block absolute top-[calc(50%-1.5px)] h-[3px] bg-white w-full rounded-full left-0 rotate-0 transition-all duration-[250ms] ease-in-out"
+        ></span>
+        <span
+          class="block absolute top-[calc(50%-1.5px)] h-[3px] bg-white w-full rounded-full left-0 rotate-0 transition-all duration-[250ms] ease-in-out"
+        ></span>
+        <span
+          class="block absolute h-[3px] top-[calc(100%-3px)] bg-white w-full rounded-full left-0 rotate-0 transition-all duration-[250ms] ease-in-out"
+        ></span>
+      </div>
     </label>
-    <label
-      id="hide-button"
-      for="nav-toggle"
-      class="order-2 hidden cursor-pointer items-center lg:order-1"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"></polygon>
-      </svg>
-    </label>
-    <!-- /navbar toggler -->
 
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden w-full lg:order-1 lg:flex lg:w-auto lg:space-x-2 md:bg-transparent bg-red-400/70 p-3 backdrop-blur-md"
+      class="navbar-nav gap-2 rounded-xl md2:border-none border-[2px] border-[#364153] md2:rounded-none md2:gap-8 order-3 hidden w-full md2:order-1 md2:flex p-5 md2:p-0 md2:w-auto bg-[#1e2939] md2:bg-transparent"
     >
       {
         nav_links.map((menu) => (
@@ -102,7 +103,7 @@ const { isHomePage } = Astro.props;
                 </span>
                 <ul
                   id="dropdown"
-                  class="nav-dropdown-list mx-auto hidden duration-300 lg:invisible lg:absolute lg:block lg:h-auto lg:w-[13.5rem] lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100"
+                  class="nav-dropdown-list mx-auto hidden duration-300 md2:invisible md2:absolute md2:block md2:h-auto md2:w-[13.5rem] md2:opacity-0 md2:group-hover:visible md2:group-hover:opacity-100"
                 >
                   {menu.children?.map((child) => (
                     <li class="nav-dropdown-item">
@@ -121,10 +122,10 @@ const { isHomePage } = Astro.props;
                 </ul>
               </li>
             ) : (
-              <li class="nav-item">
+              <li class="nav-item py-1 md2:py-0">
                 <a
                   href={menu.url}
-                  class={`nav-link inline-block lg:block ${
+                  class={`nav-link p-0 ${
                     (pathname === `${menu.url}/` || pathname === menu.url) &&
                     "active"
                   }`}
@@ -136,30 +137,71 @@ const { isHomePage } = Astro.props;
           </>
         ))
       }
+      <div class="flex py-1 items-center md2:hidden">
+        <a
+          class="w-fit flex gap-2 mx-auto rounded-full py-1 transition duration-200 px-4 h-[unset] text-[0.95rem] items-center bg-gray-500 text-white hover:bg-white hover:text-gray-800"
+          href={right_button.url}
+        >
+          {right_button.name}
+          <i class={right_button.icon}></i>
+        </a>
+      </div>
     </ul>
-    <div class="order-1 ml-auto hidden items-center md:order-2 md:ml-0 lg:flex">
+    <div
+      class="order-1 md2:pr-[40px] lg:pr-[90px] ml-auto hidden items-center md:order-2 md:ml-0 md2:flex"
+    >
       <a
-        class="w-fit btn flex gap-2 px-6 text-[0.95rem] items-center btn-outline-white text-white hover:bg-white hover:text-black"
+        class="w-fit btn flex gap-2 py-2 px-6 text-[0.95rem] items-center btn-outline-white text-white hover:bg-white hover:text-black"
         href={right_button.url}
       >
         {right_button.name}
-        <!-- <TbMessageFilled size={20} /> -->
         <i class={right_button.icon}></i>
       </a>
     </div>
   </nav>
 </header>
 
-<!-- <script is:inline>
+<script is:inline>
   //sticky header
   document.addEventListener("astro:page-load", () => {
-    const header = document.querySelector(".header");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 0) {
-        header.classList.add("header-sticky");
+    const header = document.getElementById("header");
+    const navToggle = document.getElementById("nav-toggle");
+
+    if (header) {
+      let lastScrollY = window.scrollY;
+      let currentScrollY = window.scrollY;
+      let isAtTop = currentScrollY === 0;
+
+      if (isAtTop) {
+        header.classList.remove("scrolled-down");
       } else {
-        header.classList.remove("header-sticky");
+        header.classList.add("scrolled-down");
       }
-    });
+
+      window.addEventListener("scroll", () => {
+        currentScrollY = window.scrollY;
+        isAtTop = currentScrollY === 0;
+        const isScrollingDown = currentScrollY > lastScrollY;
+
+        if (isAtTop) {
+          header.classList.remove("scrolled-down");
+        } else {
+          header.classList.add("scrolled-down");
+        }
+
+        if (navToggle) {
+          const navToggled = navToggle.checked;
+          if (navToggled) return;
+        }
+
+        if (isScrollingDown) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+
+        lastScrollY = currentScrollY;
+      });
+    }
   });
-</script> -->
+</script>

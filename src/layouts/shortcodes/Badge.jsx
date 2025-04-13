@@ -10,7 +10,7 @@ const Badge = ({ color, children, iconClass }) => {
         style={{
           backgroundColor: color || DEFAULT_BADGE_COLOR,
         }}>
-        {iconClass && <i class={`${iconClass} text-[1rem]`}></i>}
+        {iconClass && <i className={`${iconClass} text-[1rem]`}></i>}
         {children}
       </div>
       <div className="absolute h-[2.5px] w-full rounded-full bg-red-600 content-[''] z-[100]"

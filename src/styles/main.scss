@@ -18,6 +18,16 @@
   @include meta.load-css("utilities");
 }
 
+body:has(#header > .navbar > input#nav-toggle:checked) {
+  overflow: hidden;
+}
+
+body {
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   height: 2px;
