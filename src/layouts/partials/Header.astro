@@ -37,17 +37,17 @@ export interface Header {
 const { nav_links, logo, right_button } = header as Header;
 const { pathname } = Astro.url;
 
-const { transparentBackground } = Astro.props;
+const { transparentBackground, isHomePage } = Astro.props;
 ---
 
 <header
   id="header"
-  class={`header ${transparentBackground ? "transparent-background" : "header-background"}`}
+  class={`header ${transparentBackground ? "transparent-background" : "header-background"} ${isHomePage ? "header-homepage" : "header-default"}`}
 >
   <!-- <nav class="navbar container m-0 px-5 md:pl-[110px] md:pr-[40px] md2:px-5 gap-5"> -->
   <nav class="navbar" id="navbar">
     <!-- logo -->
-    <div class="left-logo transition-all duration-300 md:pl-[90px] order-0">
+    <div class="left-logo">
       <a class="text-2xl font-semibold" href={logo.url}>
         {logo.name}
       </a>
