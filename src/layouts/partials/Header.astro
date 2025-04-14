@@ -79,11 +79,11 @@ const { transparentBackground } = Astro.props;
 
     <ul id="nav-menu" class="navbar-nav">
       {
-        nav_links.map((menu) => (
-          <li class="nav-item p-0">
+        nav_links.map((menu, index) => (
+          <li class="nav-item">
             <a
               href={menu.url}
-              class={`nav-link block text-[15px] text-white transition hover:text-slate-200 py-1 md2:py-0 px-2 md2:px-0 md2:inline-block ${
+              class={`nav-link ${
                 (pathname === `${menu.url}/` || pathname === menu.url) &&
                 "active"
               }`}
@@ -91,17 +91,18 @@ const { transparentBackground } = Astro.props;
               {menu.name}
             </a>
           </li>
+          <div class="border-[0.5px] border-slate-700 md2:hidden"></div>
         ))
       }
-      <div class="flex py-1 items-center md2:hidden">
+      <!-- <div class="right-button-mobile"> -->
         <a
-          class="w-fit flex gap-2 mx-auto rounded-full py-1 transition duration-200 px-4 h-[unset] text-[0.95rem] items-center bg-gray-500 text-white hover:bg-white hover:text-gray-800"
+          class="right-button-mobile"
           href={right_button.url}
         >
           {right_button.name}
           <i class={right_button.icon}></i>
         </a>
-      </div>
+      <!-- </div> -->
     </ul>
     <div
       class="order-1 md2:pr-[40px] lg:pr-[90px] ml-auto hidden items-center md:order-2 md:ml-0 md2:flex"

@@ -33,11 +33,20 @@ input#nav-toggle:checked~label.nav-toggle-label {
 
 .header {
   box-shadow: 0px 1.5px 10px 0px rgba(0, 0, 0, 0.5);
-  @apply bg-red-600 py-6 transition-all duration-[300ms] lg:bg-transparent fixed top-0 z-50 text-white flex justify-center w-full;
+  @apply bg-red-600 py-6 transition-all duration-[300ms] lg:bg-transparent fixed top-0 z-[10000] text-white flex justify-center w-full;
   .navbar {
     @apply container transition-all duration-[300ms] m-0 px-5 gap-5 gap-y-0 md2:gap-y-5 relative flex flex-wrap items-center justify-between;
     .navbar-nav {
-      @apply text-center opacity-0 md2:opacity-100 h-0 md2:h-fit overflow-hidden rounded-xl md2:rounded-none md2:overflow-auto md2:flex md2:flex-row md2:translate-y-[none] w-full lg:text-left gap-2 p-0 transition-all duration-[300ms] md2:gap-8 order-3  md2:order-1  md2:w-auto bg-[#1e2939] md2:bg-transparent;
+      @apply text-center opacity-0 md2:opacity-100 h-0 md2:h-fit overflow-hidden rounded-xl md2:rounded-none md2:overflow-auto flex md2:flex-row md2:translate-y-[none] w-full lg:text-left p-0 transition-all duration-[300ms] md2:gap-8 order-3  md2:order-1  md2:w-auto;
+      .nav-item {
+        @apply p-0;
+        .nav-link {
+          @apply block text-[1rem] text-white transition duration-[250ms] hover:text-slate-200 md2:inline-block;
+        }
+      }
+      .right-button-mobile {
+        @apply md2:hidden;
+      }
     }
   }
   &.transparent-background {
@@ -45,11 +54,21 @@ input#nav-toggle:checked~label.nav-toggle-label {
     @apply bg-transparent;
   }
   &:has(> .navbar > input#nav-toggle:checked) {
-    @apply h-full md2:h-fit items-start cursor-pointer md2:cursor-default md2:items-center backdrop-blur-[10px] bg-slate-700/30 md2:bg-transparent md2:backdrop-blur-none;
+    // @apply h-full md2:h-fit items-start cursor-pointer md2:cursor-default md2:items-center backdrop-blur-[10px] bg-slate-700/30 md2:bg-transparent md2:backdrop-blur-none;
+    @apply h-full md2:h-fit items-start cursor-pointer md2:cursor-default md2:items-center backdrop-blur-[10px] bg-red-700/50 md2:bg-transparent md2:backdrop-blur-none;
     .navbar {
       @apply gap-y-5 cursor-default md2:gap-y-5;
       .navbar-nav {
-        @apply md2:border-0 opacity-100 border-2 border-[#364153] h-fit overflow-auto flex-col md2:flex-row p-5 md2:p-0;
+        @apply md2:border-0 opacity-100 bg-[#1e2939] md2:bg-transparent border-2 gap-4 md2:gap-8 border-[#364153] h-fit overflow-auto flex-col md2:flex-row p-5 md2:p-0;
+        .nav-item {
+          // @apply ;
+          .nav-link {
+            @apply text-[1.2rem] md2:text-[1rem];
+          }
+        }
+        .right-button-mobile {
+          @apply flex mx-auto w-full sm:w-fit justify-center items-center text-[1.2rem] gap-2 rounded-[7px] py-[6px] transition duration-200 px-5 h-[unset] bg-gray-500 text-white hover:bg-white hover:text-gray-800;
+        }
       }
       .left-logo {
         @apply pl-0 md2:pl-[90px];
