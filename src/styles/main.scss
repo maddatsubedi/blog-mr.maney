@@ -18,14 +18,9 @@
   @include meta.load-css("utilities");
 }
 
+// Disable scrolling when the navbar is open
 body:has(#header > .navbar > input#nav-toggle:checked) {
-  overflow: hidden;
-}
-
-body {
-  &.no-scroll {
-    overflow: hidden;
-  }
+  @apply overflow-hidden md2:overflow-auto;
 }
 
 /* width */

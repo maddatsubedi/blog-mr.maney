@@ -131,7 +131,6 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     const contentType = request.headers.get('Content-Type');
-
     if (!contentType || !contentType.includes('application/json')) {
       return new Response(
         JSON.stringify({
@@ -139,6 +138,24 @@ export const POST: APIRoute = async ({ request }) => {
           error: 'Invalid Content-Type',
           message: 'Invalid Content-Type',
           errorCode: 'VALIDATION:INVALID_CONTENT_TYPE',
+        }),
+        {
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }
+      );
+    }
+
+    const accept = request.headers.get('Accept');
+    if (!accept || !accept.includes('application/json')) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Invalid Accept Header',
+          message: 'Invalid Accept Header',
+          errorCode: 'VALIDATION:INVALID_ACCEPT_HEADER',
         }),
         {
           status: 400,
