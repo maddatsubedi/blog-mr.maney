@@ -26,10 +26,11 @@ module.exports = {
     screens: {
       sm: "540px",
       md: "768px",
-      md2: "896px",
+      "2md": "896px",
       lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
+      xl: "1200px",
+      "2xl": "1350px",
+      "3xl": "1536px",
     },
     container: {
       center: true,

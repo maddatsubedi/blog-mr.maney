@@ -203,7 +203,7 @@ const {
     {hideHeader ? null : (
       <Header transparentBackground={transparentBackground} isHomePage={isHomePage} />
     )}
-    <main id="main-content" class=`main-content ${headerMargin ? "mt-20 md2:mt-[100px]" : ""} mb-auto`>
+    <main id="main-content" class=`main-content ${headerMargin ? "mt-20 2md:mt-[100px]" : ""} mb-auto`>
       <slot />
     </main>
     {hideFooter ? null : <Footer />}

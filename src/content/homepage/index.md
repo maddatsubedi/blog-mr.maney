@@ -11,7 +11,7 @@ banner:
     enable: true
   badges: /images/users/Badges.svg
 about:
-  title: ABOUTh
+  title: ABOUT
   secondTitle: Let me introduce myself
   sideText: MR.MANEY
   description: >-

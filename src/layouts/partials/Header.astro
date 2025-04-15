@@ -44,7 +44,7 @@ const { transparentBackground, isHomePage } = Astro.props;
   id="header"
   class={`header ${transparentBackground ? "transparent-background" : "header-background"} ${isHomePage ? "header-homepage" : "header-default"}`}
 >
-  <!-- <nav class="navbar container m-0 px-5 md:pl-[110px] md:pr-[40px] md2:px-5 gap-5"> -->
+  <!-- <nav class="navbar container m-0 px-5 md:pl-[110px] md:pr-[40px] 2md:px-5 gap-5"> -->
   <nav class="navbar" id="navbar">
     <!-- logo -->
     <div class="left-logo">
@@ -57,7 +57,7 @@ const { transparentBackground, isHomePage } = Astro.props;
     <label
       id="nav-toggle-label"
       for="nav-toggle"
-      class="nav-toggle-label min-w-[27.5px] h-[22.5px] order-2 flex transition duration-[300ms] cursor-pointer justify-center items-center md2:order-1 md2:hidden"
+      class="nav-toggle-label min-w-[27.5px] h-[22.5px] order-2 flex transition duration-[300ms] cursor-pointer justify-center items-center 2md:order-1 2md:hidden"
     >
       <div
         class="menu-icon w-full h-full relative rotate-0 transition duration-[500ms] ease-in-out"
@@ -91,7 +91,7 @@ const { transparentBackground, isHomePage } = Astro.props;
               {menu.name}
             </a>
           </li>
-          <div class="border-[0.5px] border-slate-700 md2:hidden"></div>
+          <div class="border-[0.5px] border-slate-700 2md:hidden"></div>
         ))
       }
       <!-- <div class="right-button-mobile"> -->
@@ -105,7 +105,7 @@ const { transparentBackground, isHomePage } = Astro.props;
       <!-- </div> -->
     </ul>
     <div
-      class="order-1 md2:pr-[40px] lg:pr-[90px] ml-auto hidden items-center md:order-2 md:ml-0 md2:flex"
+      class="order-1 2md:pr-[40px] lg:pr-[90px] ml-auto hidden items-center md:order-2 md:ml-0 2md:flex"
     >
       <a
         class="w-fit btn flex gap-2 py-2 px-6 text-[0.95rem] items-center btn-outline-white text-white hover:bg-white hover:text-black"

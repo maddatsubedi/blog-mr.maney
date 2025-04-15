@@ -3,6 +3,13 @@
   @apply py-8 md:py-16;
 }
 
+.home-section {
+  @apply font-montserrat p-12 xl:p-16;
+  .home-section-content {
+    @apply max-w-[1600px] mx-auto;
+  }
+}
+
 // container
 .container {
   @apply mx-auto max-w-[1202px] px-4;

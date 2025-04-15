@@ -23,41 +23,58 @@ input#nav-toggle:checked~label.nav-toggle-label {
   box-shadow: 0px 1.5px 10px 0px rgba(0, 0, 0, 0.5);
   @apply bg-red-600 py-6 transition-all duration-[300ms] lg:bg-transparent fixed top-0 z-[10000] text-white flex justify-center w-full;
   .navbar {
-    @apply container transition-all duration-[300ms] m-0 px-5 gap-5 gap-y-0 md2:gap-y-5 relative flex flex-wrap items-center justify-between;
+    @apply container transition-all duration-[300ms] m-0 px-5 gap-5 gap-y-0 2md:gap-y-5 relative flex flex-wrap items-center justify-between;
     .left-logo {
-      @apply transition-all duration-300 md2:pl-[40px] lg:pl-[90px] order-0;
+      @apply transition-all duration-300 2md:pl-[40px] lg:pl-[90px] order-0;
     }
     .navbar-nav {
-      @apply text-center opacity-0 md2:opacity-100 h-0 md2:h-fit overflow-hidden rounded-xl md2:rounded-none md2:overflow-auto flex md2:flex-row md2:translate-y-[none] w-full lg:text-left p-0 transition-all duration-[300ms] md2:gap-8 order-3  md2:order-1  md2:w-auto;
+      @apply text-center opacity-0 2md:opacity-100 h-0 2md:h-fit overflow-hidden 2md:overflow-visible rounded-xl 2md:rounded-none flex 2md:flex-row 2md:translate-y-[none] w-full lg:text-left p-0 transition-all duration-[300ms] 2md:gap-8 order-3 2md:order-1  2md:w-auto;
       .nav-item {
         @apply p-0;
         .nav-link {
-          @apply block text-[1rem] text-white transition duration-[250ms] hover:text-slate-200 md2:inline-block;
+          @apply block relative text-[1rem] 2md:px-1 text-white font-medium transition duration-[250ms] 2md:inline-block;
+          &.active {
+            @apply text-orange-400 2md:text-white;
+            &::after {
+              @apply w-full;
+            }
+          }
+          &::after{
+            @apply content-[''] w-0 absolute hidden transition-all duration-[250ms] -bottom-[7.5px] 2md:block h-[2.5px] right-0 left-0 my-0 mx-auto bg-slate-300 rounded-full;
+          }
+          &:hover {
+            @apply text-orange-500 2md:text-slate-300;
+            &::after{
+              @apply w-full;
+            }
+          }
         }
       }
       .right-button-mobile {
-        @apply md2:hidden;
+        @apply 2md:hidden;
       }
     }
   }
   &.header-homepage {
     .navbar {
-      @apply md:pr-6 md2:px-5;
+      @apply md:pr-6 2md:px-5;
       .left-logo {
         @apply md:pl-[90px];
       }
     }
     &:has(> .navbar > input#nav-toggle:checked) {
       .navbar {
+        @apply px-5;
         .left-logo {
-          @apply pl-0 md2:pl-[90px];
+          @apply pl-0 2md:pl-[90px];
         }
       }
     }
     &.scrolled-down {
       .navbar {
+        @apply px-5;
         .left-logo {
-          @apply md2:pl-[40px] lg:pl-[90px];
+          @apply pl-0 2md:pl-[40px] lg:pl-[90px];
         }
       }
     }
@@ -70,22 +87,18 @@ input#nav-toggle:checked~label.nav-toggle-label {
     @apply bg-red-600;
   }
   &:has(> .navbar > input#nav-toggle:checked) {
-    @apply h-full md2:h-fit items-start cursor-pointer md2:cursor-default md2:items-center backdrop-blur-[10px] bg-slate-700/30 md2:bg-transparent md2:backdrop-blur-none;
+    @apply h-full 2md:h-fit items-start cursor-pointer 2md:cursor-default 2md:items-center backdrop-blur-[10px] bg-slate-700/30 2md:bg-transparent 2md:backdrop-blur-none;
     .navbar {
-      @apply gap-y-5 cursor-default md2:gap-y-5;
-      .left-logo {
-        @apply pl-[90px];
-      }
+      @apply gap-y-5 cursor-default 2md:gap-y-5;
       .navbar-nav {
-        @apply md2:border-0 opacity-100 bg-[#1e2939] md2:bg-transparent border-2 gap-4 md2:gap-8 border-[#364153] h-fit overflow-auto flex-col md2:flex-row p-5 md2:p-0;
+        @apply 2md:border-0 opacity-100 bg-[#1e2939] 2md:bg-transparent border-2 gap-4 2md:gap-8 border-[#364153] h-fit overflow-hidden 2md:overflow-visible flex-col 2md:flex-row p-5 2md:p-0;
         .nav-item {
-          // @apply ;
           .nav-link {
-            @apply text-[1.2rem] md2:text-[1rem];
+            @apply text-[1.2rem] font-normal 2md:font-medium 2md:text-[1rem];
           }
         }
         .right-button-mobile {
-          @apply flex mx-auto w-full sm:w-fit justify-center items-center text-[1.2rem] gap-2 rounded-[7px] py-[6px] transition duration-200 px-5 h-[unset] bg-gray-500 text-white hover:bg-white hover:text-gray-800;
+          @apply flex 2md:hidden mx-auto w-full sm:w-fit justify-center items-center text-[1.2rem] gap-2 rounded-[7px] py-[6px] transition duration-200 px-5 h-[unset] bg-gray-500 text-white hover:bg-white hover:text-gray-800;
         }
       }
     }

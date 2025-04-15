@@ -24,68 +24,69 @@ const descriptionArray = description.split("\n");
 ---
 
 <section
-  class="section px-10 flex font-montserrat gap-10 justify-center"
+  class="home-section"
   style="background-color: #f5f4fe;"
 >
-  <div
-    class="side-text px-7 text-primary opacity-60 hidden md:flex text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat text-end"
-  >
-    {markdownify(sideText)}
-  </div>
-  <!-- Fix-Later: remove max-width and adjust the layout for small and big screen -->
-  <div class="main-section flex flex-col gap-[3.5rem] max-w-[1280px]">
-    <div class="text-center">
-      <h1
-        class="first-title text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] text-[10rem] leading-none font-montserrat font-extrabold"
-      >
-        {markdownify(title)}
-      </h1>
-      <p
-        class="second-title text-[#3B3A39] font-extrabold leading-none text-[3.3rem]"
-      >
-        {markdownify(secondTitle)}
-      </p>
+  <div class="home-section-content flex gap-10">
+    <div
+      class="side-text px-7 text-primary opacity-60 hidden 2md:flex text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat text-end"
+    >
+      {markdownify(sideText)}
     </div>
-    <div class="content grid grid-cols-[1fr_300px] gap-14">
-      <div class="content-bottom flex flex-col gap-14 justify-center">
-        <div class="description">
-          <!-- Fix-Later-1: markdownify returning <br> text instead of new line -->
-          {
-            descriptionArray.map((desc: string, index: number) => (
-              <p class={`text-[#464242] m-0 ${index !== 0 ? `mt-2` : ``}`}>
-                {markdownify(desc)}
-              </p>
-            ))
-          }
-        </div>
-        <div class="bottom-group flex items-center gap-16">
-          <div class="image-group grid grid-cols-3 gap-5 flex-grow">
+    <div class="main-section flex flex-col gap-14 max-w-[1280px]">
+      <div class="text-center">
+        <h1
+          class="first-title text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] text-[10rem] leading-none font-montserrat font-extrabold"
+        >
+          {markdownify(title)}
+        </h1>
+        <p
+          class="second-title text-[#3B3A39] font-extrabold leading-none text-[3.3rem]"
+        >
+          {markdownify(secondTitle)}
+        </p>
+      </div>
+      <div class="content grid grid-cols-[1fr_300px] gap-14">
+        <div class="content-bottom flex flex-col gap-14 justify-center">
+          <div class="description">
             {
-              image_group.map((image: any) => (
-                <div class="image-wrapper flex">
-                  <Image
-                    src={image.image}
-                    class="group-image object-cover object-center m-0 flex-grow rounded-xl aspect-[16/11]"
-                    alt="image"
-                    width={150}
-                    height={100}
-                  />
-                </div>
+              descriptionArray.map((desc: string, index: number) => (
+                <p class={`text-[#464242] m-0 ${index !== 0 ? `mt-2` : ``}`}>
+                  {markdownify(desc)}
+                </p>
               ))
             }
           </div>
-          <div class="bottom-main-links-group mt-[25px] md-show hidden">
-            {main_links_group.map((link: any) => <MainLink link={link} />)}
+          <div class="bottom-group flex items-center gap-16">
+            <div class="image-group grid grid-cols-3 gap-5 flex-grow">
+              {
+                image_group.map((image: any) => (
+                  <div class="image-wrapper flex">
+                    <Image
+                      src={image.image}
+                      class="group-image object-cover object-center m-0 flex-grow rounded-xl aspect-[16/11]"
+                      alt="image"
+                      width={150}
+                      height={100}
+                    />
+                  </div>
+                ))
+              }
+            </div>
+            <div class="bottom-main-links-group mt-[25px] md-show hidden">
+              {main_links_group.map((link: any) => <MainLink link={link} />)}
+            </div>
+            <MainLink className="md-hide" link={main_links_group[0]} />
           </div>
-          <MainLink className="md-hide" link={main_links_group[0]} />
         </div>
-      </div>
-      <div class="main-links-group flex flex-col justify-center gap-14">
-        {
-          main_links_group.map(
-            (link: any, index: number) => index !== 0 && <MainLink link={link} />,
-          )
-        }
+        <div class="main-links-group flex flex-col justify-center gap-14">
+          {
+            main_links_group.map(
+              (link: any, index: number) =>
+                index !== 0 && <MainLink link={link} />,
+            )
+          }
+        </div>
       </div>
     </div>
   </div>

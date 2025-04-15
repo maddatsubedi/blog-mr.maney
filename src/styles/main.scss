@@ -20,7 +20,7 @@
 
 // Disable scrolling when the navbar is open
 body:has(#header > .navbar > input#nav-toggle:checked) {
-  @apply overflow-hidden md2:overflow-auto;
+  @apply overflow-hidden 2md:overflow-auto;
 }
 
 /* width */
