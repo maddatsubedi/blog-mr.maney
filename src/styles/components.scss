@@ -10,6 +10,41 @@
   }
 }
 
+// about
+.about {
+  .content {
+    .description {
+      @apply flex flex-col gap-4;
+      p {
+        @apply m-0;
+      }
+
+      img {
+        @apply my-3 mx-auto border-primary border-2 rounded-lg max-h-[350px] object-cover object-center;
+      }
+
+      ul {
+        @apply list-disc pl-6 marker:text-dark m-0 flex flex-col gap-2;
+
+        img {
+          @apply my-4;
+        }
+
+        + .journeys-tag {
+          @apply mt-6;
+        }
+
+        & > li {
+          @apply m-0 p-0;
+          span {
+            @apply text-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
 // container
 .container {
   @apply mx-auto max-w-[1202px] px-4;
@@ -46,16 +81,10 @@
 .tab {
   @apply overflow-hidden rounded-lg border border-border;
   &-nav {
-    @apply flex border-b border-border bg-theme-light;
-    @apply m-0 #{!important};
-    @apply list-none #{!important};
+    @apply flex border-b border-border bg-theme-light m-0 list-none;
 
     &-item {
-      @apply cursor-pointer border-b-[3px] border-border py-2 text-lg opacity-80;
-      @apply my-0 #{!important};
-      @apply text-dark #{!important};
-      @apply px-8 #{!important};
-
+      @apply cursor-pointer border-b-[3px] border-border py-2 text-lg opacity-80 my-0 text-dark px-8;
       &.active {
         @apply border-b-[3px] border-dark opacity-100;
       }
@@ -570,6 +599,7 @@ select:invalid {
 
   &-content {
     .journeys-content-inner {
+      @apply flex flex-col gap-4;
       p {
         @apply m-0;
       }

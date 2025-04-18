@@ -1,10 +1,11 @@
 ---
-import { markdownify } from "@/lib/utils/textConverter";
+import { markdownify, markdownifyBlock } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import { createElement } from "react";
 import { FaBlog } from "react-icons/fa";
 import LinkIconMap from "@/layouts/function-components/LinkIconMap";
 import MainLink from "../MainLink.astro";
+import { datetimeRegex } from "astro:schema";
 
 const { about } = Astro.props;
 const {
@@ -20,20 +21,35 @@ const {
 // Fix-Later-1: markdownify returning <br> text instead of new line
 const descriptionArray = description.split("\n");
 
+const extras = [
+  {
+    title: "Creator",
+    iconClass: "fa-solid fa-video",
+  },
+  {
+    title: "Gamer",
+    iconClass: "fa-solid fa-gamepad",
+  },
+  {
+    title: "Blogger",
+    iconClass: "fa-solid fa-blog",
+  },
+];
+
 // console.log(about);
 ---
 
-<section
-  class="home-section"
-  style="background-color: #f5f4fe;"
->
-  <div class="home-section-content flex gap-10">
+<section class="home-section about" style="background-color: #f5f4fe;">
+  <div class="home-section-content flex gap-14">
     <div
-      class="side-text px-7 text-primary opacity-60 hidden 2md:flex text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat text-end"
+      class="side-text text-primary opacity-60 hidden 2md:flex text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat text-end"
     >
+      <!-- <div
+      class="side-text text-primary opacity-60 hidden 2md:flex text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat justify-center"
+    > -->
       {markdownify(sideText)}
     </div>
-    <div class="main-section flex flex-col gap-14 max-w-[1280px]">
+    <div class="main-section flex flex-col gap-12">
       <div class="text-center">
         <h1
           class="first-title text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] text-[10rem] leading-none font-montserrat font-extrabold"
@@ -46,46 +62,35 @@ const descriptionArray = description.split("\n");
           {markdownify(secondTitle)}
         </p>
       </div>
-      <div class="content grid grid-cols-[1fr_300px] gap-14">
-        <div class="content-bottom flex flex-col gap-14 justify-center">
-          <div class="description">
+      <!-- <div class="content flex flex-col gap-14 justify-center"> -->
+      <div
+        class="content grid grid-cols-[1fr_auto] grid-rows-[1fr_auto] gap-x-12 gap-y-14"
+      >
+        <div
+          class="description font-medium row-start-1"
+          set:html={markdownifyBlock(description)}
+        />
+        <div class="bottom-group flex items-center gap-14 row-start-2">
+          {main_links_group.map((link: any) => <MainLink link={link} />)}
+        </div>
+        <div
+          class="about-info-section bg-white border-red-500/60 border-[1px] shadow-medium-2 rounded-lg col-start-2 row-span-2 p-4 flex flex-col items-center gap-4"
+        >
+          <div class="extra-head text-[1.5rem] font-bold text-primary">
+            I'm a
+          </div>
+          <div class="extra-body flex flex-col gap-4 max-w-[150px]">
             {
-              descriptionArray.map((desc: string, index: number) => (
-                <p class={`text-[#464242] m-0 ${index !== 0 ? `mt-2` : ``}`}>
-                  {markdownify(desc)}
-                </p>
+              extras.map((extra) => (
+                <div class="extra-body-item cursor-pointer transition-all duration-[250ms] hover:scale-[1.075] flex flex-col justify-center items-center gap-[10px] bg-white rounded-md shadow-small-2 p-3 leading-none">
+                  <i class={`${extra.iconClass} text-[1.25rem] text-primary`} />
+                  <div class="font-medium wrap-all text-[1.1rem] text-center">
+                    {markdownify(extra.title)}
+                  </div>
+                </div>
               ))
             }
           </div>
-          <div class="bottom-group flex items-center gap-16">
-            <div class="image-group grid grid-cols-3 gap-5 flex-grow">
-              {
-                image_group.map((image: any) => (
-                  <div class="image-wrapper flex">
-                    <Image
-                      src={image.image}
-                      class="group-image object-cover object-center m-0 flex-grow rounded-xl aspect-[16/11]"
-                      alt="image"
-                      width={150}
-                      height={100}
-                    />
-                  </div>
-                ))
-              }
-            </div>
-            <div class="bottom-main-links-group mt-[25px] md-show hidden">
-              {main_links_group.map((link: any) => <MainLink link={link} />)}
-            </div>
-            <MainLink className="md-hide" link={main_links_group[0]} />
-          </div>
-        </div>
-        <div class="main-links-group flex flex-col justify-center gap-14">
-          {
-            main_links_group.map(
-              (link: any, index: number) =>
-                index !== 0 && <MainLink link={link} />,
-            )
-          }
         </div>
       </div>
     </div>
@@ -97,12 +102,23 @@ const descriptionArray = description.split("\n");
     writing-mode: vertical-rl;
   }
 
-  .shadow-medium {
-    box-shadow: 0px 2px 10px 0px #00000080;
+  /* @media screen and (max-width: 1350px) {
+    .side-text {
+      font-size: 3.75rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
   }
 
-  /* 2XL Screen */
-  @media screen and (max-width: 1450px) {
+  @media screen and (max-width: 1025px) {
+    .side-text {
+      font-size: 3.25rem;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+  } */
+
+  /* @media screen and (max-width: 1450px) {
     .content {
       grid-template-columns: 1fr 250px;
     }
@@ -205,5 +221,5 @@ const descriptionArray = description.split("\n");
     .bottom-main-links-group {
       flex-direction: column;
     }
-  }
+  } */
 </style>

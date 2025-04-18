@@ -2,6 +2,7 @@ b,
 strong {
   @apply font-semibold;
 }
+
 code {
   @apply after:border-none;
 }
@@ -12,6 +13,26 @@ code {
   &-lg {
     box-shadow: 0px 15px 34px rgba(0, 0, 0, 0.1);
   }
+}
+
+.shadow-small {
+  box-shadow: 0px 2px 5px 0px #00000080;
+}
+
+.shadow-small-2 {
+  box-shadow: 2px 2px 7.5px 0.5px #00000040;
+}
+
+.shadow-medium {
+  box-shadow: 0px 2px 10px 0px #00000080;
+}
+
+.shadow-medium-2 {
+  box-shadow: 2px 2px 10px 0px #00000030;
+}
+
+.shadow-medium-light {
+  box-shadow: 0px 2px 10px 0px #69696980;
 }
 
 .bg-gradient-to-tl {

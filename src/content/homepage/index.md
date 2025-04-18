@@ -14,11 +14,14 @@ about:
   title: ABOUT
   secondTitle: Let me introduce myself
   sideText: MR.MANEY
-  description: >-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed
-    urna in justo euismod condimentum.  
+  description: |-
+    I am a content creator who loves to share my passion for gaming and technology
+    with the world. I create unboxing videos of the latest technology, games,
+    and toys, and I also share my thoughts and opinions on various topics related
+    to gaming and technology.
 
-    Vestibulum dignissim orci vitae eros rutrum euismod. Vestibulum tempor, sem et molestie egestas, dui tortor laoreet tellus, id rhoncus mauris neque malesuada augue. Lorem ipsum hi hello how are you ? I a hi hello how are you ? I 
+    I am a firm believer in the power of community and I strive to create a space
+    where everyone feels welcome and included. I love to connect with my audience
   main_links_group:
     - link_to: blog
       image: /images/home_about/mrmaney.jpg
@@ -101,17 +104,17 @@ social:
 videos:
   data:
     - title: Top 10 Best Places in Japan to Get Deluxe Edition Boxes
-      views: 734,000
+      views: 734000
       time: 6 Hours ago
       image: /images/videos/gallery-img-1.png
       link: "#"
     - title: Ranking the Best Sunglasses Bundles for This Summer
-      views: 204,000
+      views: 204000
       time: 7 Hours ago
       image: /images/videos/gallery-img-2.png
       link: "#"
     - title: We Unbox the 'Power Computer Bundle' for Gaming
-      views: 7,190,000
+      views: 7190000
       time: 13 Hours ago
       image: /images/videos/gallery-img-3.png
       link: "#"

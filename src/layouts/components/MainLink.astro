@@ -9,10 +9,10 @@ import { markdownify, slugify } from "@/lib/utils/textConverter";
 
 <a
   href={link?.link_to ? slugify(link?.link_to) : `#`}
-  class={`main-link-wrapper relative ${className || ``}`}
+  class={`main-link-wrapper h-[250px] flex-grow cursor-pointer relative ${className || ``}`}
 >
   <div
-    class="main-link bg-purple-50 m-0 w-[300px] h-[250px] rounded-2xl overflow-hidden relative shadow-small"
+    class="main-link bg-purple-50 m-0 h-full w-full rounded-2xl overflow-hidden relative z-[2] shadow-small"
   >
     <Image
       src={link.image || "/images/fallback_images/about_main_link_fallback.jpg"}
@@ -39,17 +39,13 @@ import { markdownify, slugify } from "@/lib/utils/textConverter";
     </div>
   </div>
   <div
-    class="badge text-primary rounded-md flex justify-center items-center text-3xl m-0 w-[100px] h-[60px]  absolute top-0 mx-auto left-0 right-0 translate-y-[-50%] shadow-medium"
+    class="badge z-[3] bg-white text-primary rounded-md flex justify-center items-center text-3xl m-0 w-[100px] h-[60px]  absolute top-0 mx-auto left-0 right-0 translate-y-[-50%] shadow-medium"
   >
     {(<LinkIconMap linkTo={link?.link_to} />)}
   </div>
 </a>
 
 <style>
-  .main-link-wrapper {
-    position: relative;
-    cursor: pointer;
-  }
   .main-link-text-overlay-wrapper {
     background: #00000066;
     transition: 0.25s ease-in-out;
@@ -105,26 +101,7 @@ import { markdownify, slugify } from "@/lib/utils/textConverter";
     transform: rotate(3.67deg) translate(-7.5px, 15px);
   }
 
-  .badge {
-    z-index: 3;
-    background-color: white;
-  }
-  .main-link {
-    position: relative;
-    min-width: 300px;
-    z-index: 2;
-    /* background-color: rgb(255, 230, 230); */
-  }
-
-  .shadow-small {
-    box-shadow: 0px 2px 5px 0px #00000080;
-  }
-  .shadow-medium {
-    box-shadow: 0px 2px 10px 0px #00000080;
-  }
-
-  /* 2XL Screen */
-  @media screen and (max-width: 1450px) {
+  /* @media screen and (max-width: 1450px) {
     .main-link {
       width: 250px;
       min-width: 250px;
@@ -158,5 +135,5 @@ import { markdownify, slugify } from "@/lib/utils/textConverter";
       height: 100%;
       position: absolute;
     }
-  }
+  } */
 </style>

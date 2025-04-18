@@ -47,7 +47,7 @@ const { page_data, content: journeys } = journeyData;
                   const { badge, description } = item;
                   return (
                     <>
-                    <div class="journeys-content-inner flex flex-col gap-4">
+                    <div class="journeys-content-inner">
                       <Badge color={badge.color} iconClass={badge.icon}>{badge.text}</Badge>
                       <div set:html={markdownifyBlock(description)} class="flex flex-col gap-4" />
                     </div>
