@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaBlog, FaDotCircle, FaUserCircle } from "react-icons/fa";
+import { FaBlog, FaDotCircle, FaRoute, FaUserCircle } from "react-icons/fa";
 import { MdOutlineContactMail } from "react-icons/md";
 
 const DEFULT_ICON = <FaDotCircle />;
@@ -7,6 +7,7 @@ const DEFULT_ICON = <FaDotCircle />;
 const map = {
     "/blog": <FaBlog />,
     "/about": <FaUserCircle />,
+    "/journey": <FaRoute />,
     "/contact": <MdOutlineContactMail />
 }
 
