@@ -35,10 +35,10 @@ const { title, secondTitle, button, image, content, badges } = banner;
       <p class="text-white w-80" set:html={markdownify(content)} />
 
       {
-        button.enable ? (
+        button?.enable ? (
           <a
             class="w-fit btn btn-outline-white text-white hover:bg-white hover:text-black cursor-pointer"
-            href={button.link}
+            href={button.link || `#`}
             target="_blank"
           >
             {button.label}

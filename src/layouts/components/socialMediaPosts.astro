@@ -28,7 +28,7 @@ const getSocialLink = (platform: string) => {
         />
         <div class="absolute bottom-0 left-0 p-4 w-full z-20">
           <a
-            href={getSocialLink(post.platform)}
+            href={getSocialLink(post?.platform)}
             class={`text-white bg-white rounded-2xl inline-block text-xs p-1 px-2 mb-3 capitalize`}
             style={`background-color: ${socialColorMap[post.platform] || socialColorMap.default};`}
             target="_blank"
@@ -42,7 +42,7 @@ const getSocialLink = (platform: string) => {
             set:html={markdownify(post.caption)}
             target="_blank"
             rel="noopener noreferrer"
-          ></a>
+          />
         </div>
       </div>
     ))

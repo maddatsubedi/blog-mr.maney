@@ -8,7 +8,7 @@ import { markdownify, slugify } from "@/lib/utils/textConverter";
 ---
 
 <a
-  href={link?.link_to ? slugify(link?.link_to) : `#`}
+  href={link?.link_to ? link.link_to : `#`}
   class={`main-link-wrapper h-[250px] flex-grow cursor-pointer relative ${className || ``}`}
 >
   <div

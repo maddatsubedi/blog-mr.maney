@@ -23,15 +23,15 @@ about:
     I am a firm believer in the power of community and I strive to create a space
     where everyone feels welcome and included. I love to connect with my audience
   main_links_group:
-    - link_to: blog
+    - link_to: /blog
       image: /images/home_about/mrmaney.jpg
       title: Browse Blogs
       subtitle: Insights and stories
-    - link_to: about
+    - link_to: /journey
       image: /images/home_about/mrmaney2.jpg
-      title: About Me
-      subtitle: Know more about me
-    - link_to: contact
+      title: My Journey
+      subtitle: My story so far
+    - link_to: /contact
       image: /images/home_about/mrmaney1.jpg
       title: Contact Me
       subtitle: Let’s get in touch

@@ -5,9 +5,9 @@ const { title, index_title, page_title, slug, content } = page_data || {};
 ---
 
 <div class="text-center py-8 px-4 md:py-14">
-    <h1
+  <h1
     set:html={markdownify(
-      page_data?.page_title ? page_data?.page_title : page_data?.title
+      page_data?.page_title ? page_data?.page_title : page_data?.title,
     )}
   />
   <p set:html={markdownify(content)} />
@@ -22,11 +22,11 @@ const { title, index_title, page_title, slug, content } = page_data || {};
                 class={`btn m-3 block sm:inline-block ${
                   button?.outline ? "btn-outline-primary" : "btn-primary"
                 } `}
-                href={button?.link}
+                href={button?.link ? button.link : `#`}
               >
                 {button?.label}
               </a>
-            )
+            ),
         )}
       </div>
     )

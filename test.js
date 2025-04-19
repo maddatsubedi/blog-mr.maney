@@ -1,4 +1,7 @@
-const authHeader = request.headers.get('Authorization');
-const regex = /^Bearer\s+(.+)$/;
-const authToken = authHeader?.match(regex)?.[1];
-console.log(authToken);
+const { slug } = require("github-slugger");
+
+const slugify = (content) => {
+  if (!content) return null;
+
+  return slug(content);
+};
