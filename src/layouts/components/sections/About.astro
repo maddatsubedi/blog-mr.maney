@@ -18,10 +18,7 @@ const {
   main_links_group,
 } = about;
 
-// Fix-Later-1: markdownify returning <br> text instead of new line
-const descriptionArray = description.split("\n");
-
-const extras = [
+const infos = [
   {
     title: "Creator",
     iconClass: "fa-solid fa-video",
@@ -40,54 +37,50 @@ const extras = [
 ---
 
 <section class="home-section about" style="background-color: #f5f4fe;">
-  <div class="home-section-content flex gap-14">
+  <div class="home-section-content flex gap-11 2md:gap-12 lg:gap-14">
     <div
-      class="side-text text-primary opacity-60 hidden 2md:flex text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat text-end"
+      class="side-text text-primary opacity-60 hidden leading-none 3md:flex text-6xl xl:text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat text-end"
     >
-      <!-- <div
-      class="side-text text-primary opacity-60 hidden 2md:flex text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat justify-center"
-    > -->
       {markdownify(sideText)}
     </div>
     <div class="main-section flex flex-col gap-12">
       <div class="text-center">
         <h1
-          class="first-title text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] text-[10rem] leading-none font-montserrat font-extrabold"
+          class="first-title text-[6rem] 2md:text-[7rem] lg:text-[8.5rem] xl:text-[10rem] leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] font-montserrat font-extrabold"
         >
           {markdownify(title)}
         </h1>
         <p
-          class="second-title text-[#3B3A39] font-extrabold leading-none text-[3.3rem]"
+          class="second-title text-[1.8rem] 2md:text-[2.1rem] lg:text-[2.55rem] xl:text-[3.3rem] leading-none text-[#3B3A39] font-extrabold"
         >
           {markdownify(secondTitle)}
         </p>
       </div>
-      <!-- <div class="content flex flex-col gap-14 justify-center"> -->
       <div
-        class="content grid grid-cols-[1fr_min-content] grid-rows-[1fr_auto] gap-x-12 gap-y-14"
+        class="content grid gap-x-12 gap-y-10 2md:gap-y-14 grid-cols-[1fr] 2md:grid-cols-[1fr_min-content] grid-rows-[1fr_auto_auto] 2md:grid-rows-[1fr_auto]"
       >
         <div
-          class="description font-medium row-start-1"
+          class="description font-medium order-2 2md:row-start-1"
           set:html={markdownifyBlock(description)}
         />
-        <div class="bottom-group flex items-center gap-14 row-start-2">
+        <div class="bottom-group my-4 2md:my-0 order-3 h-[200px] xl:h-[250px] flex items-center gap-11 md:gap-12 lg:gap-14 2md:row-start-2">
           {main_links_group.map((link: any) => <MainLink link={link} />)}
         </div>
         <div
-          class="about-info-section h-fit self-center overflow-ellipsis max-w-[150px] bg-white border-red-500/60 border-[1px] shadow-medium-2 rounded-lg col-start-2 row-span-2 p-4 flex flex-col items-center gap-4"
+          class="about-info-section gap-6 p-6 2md:gap-4 2md:p-4 order-1 2md:max-w-[150px] flex flex-row 2md:flex-col items-center h-fit self-center overflow-ellipsis bg-white border-red-500/60 border-[1px] shadow-medium-2 rounded-lg 2md:col-start-2 2md:row-span-2"
         >
           <div
-            class="extra-head text-[1.5rem] w-full line-clamp-2 text-center overflow-hidden overflow-ellipsis font-bold text-primary"
+            class="info-head flex-shrink-0 max-w-[125px] 2md:max-w-[unset] text-[1.5rem] 2md:w-full line-clamp-2 text-center overflow-hidden overflow-ellipsis font-bold text-primary"
           >
             I'm a
           </div>
-          <div class="extra-body w-full flex flex-col gap-4">
+          <div class="info-body w-full flex flex-row 2md:flex-col gap-4">
             {
-              extras.map((extra) => (
-                <div class="extra-body-item w-full cursor-pointer transition-all duration-[250ms] hover:scale-[1.075] flex flex-col justify-center items-center gap-[10px] bg-white rounded-md shadow-small-2 p-3 leading-none">
-                  <i class={`${extra.iconClass} text-[1.25rem] text-primary`} />
+              infos.map((info) => (
+                <div class="info-body-item w-full cursor-pointer transition-all duration-[250ms] hover:scale-[1.075] flex flex-col justify-center items-center gap-[10px] bg-white rounded-md shadow-small-2 p-3 leading-none">
+                  <i class={`${info.iconClass} text-[1.25rem] text-primary`} />
                   <div class="font-medium wrap-all text-[1.1rem] text-center w-full line-clamp-2 overflow-hidden overflow-ellipsis">
-                    {markdownify(extra.title)}
+                    {markdownify(info.title)}
                   </div>
                 </div>
               ))
@@ -103,125 +96,5 @@ const extras = [
   .side-text {
     writing-mode: vertical-rl;
   }
-
-  /* @media screen and (max-width: 1350px) {
-    .side-text {
-      font-size: 3.75rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-  }
-
-  @media screen and (max-width: 1025px) {
-    .side-text {
-      font-size: 3.25rem;
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
-    }
-  } */
-
-  /* @media screen and (max-width: 1450px) {
-    .content {
-      grid-template-columns: 1fr 250px;
-    }
-
-    .group-image {
-      aspect-ratio: 16/10;
-    }
-  }
-  @media screen and (max-width: 1350px) {
-    .side-text {
-      font-size: 3.75rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-    .main-links-group {
-      gap: 3rem;
-    }
-    .content {
-      gap: 3rem;
-    }
-    .bottom-group {
-      gap: 3.5rem;
-    }
-    .content {
-      grid-template-columns: 1fr 225px;
-    }
-  }
-  @media screen and (max-width: 1250px) {
-    .content {
-      display: flex;
-    }
-    .main-links-group {
-      display: none;
-    }
-
-    .bottom-group {
-      flex-direction: column;
-    }
-    .md-hide {
-      display: none;
-    }
-    .md-show {
-      display: unset;
-    }
-    .bottom-main-links-group.md-show {
-      display: flex;
-    }
-    .image-group {
-      align-self: stretch;
-    }
-    .group-image {
-      aspect-ratio: 16/6.75;
-    }
-    .bottom-main-links-group {
-      width: 100%;
-      row-gap: 4rem;
-      column-gap: 3.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  }
-
-  @media screen and (max-width: 1025px) {
-    .section {
-      gap: 2rem;
-    }
-    .side-text {
-      font-size: 3.25rem;
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
-    }
-
-    .first-title {
-      font-size: 7.5rem;
-    }
-    .second-title {
-      font-size: 2.5rem;
-      margin-top: -40px;
-    }
-
-    .main-section {
-      gap: 2.25rem;
-    }
-    .bottom-group {
-      gap: 2.25rem;
-    }
-    .content-bottom {
-      gap: 2.25rem;
-    }
-  }
-
-  @media screen and (max-width: 800px) {
-    .first-title {
-      font-size: 4rem;
-    }
-    .second-title {
-      font-size: 2.5rem;
-      margin-top: -10px;
-    }
-    .bottom-main-links-group {
-      flex-direction: column;
-    }
-  } */
+  
 </style>

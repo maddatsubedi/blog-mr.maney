@@ -4,7 +4,7 @@
 }
 
 .home-section {
-  @apply font-montserrat p-12 xl:p-16;
+  @apply font-montserrat p-8 md:p-10 2md:p-12 xl:p-16;
   .home-section-content {
     @apply max-w-[1600px] mx-auto;
   }

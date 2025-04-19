@@ -24,14 +24,17 @@ about:
     where everyone feels welcome and included. I love to connect with my audience
   main_links_group:
     - link_to: /blog
+      badge_icon: fa-solid fa-blog
       image: /images/home_about/mrmaney.jpg
       title: Browse Blogs
       subtitle: Insights and stories
     - link_to: /journey
+      badge_icon: fa-solid fa-route
       image: /images/home_about/mrmaney2.jpg
       title: My Journey
       subtitle: My story so far
     - link_to: /contact
+      badge_icon: fa-solid fa-address-card
       image: /images/home_about/mrmaney1.jpg
       title: Contact Me
       subtitle: Let’s get in touch
