@@ -43,38 +43,38 @@ const infos = [
     >
       {markdownify(sideText)}
     </div>
-    <div class="main-section flex flex-col gap-12">
+    <div class="main-section flex flex-col gap-8 md:gap-10 lg:gap-12">
       <div class="text-center">
         <h1
-          class="first-title text-[6rem] 2md:text-[7rem] lg:text-[8.5rem] xl:text-[10rem] leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] font-montserrat font-extrabold"
+          class="first-title text-[5rem] md:text-[6rem] 2md:text-[7rem] lg:text-[8.5rem] xl:text-[10rem] leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] font-montserrat font-extrabold"
         >
           {markdownify(title)}
         </h1>
         <p
-          class="second-title text-[1.8rem] 2md:text-[2.1rem] lg:text-[2.55rem] xl:text-[3.3rem] leading-none text-[#3B3A39] font-extrabold"
+          class="second-title text-[1.5rem] md:text-[1.8rem] 2md:text-[2.1rem] lg:text-[2.55rem] xl:text-[3.3rem] leading-none text-[#3B3A39] font-extrabold"
         >
           {markdownify(secondTitle)}
         </p>
       </div>
       <div
-        class="content grid gap-x-12 gap-y-10 2md:gap-y-14 grid-cols-[1fr] 2md:grid-cols-[1fr_min-content] grid-rows-[1fr_auto_auto] 2md:grid-rows-[1fr_auto]"
+        class="content grid gap-x-12 gap-y-8 md:gap-y-10 2md:gap-y-14 grid-cols-[1fr] 2md:grid-cols-[1fr_min-content] grid-rows-[1fr_auto_auto] 2md:grid-rows-[1fr_auto]"
       >
         <div
           class="description font-medium order-2 2md:row-start-1"
           set:html={markdownifyBlock(description)}
         />
-        <div class="bottom-group my-4 2md:my-0 order-3 h-[200px] xl:h-[250px] flex items-center gap-11 md:gap-12 lg:gap-14 2md:row-start-2">
+        <div class="bottom-group flex flex-col h-[900px] 2sm:h-[200px] xl:h-[250px] gap-[4.75rem] 2sm:gap-11 md:gap-12 lg:gap-14 2sm:flex-row my-4 2md:my-0 order-3 items-center 2md:row-start-2">
           {main_links_group.map((link: any) => <MainLink link={link} />)}
         </div>
         <div
-          class="about-info-section gap-6 p-6 2md:gap-4 2md:p-4 order-1 2md:max-w-[150px] flex flex-row 2md:flex-col items-center h-fit self-center overflow-ellipsis bg-white border-red-500/60 border-[1px] shadow-medium-2 rounded-lg 2md:col-start-2 2md:row-span-2"
+          class="about-info-section flex flex-col 2sm:flex-row 2md:flex-col gap-4 p-5 2sm:gap-6 2sm:p-6 2md:gap-4 2md:p-4 order-1 2md:max-w-[150px] items-center h-fit self-center overflow-ellipsis bg-white border-red-500/60 border-[1px] shadow-medium-2 rounded-lg 2md:col-start-2 2md:row-span-2"
         >
           <div
-            class="info-head flex-shrink-0 max-w-[125px] 2md:max-w-[unset] text-[1.5rem] 2md:w-full line-clamp-2 text-center overflow-hidden overflow-ellipsis font-bold text-primary"
+            class="info-head leading-none flex-shrink-0 max-w-[unset] 2sm:max-w-[125px] 2md:max-w-[unset] text-[1.5rem] 2md:w-full line-clamp-1 2sm:line-clamp-2 text-center overflow-hidden overflow-ellipsis font-bold text-primary"
           >
             I'm a
           </div>
-          <div class="info-body w-full flex flex-row 2md:flex-col gap-4">
+          <div class="info-body w-full flex flex-row 2md:flex-col gap-[1.125rem] 2sm:gap-4">
             {
               infos.map((info) => (
                 <div class="info-body-item w-full cursor-pointer transition-all duration-[250ms] hover:scale-[1.075] flex flex-col justify-center items-center gap-[10px] bg-white rounded-md shadow-small-2 p-3 leading-none">

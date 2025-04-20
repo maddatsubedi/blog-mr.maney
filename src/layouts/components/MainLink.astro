@@ -14,7 +14,7 @@ const badgeIconClass = link?.badge_icon
 
 <a
   href={link?.link_to ? link.link_to : `#`}
-  class={`main-link-wrapper h-full flex-grow cursor-pointer relative ${className || ``}`}
+  class={`main-link-wrapper h-full flex-grow self-stretch cursor-pointer relative ${className || ``}`}
 >
   <div
     class="main-link bg-purple-50 m-0 h-full w-full rounded-2xl overflow-hidden relative z-[2] shadow-small"
@@ -27,7 +27,7 @@ const badgeIconClass = link?.badge_icon
       height={200}
     />
     <div
-      class="main-link-text-overlay-wrapper text-[#ffffff] absolute h-full w-full p-4 flex items-end"
+      class="main-link-text-overlay-wrapper bg-[#00000066] transition-all duration-[250ms] ease-in-out text-[#ffffff] absolute h-full w-full p-4 flex items-end"
     >
       <div
         class="main-link-text-overlay w-full flex flex-col text-center gap-2"
@@ -37,7 +37,7 @@ const badgeIconClass = link?.badge_icon
         </div>
         <div class="line border-[1.5px] border-white rounded-full"></div>
         <!-- <div class="line h-[2px] min-h-[2px] max-h[0.25px] bg-white rounded-full"></div> -->
-        <div class="main-link-subtitle leading-none">
+        <div class="main-link-subtitle grid grid-rows-[0fr] transition-all duration-[250ms] ease-in-out leading-none">
           <div class="main-link-subtitle-text">
             {markdownify(link?.subtitle || `[subtitle]`)}
           </div>
@@ -54,16 +54,6 @@ const badgeIconClass = link?.badge_icon
 </a>
 
 <style>
-  .main-link-text-overlay-wrapper {
-    background: #00000066;
-    transition: 0.25s ease-in-out;
-  }
-
-  .main-link-subtitle {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: 0.25s ease-in-out;
-  }
   .main-link-wrapper:hover .main-link-text-overlay-wrapper {
     backdrop-filter: blur(5px);
     background: #33333366;
@@ -76,8 +66,8 @@ const badgeIconClass = link?.badge_icon
   }
   .main-link-wrapper:hover::before,
   .main-link-wrapper:hover::after {
-    transform: scale(1.05);
-    border-width: 2px;
+    @apply scale-x-[1.03] scale-y-[1.065] 2sm:scale-x-[1.06] 2sm:scale-y-[1.05] border-[2px];
+    /* border-width: 2px; */
   }
   .main-link-text-overlay {
     margin-bottom: -0.5rem;
