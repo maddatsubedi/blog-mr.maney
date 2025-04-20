@@ -13,9 +13,8 @@ const {
   secondTitle,
   sideText,
   description,
-  image_group,
-  main_images,
   main_links_group,
+  info_section
 } = about;
 
 const infos = [
@@ -33,7 +32,6 @@ const infos = [
   },
 ];
 
-// console.log(about);
 ---
 
 <section class="home-section about" style="background-color: #f5f4fe;">
@@ -72,13 +70,13 @@ const infos = [
           <div
             class="info-head leading-none flex-shrink-0 max-w-[unset] 2sm:max-w-[125px] 2md:max-w-[unset] text-[1.5rem] 2md:w-full line-clamp-1 2sm:line-clamp-2 text-center overflow-hidden overflow-ellipsis font-bold text-primary"
           >
-            I'm a
+            {info_section.title}
           </div>
           <div class="info-body w-full flex flex-row 2md:flex-col gap-[1.125rem] 2sm:gap-4">
             {
-              infos.map((info) => (
+              info_section.infos.map((info: {title: string, icon: string}) => (
                 <div class="info-body-item w-full cursor-pointer transition-all duration-[250ms] hover:scale-[1.075] flex flex-col justify-center items-center gap-[10px] bg-white rounded-md shadow-small-2 p-3 leading-none">
-                  <i class={`${info.iconClass} text-[1.25rem] text-primary`} />
+                  <i class={`${info.icon} text-[1.25rem] text-primary`} />
                   <div class="font-medium wrap-all text-[1.1rem] text-center w-full line-clamp-2 overflow-hidden overflow-ellipsis">
                     {markdownify(info.title)}
                   </div>

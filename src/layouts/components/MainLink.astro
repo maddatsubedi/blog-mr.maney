@@ -64,19 +64,6 @@ const badgeIconClass = link?.badge_icon
   .main-link-wrapper:hover .main-link-subtitle {
     grid-template-rows: 1fr;
   }
-  .main-link-wrapper:hover::before,
-  .main-link-wrapper:hover::after {
-    @apply scale-x-[1.03] scale-y-[1.065] 2sm:scale-x-[1.06] 2sm:scale-y-[1.05] border-[2px];
-    /* border-width: 2px; */
-  }
-  .main-link-text-overlay {
-    margin-bottom: -0.5rem;
-    transition: 0.25s ease-in-out;
-  }
-
-  .main-link-subtitle-text {
-    overflow: hidden;
-  }
 
   .main-link-wrapper::before,
   .main-link-wrapper::after {
@@ -93,10 +80,25 @@ const badgeIconClass = link?.badge_icon
     pointer-events: none;
   }
   .main-link-wrapper::before {
-    transform: rotate(-3.67deg) translate(-10px, 10px);
+    @apply rotate-[-2.5deg] 2sm:rotate-[-3.67deg] translate-x-[-10px] translate-y-[10px];
+    /* transform: rotate(-3.67deg) translate(-10px, 10px); */
   }
   .main-link-wrapper::after {
-    transform: rotate(3.67deg) translate(-7.5px, 15px);
+    @apply rotate-[2.5deg] 2sm:rotate-[3.67deg] translate-x-[-7.5px] translate-y-[15px];
+    /* transform: rotate(3.67deg) translate(-7.5px, 15px); */
+  }
+
+  .main-link-wrapper:hover::before,
+  .main-link-wrapper:hover::after {
+    @apply rotate-0 translate-x-0 translate-y-0 scale-x-[1.03] scale-y-[1.07] 2sm:scale-x-[1.06] 2sm:scale-y-[1.05] border-[2px];
+  }
+  .main-link-text-overlay {
+    margin-bottom: -0.5rem;
+    transition: 0.25s ease-in-out;
+  }
+
+  .main-link-subtitle-text {
+    overflow: hidden;
   }
 
 </style>

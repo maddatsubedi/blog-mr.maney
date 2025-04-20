@@ -38,13 +38,16 @@ about:
       image: /images/home_about/mrmaney1.jpg
       title: Contact Me
       subtitle: Let’s get in touch
-  image_group:
-    - image: /images/home_about/game1.jpeg
-    - image: /images/home_about/game2.jpeg
-    - image: /images/home_about/game3.jpeg
-    - image: /images/home_about/game4.jpeg
-    - image: /images/home_about/game5.jpeg
-    - image: /images/home_about/game6.jpeg
+  info_section:
+    title: I'm a
+    infos:
+      - title: Creator
+        icon: fa-solid fa-video
+      - title: Gamer
+        icon: fa-solid fa-gamepad
+      - title: Blogger
+        icon: fa-solid fa-blog
+
 skills:
   title: Creating Worlds, Building Connections
   image: /images/skills/mrmaney_transparent_ai.png

@@ -67,11 +67,17 @@ collections:
                     - { label: "Image", name: "image", widget: "image" }
                     - { label: "Title", name: "title", widget: "string" }
                     - { label: "Subtitle", name: "subtitle", widget: "string" }
-              - label: "Image Group"
-                name: "image_group"
-                widget: "list"
+              - label: "Info Section"
+                name: "info_section"
+                widget: "object"
                 fields:
-                    - { label: "Image", name: "image", widget: "image" }
+                    - { label: "Info Title", name: "title", widget: "string" }
+                    - label: "Info Items"
+                      name: "infos"
+                      widget: "list"
+                      fields:
+                        - { label: "Text", name: "title", widget: "string" }
+                        - { label: "Icon (Use full class names from fontawesome.com/icons)", name: "icon", widget: "string" }
           - label: "Skills"
             name: "skills"
             widget: "object"
