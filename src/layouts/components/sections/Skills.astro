@@ -23,98 +23,101 @@ const {
 ---
 
 <section
-  class="section md:px-10 px-3 font-montserrat grid gap-10 md:grid-cols-[0.6fr_1.4fr] overflow-hidden"
-  style="background-color: #fffbf9;"
+  class="home-section bg-[#fffbf9] overflow-hidden"
 >
-  <div class="left md:flex justify-center hidden">
-    <div class="left-image-wrapper relative w-full h-full max-w-[375px]">
-      <Image
-        src={mainImage}
-        class="main-image object-cover object-top absolute w-full bottom-0 translate-y-16"
-        alt="image"
-        width={550}
-        height={1000}
-      />
-    </div>
-  </div>
-  <div class="right flex flex-col gap-10">
-    <h1 class="font-montserrat md:text-5xl text-3xl font-medium text-center">
-      {markdownify(title)}
-    </h1>
-    <div
-      class="content bg-[#ffffff] shadow-md rounded-xl grid md:grid-cols-[1.3fr_0.7fr] overflow-hidden"
-    >
-      <div class="content-left md:flex hidden flex-col gap-3 p-7">
-        <h2 class="font-montserrat text-3xl font-medium m-0">
-          {markdownify(bottomTitle)}
-        </h2>
-        <p class="m-0 leading-[24px]">{markdownify(bottomDescription)}</p>
-        <div class="right-lists flex flex-col gap-3">
-          <div class="vision flex gap-3">
-            <FaRegEye className="icon text-2xl min-w-6 mt-1" />
-            <div class="text">
-              <h3 class="font-montserrat text-2xl font-medium m-0">Vision</h3>
-              <p class="m-0 leading-[24px]">{markdownify(vision)}</p>
-            </div>
-          </div>
-          <div class="mission flex gap-2">
-            <FaRegLightbulb className="icon text-2xl min-w-6 mt-1" />
-            <div class="text">
-              <h3 class="font-montserrat text-2xl font-medium m-0">Mission</h3>
-              <p class="m-0 leading-[24px]">{markdownify(mission)}</p>
-            </div>
-          </div>
-          <div class="value flex gap-2">
-            <MdDiamond className="icon text-2xl min-w-6 mt-1" />
-            <div class="text">
-              <h3 class="font-montserrat text-2xl font-medium m-0">Value</h3>
-              <p class="m-0 leading-[24px]">{markdownify(value)}</p>
-            </div>
-          </div>
-        </div>
+  <div class="home-section-content font-montserrat grid gap-9 xl:gap-10 grid-cols-[1fr] 3md:grid-cols-[0.7fr_1.3fr] lg:grid-cols-[0.65fr_1.35fr] xl:grid-cols-[0.6fr_1.4fr]">
+    <div class="left hidden 3md:flex justify-center">
+      <div class="left-image-wrapper relative w-full h-full max-w-[375px]">
+        <Image
+          src={mainImage}
+          class="main-image object-cover object-top absolute w-full bottom-0 translate-y-16"
+          alt="image"
+          width={550}
+          height={1000}
+        />
       </div>
+    </div>
+    <div class="right flex flex-col gap-7 2sm:gap-8 md:gap-9 3md:gap-10">
+      <h1 class="font-montserrat leading-[1.1] font-semibold text-[2rem] 3md:text-[2.5rem] xl:text-[3rem] text-center">
+        {markdownify(title)}
+      </h1>
       <div
-        class="content-right bg-[#f6f6f6] flex flex-col gap-7 p-7 justify-center min-w-[210px] "
+        class="content bg-[#ffffff] shadow-large-2 rounded-xl grid grid-cols-[1fr] md:grid-cols-[1.2fr_0.8fr] 2md:grid-cols-[1.3fr_0.7fr] overflow-hidden"
       >
-        <div class="right-image-wrapper">
-          <Image
-            src={rightImage}
-            class="right-image object-cover m-0 object-center "
-            alt="image"
-            width={475}
-            height={320}
-          />
+        <div class="content-left flex flex-col justify-center gap-4 p-6 xl:p-7">
+          <h2 class="font-montserrat leading-[1.25] block 3md:hidden 2lg:block text-[1.625rem] 3md:text-[1.75rem] xl:text-[1.875rem] font-medium m-0">
+            {markdownify(bottomTitle)}
+          </h2>
+          <p class="m-0 font-medium leading-[1.5] block 3md:hidden 2lg:block">{markdownify(bottomDescription)}</p>
+          <div class="right-lists flex flex-col gap-3">
+            <div class="vision flex gap-3">
+              <FaRegEye className="icon leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] min-w-6 mt-[5px]" />
+              <div class="text">
+                <h3 class="font-montserrat leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] font-medium m-0">Vision</h3>
+                <p class="m-0 leading-[1.5]">{markdownify(vision)}</p>
+              </div>
+            </div>
+            <div class="mission flex gap-2">
+              <FaRegLightbulb className="icon leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] min-w-6 mt-[5px]" />
+              <div class="text">
+                <h3 class="font-montserrat leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] font-medium m-0">
+                  Mission
+                </h3>
+                <p class="m-0 leading-[1.5]">{markdownify(mission)}</p>
+              </div>
+            </div>
+            <div class="value flex gap-2">
+              <MdDiamond className="icon leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] min-w-6 mt-[5px]" />
+              <div class="text">
+                <h3 class="font-montserrat leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] font-medium m-0">Value</h3>
+                <p class="m-0 leading-[1.5]">{markdownify(value)}</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="skills-wrapper">
-          <ul class="skills-list list-none m-0 p-0 flex flex-col gap-5">
-            {
-              skillsList.map(
-                (
-                  skill: { title: string; percentage: string },
-                  index: number,
-                ) => {
-                  return (
-                    <li class="skill m-0 p-0">
-                      <div class="sill-title flex items-center gap-3 justify-between">
-                        <h3 class="font-montserrat text-xl font-normal m-0 text-[#0d0d0d]">
-                          {markdownify(skill.title)}
-                        </h3>
-                        <div class="skill-percentage font-semibold">
-                          {skill.percentage}%
+        <div
+          class="content-right bg-[#f6f6f6] flex flex-col gap-7 p-6 xl:p-7 justify-center min-w-[210px]"
+        >
+          <div class="right-image-wrapper w-full">
+            <Image
+              src={rightImage}
+              class="right-image w-full object-cover h-[300px] md:h-[155px] m-0 object-center"
+              alt="image"
+              width={475}
+              height={320}
+            />
+          </div>
+          <div class="skills-wrapper">
+            <ul class="skills-list list-none m-0 p-0 flex flex-col gap-5">
+              {
+                skillsList.map(
+                  (
+                    skill: { title: string; percentage: string },
+                    index: number,
+                  ) => {
+                    return (
+                      <li class="skill m-0 p-0">
+                        <div class="sill-title flex items-center gap-3 justify-between">
+                          <h3 class="font-montserrat text-xl font-normal m-0 text-[#0d0d0d]">
+                            {markdownify(skill.title)}
+                          </h3>
+                          <div class="skill-percentage font-semibold">
+                            {skill.percentage}%
+                          </div>
                         </div>
-                      </div>
-                      <div class="skill-bar w-full h-1.5 min-h-1.5 mt-2 bg-gray-300 rounded-full overflow-hidden">
-                        <div
-                          class="skill-progress bg-primary rounded-full h-full"
-                          style={`width: ${skill.percentage}%;`}
-                        />
-                      </div>
-                    </li>
-                  );
-                },
-              )
-            }
-          </ul>
+                        <div class="skill-bar w-full h-1.5 min-h-1.5 mt-2 bg-gray-300 rounded-full overflow-hidden">
+                          <div
+                            class="skill-progress bg-primary rounded-full h-full"
+                            style={`width: ${skill.percentage}%;`}
+                          />
+                        </div>
+                      </li>
+                    );
+                  },
+                )
+              }
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -122,10 +125,10 @@ const {
 </section>
 
 <style>
-  @media screen and (max-width: 768px) {
+  /* @media screen and (max-width: 768px) {
     .right-image {
       width: 100%;
       max-height: 310px;
     }
-  }
+  } */
 </style>

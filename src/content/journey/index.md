@@ -25,7 +25,7 @@ content:
             color: green
           description: |-
             - Established [Arman Games](https://www.arman.games/) company
-            - Initiated development of JUCTION LUDO - online multiplayer Ludo game
+            - Initiated development of [JUCTION LUDO](https://www.arman.games/) - online multiplayer Ludo game
             - Key features: Voice chat, custom tournaments, reward system
             - Assembled team of developers and game designers
             ![JUCTION LUDO Preview](/images/cms/juction-ludo-concept.png "Game Concept Art")

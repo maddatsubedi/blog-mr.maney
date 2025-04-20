@@ -30,6 +30,7 @@ module.exports = {
       "2md": "896px",
       "3md": "960px",
       lg: "1024px",
+      "2lg": "1112px",
       xl: "1200px",
       "2xl": "1350px",
       "3xl": "1536px",

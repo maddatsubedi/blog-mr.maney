@@ -17,24 +17,9 @@ const {
   info_section
 } = about;
 
-const infos = [
-  {
-    title: "Creator",
-    iconClass: "fa-solid fa-video",
-  },
-  {
-    title: "Gamer",
-    iconClass: "fa-solid fa-gamepad",
-  },
-  {
-    title: "Blogger",
-    iconClass: "fa-solid fa-blog",
-  },
-];
-
 ---
 
-<section class="home-section about" style="background-color: #f5f4fe;">
+<section class="home-section about bg-[#f5f4fe]">
   <div class="home-section-content flex gap-11 2md:gap-12 lg:gap-14">
     <div
       class="side-text text-primary opacity-60 hidden leading-none 3md:flex text-6xl xl:text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat text-end"
@@ -44,12 +29,12 @@ const infos = [
     <div class="main-section flex flex-col gap-8 md:gap-10 lg:gap-12">
       <div class="text-center">
         <h1
-          class="first-title text-[5rem] md:text-[6rem] 2md:text-[7rem] lg:text-[8.5rem] xl:text-[10rem] leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] font-montserrat font-extrabold"
+          class="first-title text-[4.5rem] 2sm:text-[5rem] md:text-[6rem] 2md:text-[7rem] lg:text-[8.5rem] xl:text-[10rem] leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#F71B35] to-[#FFFAC3] font-montserrat font-extrabold"
         >
           {markdownify(title)}
         </h1>
         <p
-          class="second-title text-[1.5rem] md:text-[1.8rem] 2md:text-[2.1rem] lg:text-[2.55rem] xl:text-[3.3rem] leading-none text-[#3B3A39] font-extrabold"
+          class="second-title text-[1.35rem] 2sm:text-[1.5rem] md:text-[1.8rem] 2md:text-[2.1rem] lg:text-[2.55rem] xl:text-[3.3rem] leading-none text-[#3B3A39] font-extrabold"
         >
           {markdownify(secondTitle)}
         </p>
