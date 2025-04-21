@@ -9,7 +9,7 @@ date: 2024-12-16T23:11:00.000Z
 image: https://cdn.gadgetbytenepal.com/wp-content/uploads/2024/05/Akko-5075b-Dragon-Ball-Mechanical-Keyboard.jpg
 author: rabin
 categories:
-  - others
+  - test
 ---
 
 

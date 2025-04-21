@@ -1,7 +1,4 @@
-const { slug } = require("github-slugger");
+const categoriesLength = 1; // Example length of categories
+const showMoreColSpanSm = categoriesLength === 1 ? 1 : 2;
 
-const slugify = (content) => {
-  if (!content) return null;
-
-  return slug(content);
-};
+console.log(showMoreColSpanSm);
