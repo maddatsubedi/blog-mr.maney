@@ -20,49 +20,47 @@ const showMoreColSpan =
 const showMoreColSpanStyle = {
   "grid-column": `span ${showMoreColSpan}`,
 };
+
+const categoriesContainerStyle = {};
 ---
 
 {
   categoriesLength > 0 && (
-    <section
-      class="section categories-section md:px-10 px-5 font-montserrat flex flex-col items-center"
-      style="background-color: #FFFFFF;"
-    >
-      <div class="section-container max-w-[1120px] w-fit flex flex-col items-center gap-10">
-        <h2 class="font-plusJakartaSans font-medium md:text-[3rem] text-3xl text-center">
-          {markdownify(title)}
-        </h2>
-        <div class="categories-container grid grid-cols-3 w-fit gap-7">
-          {categoriesUpToNine.map((category: string) => (
-            <a
-              href={`/categories/${slugify(category)}`}
-              class="category relative flex rounded-xl overflow-hidden shadow-md"
-            >
-              <Image
-                src={
-                  categoriesImageMap[category] ||
-                  "/images/fallback_images/category_fallback.jpg"
-                }
-                class="category-image object-cover object-center rounded-xl h-[95px]"
-                alt="image"
-                width={352}
-                height={70}
-              />
-              <div class="category-text-overlay text-center p-4 text-[#ffffff] text-md md:text-2xl font-medium absolute w-full h-full top-0 left-0 flex justify-center items-center bg-[#00000066]">
-                {capitalize(category)}
-              </div>
-            </a>
-          ))}
+    <section class="home-section bg-[#f5f4fe] font-montserrat">
+      <div class="home-section-content max-w-[1120px] header-gap flex flex-col items-center">
+        <h2 class="home-section-header text-center">{markdownify(title)}</h2>
+        <div class="categories-container grid grid-cols-2 2sm:grid-cols-3 w-fit gap-5 2sm:gap-6 md:gap-7">
+          {categoriesUpToNine.map((category: string) => {
+            return (
+              <a
+                href={`/categories/${slugify(category)}`}
+                class="category relative flex rounded-xl overflow-hidden shadow-md"
+              >
+                <Image
+                  src={
+                    categoriesImageMap[category] ||
+                    "/images/fallback_images/category_fallback.jpg"
+                  }
+                  class="category-image transition-all duration-[250ms] ease-in-out object-cover object-center rounded-xl h-[95px]"
+                  alt="image"
+                  width={352}
+                  height={70}
+                />
+                <div class="category-text-overlay transition-all duration-[250ms] ease-in-out text-center p-4 text-[#ffffff] text-[1.125rem] 2sm:text-[1.25rem] md:text-[1.5rem] font-medium absolute w-full h-full top-0 left-0 flex justify-center items-center bg-[#00000066]">
+                  {capitalize(category)}
+                </div>
+              </a>
+            );
+          })}
           {
             <a
               href={`/categories`}
-              class={`show-more p-4 flex gap-[10px] h-[95px] justify-center items-center rounded-xl overflow-hidden col-spa shadow-medium-light`}
-              style={showMoreColSpanStyle}
+              class={`show-more hover:bg-[#f2f2f2] col-span-1 categories-col-span-${showMoreColSpan} h-auto transition-all duration-[250ms] ease-in-out p-4 flex gap-[10px] justify-center items-center rounded-xl overflow-hidden shadow-medium-light`}
             >
-              <div class="show-more-text font-medium text-primary text-center text-md md:text-2xl">
+              <div class="show-more-text font-medium text-primary text-center text-[1.125rem] 2sm:text-[1.25rem] md:text-[1.5rem]">
                 Show More
               </div>
-              <FaChevronCircleRight className="icon text-[#615a5a] min-w-5 min-h-5 text-xl" />
+              <FaChevronCircleRight className="icon transition-all duration-[250ms] ease-in-out text-[#615a5a] min-w-5 min-h-5 text-xl" />
             </a>
           }
         </div>
@@ -72,14 +70,16 @@ const showMoreColSpanStyle = {
 }
 
 <style>
-  .test {
-    background: #583838;
+  .categories-col-span-1 {
+    @apply col-[span_2] 2sm:col-[span_1];
   }
-  .show-more,
-  .show-more .icon,
-  .category-image,
-  .category-text-overlay {
-    transition: 0.25s ease-in-out;
+
+  .categories-col-span-2 {
+    @apply col-[span_2];
+  }
+
+  .categories-col-span-3 {
+    @apply col-[span_2] 2sm:col-[span_3];
   }
 
   .category:hover .category-image {
@@ -91,23 +91,11 @@ const showMoreColSpanStyle = {
     background: #4e4e4e66;
   }
 
-  .show-more {
-    transition: 0.25s ease-in-out;
-  }
-
-  .show-more:hover {
-    background: #f2f2f2;
-  }
-
   .show-more:hover .icon {
     transform: translateX(5px);
   }
 
-  .show-more.col-span-3 {
-    height: 60px;
-  }
-
-  @media screen and (max-width: 650px) {
+  /* @media screen and (max-width: 650px) {
     .categories-container {
       gap: 1rem;
     }
@@ -123,5 +111,5 @@ const showMoreColSpanStyle = {
     .show-more-text {
       font-size: 0.9rem;
     }
-  }
+  } */
 </style>

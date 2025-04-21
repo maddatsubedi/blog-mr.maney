@@ -8,6 +8,13 @@
   .home-section-content {
     @apply max-w-[1600px] mx-auto;
   }
+  &.header-gap,
+  .header-gap{
+    @apply gap-[2rem] md:gap-[2.5rem] lg:gap-[3rem];
+  }
+  .home-section-header {
+    @apply font-montserrat leading-[1.1] font-semibold text-[2rem] 3md:text-[2.5rem] xl:text-[3rem];
+  }
 }
 
 // about

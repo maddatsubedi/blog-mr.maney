@@ -22,10 +22,10 @@ const {
 // console.log(skills);
 ---
 
-<section
-  class="home-section bg-[#fffbf9] overflow-hidden"
->
-  <div class="home-section-content font-montserrat grid gap-9 xl:gap-10 grid-cols-[1fr] 3md:grid-cols-[0.7fr_1.3fr] lg:grid-cols-[0.65fr_1.35fr] xl:grid-cols-[0.6fr_1.4fr]">
+<section class="home-section bg-[#fffbf9] overflow-hidden">
+  <div
+    class="home-section-content font-montserrat grid gap-9 xl:gap-10 grid-cols-[1fr] 3md:grid-cols-[0.7fr_1.3fr] lg:grid-cols-[0.65fr_1.35fr] xl:grid-cols-[0.6fr_1.4fr]"
+  >
     <div class="left hidden 3md:flex justify-center">
       <div class="left-image-wrapper relative w-full h-full max-w-[375px]">
         <Image
@@ -37,39 +37,61 @@ const {
         />
       </div>
     </div>
-    <div class="right flex flex-col gap-7 2sm:gap-8 md:gap-9 3md:gap-10">
-      <h1 class="font-montserrat leading-[1.1] font-semibold text-[2rem] 3md:text-[2.5rem] xl:text-[3rem] text-center">
+    <div class="right flex flex-col header-gap">
+      <h1
+        class="home-section-header text-center"
+      >
         {markdownify(title)}
       </h1>
       <div
         class="content bg-[#ffffff] shadow-large-2 rounded-xl grid grid-cols-[1fr] md:grid-cols-[1.2fr_0.8fr] 2md:grid-cols-[1.3fr_0.7fr] overflow-hidden"
       >
         <div class="content-left flex flex-col justify-center gap-4 p-6 xl:p-7">
-          <h2 class="font-montserrat leading-[1.25] block 3md:hidden 2lg:block text-[1.625rem] 3md:text-[1.75rem] xl:text-[1.875rem] font-medium m-0">
+          <h2
+            class="font-montserrat leading-[1.25] block 3md:hidden 2lg:block text-[1.625rem] 3md:text-[1.75rem] xl:text-[1.875rem] font-medium m-0"
+          >
             {markdownify(bottomTitle)}
           </h2>
-          <p class="m-0 font-medium leading-[1.5] block 3md:hidden 2lg:block">{markdownify(bottomDescription)}</p>
+          <p class="m-0 font-medium leading-[1.5] block 3md:hidden 2lg:block">
+            {markdownify(bottomDescription)}
+          </p>
           <div class="right-lists flex flex-col gap-3">
             <div class="vision flex gap-3">
-              <FaRegEye className="icon leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] min-w-6 mt-[5px]" />
+              <FaRegEye
+                className="icon leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] min-w-6 mt-[5px]"
+              />
               <div class="text">
-                <h3 class="font-montserrat leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] font-medium m-0">Vision</h3>
+                <h3
+                  class="font-montserrat leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] font-medium m-0"
+                >
+                  Vision
+                </h3>
                 <p class="m-0 leading-[1.5]">{markdownify(vision)}</p>
               </div>
             </div>
             <div class="mission flex gap-2">
-              <FaRegLightbulb className="icon leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] min-w-6 mt-[5px]" />
+              <FaRegLightbulb
+                className="icon leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] min-w-6 mt-[5px]"
+              />
               <div class="text">
-                <h3 class="font-montserrat leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] font-medium m-0">
+                <h3
+                  class="font-montserrat leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] font-medium m-0"
+                >
                   Mission
                 </h3>
                 <p class="m-0 leading-[1.5]">{markdownify(mission)}</p>
               </div>
             </div>
             <div class="value flex gap-2">
-              <MdDiamond className="icon leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] min-w-6 mt-[5px]" />
+              <MdDiamond
+                className="icon leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] min-w-6 mt-[5px]"
+              />
               <div class="text">
-                <h3 class="font-montserrat leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] font-medium m-0">Value</h3>
+                <h3
+                  class="font-montserrat leading-[1.75rem] xl:leading-[2rem] text-[1.185rem] 3md:text-[1.25rem] xl:text-[1.375rem] font-medium m-0"
+                >
+                  Value
+                </h3>
                 <p class="m-0 leading-[1.5]">{markdownify(value)}</p>
               </div>
             </div>
