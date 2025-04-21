@@ -126,7 +126,8 @@ collections:
             widget: "object"
             collapsed: true
             fields:
-              - label: "Data"
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Videos"
                 name: "data"
                 widget: "list"
                 fields:

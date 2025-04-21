@@ -80,6 +80,7 @@ profile_data:
     label: "Followers"
   - text: 50K+
     label: "Subscribers"
+
 social:
   links:
     - platform: facebook
@@ -107,7 +108,9 @@ social:
       image: /images/social_posts/post-3.jpg
       caption: Hame BG xau hai ❤️ @Bikram Ghimire
       link: https://www.facebook.com/share/p/14qmBGrBRn/
+
 videos:
+  title: My Latest Videos
   data:
     - title: Top 10 Best Places in Japan to Get Deluxe Edition Boxes
       views: 734000

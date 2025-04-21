@@ -32,7 +32,7 @@ const { title, secondTitle, button, image, content, badges } = banner;
         />
       </div>
 
-      <p class="text-white w-80" set:html={markdownify(content)} />
+      <p class="text-white w-80 font-medium" set:html={markdownify(content)} />
 
       {
         button?.enable ? (

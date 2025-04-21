@@ -1,33 +1,40 @@
 ---
 import viewsFormat from "../../lib/utils/viewFromat";
-const { videos,gaming } = Astro.props;
-const {data} = videos;
-
+const { videos, gaming } = Astro.props;
+const { data, title } = videos;
 ---
 
-<section class="section relative">
-  <div class="container">
-    <h2 class="font-montserrat">Latest Video</h2>
-    <div class="flex overflow-x-auto gap-5 mt-5 flex-shrink-0">
-        {data.map(item=>{
-            return (
-                <div class="bg-white rounded-lg overflow-hidden min-w-96">
-                    <img
-                    class="w-full h-48 object-cover"
-                    src={item.image}
-                    alt="Video Thumbnail"
-                    />
-                    <div class="p-4">
-                        <a href={item.link} class="text-xl font-semibold mb-2 font-montserrat block text-gray-700">
-                        {item.title}
-                        </a>
-                        <span class="text-gray-400 text-sm">{item.time}</span>
-                        <span class="text-gray-400 text-sm"> - {viewsFormat(item.views)} views</span>
-                        </div>
+<section class="home-section bg-[#ffffff]">
+  <div class="home-section-content max-width-large header-gap flex flex-col">
+    <h2 class="home-section-header ml-4">
+      {title || "Latest Videos"}
+    </h2>
+    <div class="flex overflow-x-auto gap-5 flex-shrink-0 p-4 -mt-4">
+      {
+        data.map((item: any) => {
+          return (
+            <div class="bg-white min-w-96 rounded-lg overflow-hidden shadow-medium">
+              <img
+                class="w-full h-48 object-cover"
+                src={item.image}
+                alt="Video Thumbnail"
+              />
+              <div class="flex flex-col gap-4 p-4 bg-red-200/30">
+                <a
+                  href={item.link}
+                  class="text-xl font-semibold font-montserrat block text-gray-700"
+                >
+                  {item.title}
+                </a>
+                <div class="flex items-center font-medium gap-5 justify-between leading-none text-gray-500 text-[0.875rem]">
+                  <span>{item.time}</span>
+                  <span>{viewsFormat(item.views)} views</span>
                 </div>
-            )
-        })}
-
+              </div>
+            </div>
+          );
+        })
+      }
     </div>
   </div>
 </section>

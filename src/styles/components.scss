@@ -7,6 +7,9 @@
   @apply font-montserrat p-[2rem_1.25rem] 2sm:p-[2.5rem_2rem] md:p-[3rem_2.5rem] 2md:p-[3rem_3rem] xl:p-[4rem_4rem];
   .home-section-content {
     @apply max-w-[1600px] mx-auto;
+    &.max-width-large {
+      @apply max-w-[1140px];
+    }
   }
   &.header-gap,
   .header-gap{
