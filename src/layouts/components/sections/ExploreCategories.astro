@@ -16,7 +16,7 @@ import { FaChevronCircleRight, FaChevronRight } from "react-icons/fa";
 
 const categoriesLength = categories.length;
 const showMoreColSpan =
-  categoriesLength % 3 === 0 ? 3 : (9 - categoriesLength) % 3;
+  categoriesUpToNine.length % 3 === 0 ? 3 : (9 - categoriesUpToNine.length) % 3;
 // const showMoreColSpanStyle = {
 //   "grid-column": `span ${showMoreColSpan}`,
 // };
@@ -30,11 +30,12 @@ const showMoreColSpanSm = categoriesLength === 1 ? 1 : 2;
       <div class="home-section-content max-w-[1120px] header-gap flex flex-col items-center">
         <h2 class="home-section-header text-center">{markdownify(title)}</h2>
         <div class="categories-container grid grid-cols-2 2sm:grid-cols-3 w-fit gap-5 2sm:gap-6 md:gap-7">
-          {categoriesUpToNine.map((category: string) => {
+          {categoriesUpToNine.map((category, index, categories) => {
+            const smHideClass = index > 3 || (categories.length === 3 && index === 2) ? "sm-hide" : "";
             return (
               <a
                 href={`/categories/${slugify(category)}`}
-                class="category relative flex rounded-xl overflow-hidden shadow-md"
+                class={`category relative flex rounded-xl overflow-hidden shadow-md ${smHideClass}`}
               >
                 <Image
                   src={
@@ -70,6 +71,10 @@ const showMoreColSpanSm = categoriesLength === 1 ? 1 : 2;
 }
 
 <style>
+
+  .category.sm-hide {
+    @apply hidden 2sm:flex;
+  }
 
   .show-more.categories-col-span-1 {
     @apply 2sm:col-[span_1];

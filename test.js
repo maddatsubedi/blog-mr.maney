@@ -1,4 +1,5 @@
-const categoriesLength = 1; // Example length of categories
-const showMoreColSpanSm = categoriesLength === 1 ? 1 : 2;
+const categoriesLength = 10;
+const showMoreColSpan =
+  categoriesLength % 3 === 0 ? 3 : (9 - categoriesLength) % 3;
 
-console.log(showMoreColSpanSm);
+console.log(showMoreColSpan);
