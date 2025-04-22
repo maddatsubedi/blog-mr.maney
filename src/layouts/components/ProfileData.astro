@@ -18,7 +18,7 @@ const { profile_data } = Astro.props as ProfileDataProps;
     class="home-section-content flex items-center gap-5 flex-wrap"
   > -->
   <div
-    class="home-section-content overflow-x-auto grid grid-cols-[repeat(2,minmax(200px,1fr))] lg:grid-cols-[repeat(4,minmax(200px,1fr))]  items-center gap-5"
+    class="home-section-content overflow-x-auto grid grid-cols-[1fr] 2sm:grid-cols-[repeat(2,1fr)] lg:grid-cols-[repeat(4,1fr)]  items-center gap-5"
   >
     {
       profile_data.map((data) => (

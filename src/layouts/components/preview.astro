@@ -5,7 +5,7 @@ const { data, title } = videos;
 ---
 
 <section class="home-section bg-[#ffffff]">
-  <div class="home-section-content max-width-large header-gap flex flex-col">
+  <div class="home-section-content max-width-large-2 header-gap flex flex-col">
     <h2 class="home-section-header ml-4">
       {title || "Latest Videos"}
     </h2>
@@ -13,13 +13,13 @@ const { data, title } = videos;
       {
         data.map((item: any) => {
           return (
-            <div class="bg-white min-w-96 rounded-lg overflow-hidden shadow-medium">
+            <div class="bg-white min-w-96 rounded-lg overflow-hidden shadow-medium flex flex-col">
               <img
                 class="w-full h-48 object-cover"
                 src={item.image}
                 alt="Video Thumbnail"
               />
-              <div class="flex flex-col gap-4 p-4 bg-red-200/30">
+              <div class="flex flex-col gap-4 p-4 bg-red-200/30 flex-grow justify-between">
                 <a
                   href={item.link}
                   class="text-xl font-semibold font-montserrat block text-gray-700"

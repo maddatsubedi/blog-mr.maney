@@ -10,6 +10,9 @@
     &.max-width-large {
       @apply max-w-[1140px];
     }
+    &.max-width-large-2 {
+      @apply max-w-[1300px];
+    }
   }
   &.header-gap,
   .header-gap{

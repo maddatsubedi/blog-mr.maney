@@ -1,22 +1,30 @@
 ---
-import Blogs from "@/components/Blogs.astro";
+import { Image } from "astro:assets";
 import config from "@/config/config.json";
+import BlogCard from "@/components/blogCard.astro";
+import dateFormat from "@/lib/utils/dateFormat";
+import readingTime from "@/lib/utils/readingTime";
+import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
+const { summary_length } = config.settings;
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
-
 const { blog_folder } = config.settings;
 const posts = await getSinglePage(blog_folder);
 const sortedPosts = sortByDate(posts);
 const recentPost = sortedPosts.filter((item) => !item.data.featured);
-const currentPosts = recentPost.slice(0, 3);
+const currentPosts = recentPost.slice(0, 4);
 ---
 
 {
   posts.length > 0 && (
-    <section class="section relative">
-      <div class="container mt-10">
-        <h2 class="font-montserrat mb-4">Latest Blogs</h2>
-        <Blogs posts={currentPosts} />
+    <section class="home-section">
+      <div class="home-section-content max-width-large-2 header-gap flex flex-col">
+        <h2 class="home-section-header">Latest Blogs</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 2sm:gap-6 md:gap-7 2lg:gap-8">
+          {currentPosts.map((item: any) => (
+            <BlogCard post={item} />
+          ))}
+        </div>
       </div>
     </section>
   )
