@@ -19,7 +19,10 @@
     @apply gap-[2rem] md:gap-[2.5rem] lg:gap-[3rem];
   }
   .home-section-header {
-    @apply font-montserrat leading-[1.1] font-semibold text-[2rem] 3md:text-[2.5rem] xl:text-[3rem];
+    @apply font-montserrat leading-[1.1] font-semibold text-[2rem] 3md:text-[2.5rem] xl:text-[3rem] text-center;
+    &.place-left {
+      @apply text-center 2sm:text-left;
+    }
   }
 }
 
