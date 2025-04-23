@@ -38,7 +38,7 @@ const getSocialLink = (platform: string) => {
           </a>
           <a
             href={post.link}
-            class="caption content leading-tight text-white font-montserrat font-medium tracking-wide line-clamp-2"
+            class="caption content leading-tight text-white font-montserrat font-medium tracking-wide line-clamp-2 text-ellipsis"
             set:html={markdownify(post.caption)}
             target="_blank"
             rel="noopener noreferrer"
