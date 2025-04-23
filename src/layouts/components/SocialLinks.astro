@@ -4,75 +4,27 @@ import SocialItem from "../function-components/SocialItem.jsx";
 interface Link {
   platform: string;
   link: string;
+  label: string;
 }
 
 const { links } = Astro.props as { links: Link[] };
-
-const linksObj = links.reduce<Record<string, string>>(
-  (acc, { platform, link }) => {
-    acc[platform] = link;
-    return acc;
-  },
-  {},
-);
-
-const {
-  facebook,
-  twitter,
-  mastodon,
-  instagram,
-  youtube,
-  linkedin,
-  github,
-  gitlab,
-  discord,
-  slack,
-  medium,
-  codepen,
-  bitbucket,
-  dribbble,
-  behance,
-  pinterest,
-  soundcloud,
-  tumblr,
-  reddit,
-  vk,
-  whatsapp,
-  snapchat,
-  vimeo,
-  tiktok,
-  foursquare,
-  rss,
-  email,
-  phone,
-  address,
-  skype,
-  website,
-  x,
-} = linksObj;
 ---
 
-<div class="flex gap-7 flex-wrap justify-center">
+<div
+  class="grid grid-cols-2 2sm:grid-cols-3 xl:grid-cols-[repeat(auto-fit,minmax(0,1fr))] gap-4 lg:gap-5 xl:gap-7 justify-center"
+>
   {
-    facebook && (
-      <SocialItem platform={"facebook"} link={facebook} label={"Facebook"} />
-    )
+    links.map((link: Link, index) => {
+      const { platform, link: url, label } = link;
+      const smHideClass = index > 3 ? "sm-hide-flex" : "";
+      return (
+        <SocialItem
+          className={smHideClass}
+          platform={platform}
+          link={url}
+          label={label}
+        />
+      );
+    })
   }
-  {
-    instagram && (
-      <SocialItem platform={"instagram"} link={instagram} label={"Instagram"} />
-    )
-  }
-  {x && <SocialItem platform={"x"} link={x} label={"X"} />}
-  {
-    linkedin && (
-      <SocialItem platform={"linkedin"} link={linkedin} label={"LinkedIn"} />
-    )
-  }
-  {
-    youtube && (
-      <SocialItem platform={"youtube"} link={youtube} label={"YouTube"} />
-    )
-  }
-  {email && <SocialItem platform={"email"} link={`mailto:${email}`} label={"Email"} />}
 </div>

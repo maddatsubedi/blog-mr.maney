@@ -31,7 +31,10 @@ const showMoreColSpanSm = categoriesLength === 1 ? 1 : 2;
         <h2 class="home-section-header">{markdownify(title)}</h2>
         <div class="categories-container grid grid-cols-2 2sm:grid-cols-3 w-fit gap-5 2sm:gap-6 md:gap-7">
           {categoriesUpToNine.map((category, index, categories) => {
-            const smHideClass = index > 3 || (categories.length === 3 && index === 2) ? "sm-hide" : "";
+            const smHideClass =
+              index > 3 || (categories.length === 3 && index === 2)
+                ? "sm-hide-flex"
+                : "";
             return (
               <a
                 href={`/categories/${slugify(category)}`}
@@ -71,11 +74,6 @@ const showMoreColSpanSm = categoriesLength === 1 ? 1 : 2;
 }
 
 <style>
-
-  .category.sm-hide {
-    @apply hidden 2sm:flex;
-  }
-
   .show-more.categories-col-span-1 {
     @apply 2sm:col-[span_1];
   }
@@ -108,22 +106,4 @@ const showMoreColSpanSm = categoriesLength === 1 ? 1 : 2;
   .show-more:hover .icon {
     transform: translateX(5px);
   }
-
-  /* @media screen and (max-width: 650px) {
-    .categories-container {
-      gap: 1rem;
-    }
-  }
-  @media screen and (max-width: 470px) {
-    .categories-section {
-      padding: 4rem 0.75rem;
-    }
-    .categories-container {
-      gap: 0.75rem;
-    }
-    .category-text-overlay,
-    .show-more-text {
-      font-size: 0.9rem;
-    }
-  } */
 </style>

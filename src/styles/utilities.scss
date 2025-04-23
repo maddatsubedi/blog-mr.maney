@@ -7,6 +7,10 @@ code {
   @apply after:border-none;
 }
 
+.sm-hide-flex {
+  @apply hidden 2sm:flex;
+}
+
 .shadow {
   box-shadow: 0px 10px 45px rgba(0, 0, 0, 0.05);
 
@@ -21,6 +25,10 @@ code {
 
 .shadow-small-2 {
   box-shadow: 2px 2px 7.5px 0.5px #00000040;
+}
+
+.shadow-small-3 {
+  box-shadow: 2px 2px 6px 0.5px #00000020;
 }
 
 .shadow-medium {

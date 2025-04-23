@@ -1,34 +1,7 @@
 import React from 'react';
 import {
-    IoCall,
-    IoGlobeOutline,
-    IoLocation,
-    IoLogoBehance,
-    IoLogoBitbucket,
-    IoLogoCodepen,
-    IoLogoDiscord,
-    IoLogoDribbble,
     IoLogoFacebook,
-    IoLogoFoursquare,
-    IoLogoGithub,
-    IoLogoGitlab,
-    IoLogoInstagram,
     IoLogoLinkedin,
-    IoLogoMastodon,
-    IoLogoMedium,
-    IoLogoPinterest,
-    IoLogoReddit,
-    IoLogoRss,
-    IoLogoSkype,
-    IoLogoSlack,
-    IoLogoSnapchat,
-    IoLogoSoundcloud,
-    IoLogoTiktok,
-    IoLogoTumblr,
-    IoLogoTwitter,
-    IoLogoVimeo,
-    IoLogoVk,
-    IoLogoWhatsapp,
     IoLogoYoutube,
     IoMail,
 } from "react-icons/io5";
@@ -91,27 +64,56 @@ const instagramSvg = (
     </svg>
 )
 
-const DEFAULT_ICON = <TiSocialAtCircular size={35} color="rgb(220,38,38)" />;
-
-const platformIconMap = {
-    facebook: <IoLogoFacebook size={35} color="rgb(60,60,255)" />,
-    instagram: instagramSvg,
-    twitter: <RiTwitterXFill size={30} color="black" />,
-    linkedin: <IoLogoLinkedin size={30} color="rgb(40 104 225)" />,
-    youtube: <IoLogoYoutube size={30} color="red" />,
-    x: <RiTwitterXFill size={30} color="black" />,
-    email: <IoMail size={30} color="#6B46C1" />
+const DEFAULT_STYLE = {
+    icon: <TiSocialAtCircular size={35} />,
+    theme: "rgb(220,38,38)"
 };
 
-const LinkIconMap = ({ platform, link, label, type = "normal" }) => {
+const platformStyle = {
+    facebook: {
+        icon: <IoLogoFacebook size={35} />,
+        theme: "rgb(60,60,255)"
+    },
+    instagram: {
+        icon: instagramSvg,
+        theme: "#c026d3"
+    },
+    twitter: {
+        icon: <RiTwitterXFill size={30} />,
+        theme: "black"
+    },
+    linkedin: {
+        icon: <IoLogoLinkedin size={30} />,
+        theme: "rgb(40,104,225)"
+    },
+    youtube: {
+        icon: <IoLogoYoutube size={30} />,
+        theme: "red"
+    },
+    x: {
+        icon: <RiTwitterXFill size={30} />,
+        theme: "black"
+    },
+    email: {
+        icon: <IoMail size={30} />,
+        theme: "#6B46C1"
+    }
+};
+
+const SocialItem = ({ platform, link, label, className, type = "normal" }) => {
     return (
         <>
             {
-                <a href={link} class="flex gap-3 items-center" target="_blank">
-                    {
-                        platformIconMap[platform] || DEFAULT_ICON
-                    }
-                    <span class="text-lg text-black">
+                <a href={link} class={`social-link ${className} flex gap-3 justify-evenly py-2 px-4 transition duration-[250ms] ease-in-out rounded-md bg-white hover:bg-[#FED6D6] shadow-small-3 items-center`} target="_blank" style={{
+                    color: platformStyle[platform]?.theme || DEFAULT_STYLE.theme,
+                }}>
+                    <div className="icon">
+                        {
+                            platformStyle[platform]?.icon || DEFAULT_STYLE.icon
+
+                        }
+                    </div>
+                    <span class="text-[1.125rem] overflow-hidden text-ellipsis text-black">
                         {label || platform || "Social"}
                     </span>
                 </a>
@@ -120,4 +122,4 @@ const LinkIconMap = ({ platform, link, label, type = "normal" }) => {
     )
 }
 
-export default LinkIconMap
+export default SocialItem

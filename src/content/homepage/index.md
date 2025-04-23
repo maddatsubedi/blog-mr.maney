@@ -85,16 +85,22 @@ social:
   links:
     - platform: facebook
       link: "#"
-    - platform: x
+      label: Facebook
+    - platform: twitter
       link: "#"
+      label: Twitter
     - platform: instagram
       link: "#"
+      label: Instagram
     - platform: youtube
       link: "#"
+      label: YouTube
     - platform: linkedin
       link: "#"
+      label: LinkedIn
     - platform: email
       link: "#"
+      label: Email
   posts:
     - platform: facebook
       image: /images/social_posts/post-1.jpg
