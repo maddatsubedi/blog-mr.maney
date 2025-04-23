@@ -93,7 +93,7 @@ social:
       link: "#"
     - platform: linkedin
       link: "#"
-    - platform: mail
+    - platform: email
       link: "#"
   posts:
     - platform: facebook
