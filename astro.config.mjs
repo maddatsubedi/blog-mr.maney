@@ -21,6 +21,13 @@ export default defineConfig({
   adapter: netlify({
     imageCDN: false,
   }),
+  vite: {
+    ssr: {
+      noExternal: [
+        "react-lite-youtube-embed",
+      ],
+    }
+  },
   image: {},
   integrations: [
     react(),
