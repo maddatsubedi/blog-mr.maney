@@ -64,19 +64,19 @@ const instagramSvg = (
     </svg>
 )
 
-const DEFAULT_STYLE = {
+export const DEFAULT_STYLE = {
     icon: <TiSocialAtCircular size={35} />,
-    theme: "rgb(220,38,38)"
+    theme: "#dc2626"
 };
 
-const platformStyle = {
+export const platformStyles = {
     facebook: {
         icon: <IoLogoFacebook size={35} />,
-        theme: "rgb(60,60,255)"
+        theme: "#1877f2"
     },
     instagram: {
         icon: instagramSvg,
-        theme: "#c026d3"
+        theme: "#e1306c"
     },
     twitter: {
         icon: <RiTwitterXFill size={30} />,
@@ -84,7 +84,7 @@ const platformStyle = {
     },
     linkedin: {
         icon: <IoLogoLinkedin size={30} />,
-        theme: "rgb(40,104,225)"
+        theme: "#2868e1"
     },
     youtube: {
         icon: <IoLogoYoutube size={30} />,
@@ -105,11 +105,11 @@ const SocialItem = ({ platform, link, label, className, type = "normal" }) => {
         <>
             {
                 <a href={link} class={`social-link ${className} flex gap-3 justify-evenly py-2 px-4 transition duration-[250ms] ease-in-out rounded-md bg-white hover:bg-[#FED6D6] shadow-small-3 items-center`} target="_blank" style={{
-                    color: platformStyle[platform]?.theme || DEFAULT_STYLE.theme,
+                    color: platformStyles[platform]?.theme || DEFAULT_STYLE.theme,
                 }}>
                     <div className="icon">
                         {
-                            platformStyle[platform]?.icon || DEFAULT_STYLE.icon
+                            platformStyles[platform]?.icon || DEFAULT_STYLE.icon
 
                         }
                     </div>

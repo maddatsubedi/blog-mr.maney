@@ -11,6 +11,10 @@ code {
   @apply hidden 2sm:flex;
 }
 
+.all-hide-flex {
+  @apply hidden sm:flex;
+}
+
 .shadow {
   box-shadow: 0px 10px 45px rgba(0, 0, 0, 0.05);
 

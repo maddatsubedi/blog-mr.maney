@@ -18,10 +18,11 @@ const homepage = await getEntry("homepage", "index");
 const {
   banner,
   about,
-  explore_categories,
+  skills,
   profile_data,
   videos,
-  skills,
+  blogs,
+  explore_categories,
   social,
 } = homepage.data;
 ---
@@ -30,11 +31,11 @@ const {
   <!-- banner -->
 
   <Banner banner={banner} />
-  <About about={about} />
-  <Skills skills={skills} />
-  <ExploreCategories explore_categories={explore_categories} />
-  <Preview videos={videos} />
-  <ProfileData profile_data={profile_data} />
-  <PreviewBlog />
-  <Social social={social} />
+  <About about={about} background="#f5f4fe" />
+  <Skills skills={skills} background="#fffbf9" />
+  <ProfileData profile_data={profile_data} background="#1A1A29" />
+  <Preview videos={videos} background="#f5f4fe" />
+  <PreviewBlog blogs={blogs} background="#fffbf9"/>
+  <ExploreCategories explore_categories={explore_categories} background="#f5f4fe" />
+  <Social social={social} background="#fffbf9" />
 </Base>

@@ -1,29 +1,37 @@
 ---
-import { Image } from "astro:assets";
 import config from "@/config/config.json";
 import BlogCard from "@/components/blogCard.astro";
-import dateFormat from "@/lib/utils/dateFormat";
-import readingTime from "@/lib/utils/readingTime";
-import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
-const { summary_length } = config.settings;
+import { markdownify } from "@/lib/utils/textConverter";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
+
+const { blogs, background } = Astro.props;
+
+const title = blogs.title || "Latest Blogs";
+
 const { blog_folder } = config.settings;
 const posts = await getSinglePage(blog_folder);
 const sortedPosts = sortByDate(posts);
 const recentPost = sortedPosts.filter((item) => !item.data.featured);
 const currentPosts = recentPost.slice(0, 4);
+
 ---
 
 {
   posts.length > 0 && (
-    <section class="home-section">
+    <section
+      class="home-section"
+      style={{
+        backgroundColor: background,
+      }}
+    >
       <div class="home-section-content max-width-large-2 header-gap flex flex-col">
-        <h2 class="home-section-header place-left">Latest Blogs</h2>
+        <h2 class="home-section-header place-left">{markdownify(title)}</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-7 2lg:gap-8">
-          {currentPosts.map((item: any) => (
-            <BlogCard post={item} />
-          ))}
+          {currentPosts.map((item: any, index) => {
+            const allHideClass = index > 1 ? "all-hide-flex" : "";
+            return <BlogCard className={allHideClass} post={item} />;
+          })}
         </div>
       </div>
     </section>

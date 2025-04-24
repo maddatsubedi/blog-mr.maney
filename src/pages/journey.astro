@@ -1,22 +1,10 @@
 ---
 import Base from "@/layouts/Base.astro";
-import Banner from "@/layouts/components/Banner.astro";
-import Preview from "@/components/preview.astro";
-import PreviewBlog from "@/components/previewBlog.astro";
-import Skills from "@/layouts/components/sections/Skills.astro";
-import About from "@/layouts/components/sections/About.astro";
-import ExploreCategories from "@/components/sections/ExploreCategories.astro";
-import { getEntryBySlug } from "astro:content";
-import SocialLinks from "@/components/SocialLinks.astro";
-import SocialMediaPosts from "@/components/socialMediaPosts.astro";
-import Social from "@/components/sections/Social.astro";
 import { getEntry } from "astro:content";
-import { fade } from "astro:transitions";
 import PageHeader from "@/components/PageHeader.astro";
 import Shape from "@/components/Shape.astro";
 import JourneyCard from "@/layouts/shortcodes/JourneyCard";
 import Badge from "@/layouts/shortcodes/Badge";
-import Default from "@/layouts/Default.astro";
 import { markdownifyBlock } from "@/lib/utils/textConverter";
 
 const entry = await getEntry("journey", "index");
@@ -33,7 +21,7 @@ const { page_data, content: journeys } = journeyData;
 >
   <Shape />
   <PageHeader page_data={page_data} />
-  <section class="section px-4 sm:px-8 pt-0 pb-[4.5rem] lg:pb-24">
+  <section class="section px-4 sm:px-8 pt-0 pb-[4.5rem] lg:pb-[6rem]">
     <div class="container p-0">
       <div class="content">
         {

@@ -6,23 +6,24 @@ export interface ProfileData {
 
 export interface ProfileDataProps {
   profile_data: ProfileData[];
+  background: string;
 }
 
-const { profile_data } = Astro.props as ProfileDataProps;
+const { profile_data, background } = Astro.props as ProfileDataProps;
 ---
 
 <section
-  class="home-section bg-[#1A1A29]"
+  class="home-section"
+  style={{
+    backgroundColor: background,
+  }}
 >
-  <!-- <div
-    class="home-section-content flex items-center gap-5 flex-wrap"
-  > -->
   <div
-    class="home-section-content overflow-x-auto grid grid-cols-[1fr] 2sm:grid-cols-[repeat(2,1fr)] lg:grid-cols-[repeat(4,1fr)]  items-center gap-5"
+    class="home-section-content overflow-x-auto grid grid-cols-[1fr] 2sm:grid-cols-[repeat(2,1fr)] lg:grid-cols-[repeat(4,1fr)] items-center gap-5"
   >
     {
       profile_data.map((data) => (
-      // <div class="bg-[#ffffff41] text-center p-5 gap-2 min-w-[200px] flex-1 font-medium rounded-md flex flex-col items-center justify-center md:w-auto w-full">
+        // <div class="bg-[#ffffff41] text-center p-5 gap-2 min-w-[200px] flex-1 font-medium rounded-md flex flex-col items-center justify-center md:w-auto w-full">
         <div class="bg-[#ffffff41] text-center p-5 gap-2 flex-1 font-medium rounded-md flex flex-col items-center justify-center">
           <div class="text-white leading-none text-[1.875rem]">{data.text}</div>
           <div class="text-white">{data.label}</div>

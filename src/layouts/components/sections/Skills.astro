@@ -5,7 +5,7 @@ import { FaRegEye, FaRegLightbulb } from "react-icons/fa";
 import { IoDiamondSharp } from "react-icons/io5";
 import { MdDiamond } from "react-icons/md";
 
-const { skills } = Astro.props;
+const { skills, background } = Astro.props;
 const {
   title,
   image: mainImage,
@@ -22,7 +22,12 @@ const {
 // console.log(skills);
 ---
 
-<section class="home-section bg-[#fffbf9] overflow-hidden">
+<section
+  class="home-section overflow-hidden"
+  style={{
+    backgroundColor: background,
+  }}
+>
   <div
     class="home-section-content font-montserrat grid gap-9 xl:gap-10 grid-cols-[1fr] 3md:grid-cols-[0.7fr_1.3fr] lg:grid-cols-[0.65fr_1.35fr] xl:grid-cols-[0.6fr_1.4fr]"
   >
@@ -30,7 +35,7 @@ const {
       <div class="left-image-wrapper relative w-full h-full max-w-[375px]">
         <Image
           src={mainImage}
-          class="main-image object-cover object-top absolute w-full bottom-0 translate-y-16"
+          class="main-image object-cover object-top absolute w-full bottom-0 translate-y-[75px]"
           alt="image"
           width={550}
           height={1000}
@@ -38,9 +43,7 @@ const {
       </div>
     </div>
     <div class="right flex flex-col header-gap">
-      <h1
-        class="home-section-header"
-      >
+      <h1 class="home-section-header">
         {markdownify(title)}
       </h1>
       <div

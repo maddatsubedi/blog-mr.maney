@@ -3,9 +3,7 @@ import { markdownify, slugify } from "@/lib/utils/textConverter";
 import { readCategoryImagesWithFallback } from "@/lib/utils/categoriesImageMapper";
 import { capitalize } from "@/lib/utils/textConverter";
 
-const explore_categories = Astro.props.explore_categories || {
-  title: "Explore Categories",
-};
+const { explore_categories, background } = Astro.props;
 const title = explore_categories.title || "Explore Categories";
 
 const categoriesImageMap = await readCategoryImagesWithFallback();
@@ -26,7 +24,12 @@ const showMoreColSpanSm = categoriesLength === 1 ? 1 : 2;
 
 {
   categoriesLength > 0 && (
-    <section class="home-section bg-[#f5f4fe] font-montserrat">
+    <section
+      class="home-section font-montserrat"
+      style={{
+        backgroundColor: background,
+      }}
+    >
       <div class="home-section-content max-width-large header-gap flex flex-col items-center">
         <h2 class="home-section-header">{markdownify(title)}</h2>
         <div class="categories-container grid grid-cols-2 2sm:grid-cols-3 w-fit gap-5 2sm:gap-6 md:gap-7">

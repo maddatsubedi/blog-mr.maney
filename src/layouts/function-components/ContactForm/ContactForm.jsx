@@ -265,7 +265,7 @@ const ContactForm = ({ content }) => {
       <div className="contact-main px-4 sm:px-8 flex flex-col md:flex-row gap-7">
         <form
           onSubmit={handleSubmit}
-          className="left flex flex-col gap-6 p-6 bg-white rounded-md border border-gray-300 flex-grow"
+          className="left flex flex-col gap-6 p-6 bg-white rounded-lg border border-gray-300 flex-grow"
           method="post"
           name={FORM_NAME}
         >
@@ -349,7 +349,7 @@ const ContactForm = ({ content }) => {
             )}
           </button>
         </form>
-        <div className="right w-full md:w-1/2 bg-gray-100 rounded-md border border-gray-300 p-6 flex flex-col justify-center">
+        <div className="right w-full md:w-1/2 bg-gray-100 rounded-lg border border-gray-300 p-6 flex flex-col justify-center">
           <div className="title flex flex-col gap-2">
             <h1 className="text-gray-800 font-sans text-2xl font-medium text-center">Reach Me</h1>
             <div className="line border-t-2 border-primary w-12 mx-auto"></div>

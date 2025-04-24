@@ -1,50 +1,51 @@
 ---
 import { markdownify } from "@/lib/utils/textConverter";
+import { platformStyles, DEFAULT_STYLE } from "@/layouts/function-components/SocialItem.jsx";
 
 const { posts, links } = Astro.props;
-
-const socialColorMap = {
-  default: "#FF3D54", // primary: red
-  facebook: "#1877f2",
-  instagram: "#e1306c",
-  twitter: "#1DA1F2",
-  youtube: "#FF0000",
-  linkedin: "#0A66C2",
-} as any;
 
 const getSocialLink = (platform: string) => {
   return links.find((link: any) => link.platform === platform)?.link || "#";
 };
 ---
 
-<div class="flex gap-10 flex-wrap justify-center">
+<div class="grid grid-cols-1 sm:grid-cols-2 2md:grid-cols-[repeat(auto-fit,minmax(0,1fr))] gap-5 2sm:gap-6 lg:gap-7 xl:gap-8">
   {
-    posts.map((post: any, i: number) => (
-      <div class="relative flex bg-cover bg-center h-64 w-64 overflow-hidden rounded-xl">
-        <img
-          src={post.image}
-          alt="career"
-          class="w-full h-full object-cover brightness-50 relative z-10"
-        />
-        <div class="absolute bottom-0 left-0 p-4 w-full z-20">
-          <a
-            href={getSocialLink(post?.platform)}
-            class={`text-white bg-white rounded-2xl inline-block text-xs p-1 px-2 mb-3 capitalize`}
-            style={`background-color: ${socialColorMap[post.platform] || socialColorMap.default};`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {post.platform}
-          </a>
-          <a
-            href={post.link}
-            class="caption content leading-tight text-white font-montserrat font-medium tracking-wide line-clamp-2 text-ellipsis"
-            set:html={markdownify(post.caption)}
-            target="_blank"
-            rel="noopener noreferrer"
+    posts.map((post: any, index: number) => {
+      const allHideClass = index > 1 ? "all-hide-flex" : "";
+      return (
+        <div class={`social-post ${allHideClass} relative flex bg-cover bg-center h-[300px]  sm:h-[250px] overflow-hidden rounded-xl`}>
+          <img
+            src={post.image}
+            alt="career"
+            class="post-image w-full h-full object-cover object-center transition-all duration-[250ms] ease-in-out brightness-50 relative z-10"
           />
+          <div class="absolute bottom-0 left-0 p-4 w-full z-20">
+            <a
+              href={getSocialLink(post?.platform)}
+              class={`text-white transition-all duration-[250ms] ease-in-out backdrop-blur-[1px] custom-bg-[${platformStyles[post.platform as keyof typeof platformStyles]?.theme || DEFAULT_STYLE.theme}] rounded-2xl inline-block text-xs p-1 px-2 mb-3 capitalize`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {post.platform}
+            </a>
+            <a
+              href={post.link}
+              class="caption content leading-tight text-white font-montserrat font-medium tracking-wide line-clamp-2 text-ellipsis"
+              set:html={markdownify(post.caption)}
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+          </div>
         </div>
-      </div>
-    ))
+      );
+    })
   }
 </div>
+
+<style>
+  .social-post:hover .post-image {
+    transform: scale(1.175);
+    filter: brightness(0.75);
+  }
+</style>

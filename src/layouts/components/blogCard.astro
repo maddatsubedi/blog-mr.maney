@@ -6,11 +6,11 @@ import readingTime from "@/lib/utils/readingTime";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
 const { summary_length } = config.settings;
 
-const { post } = Astro.props;
+const { post, className } = Astro.props;
 ---
 
 <div
-  class="relative h-full rounded-xl bg-white p-5 shadow-medium-2 flex flex-col gap-5"
+  class={`${className} relative h-full rounded-xl bg-white p-5 shadow-medium-2 flex flex-col gap-5`}
 >
   <div class="img-wrapper h-[200px] sm:h-[175px] 2sm:h-[200px] md:h-[225px] lg:h-[175px] xl:h-[200px] overflow-hidden relative rounded-md">
     <Image

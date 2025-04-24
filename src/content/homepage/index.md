@@ -10,6 +10,7 @@ banner:
     link: "#"
     enable: true
   badges: /images/users/Badges.svg
+
 about:
   title: ABOUT
   secondTitle: Let me introduce myself
@@ -69,8 +70,7 @@ skills:
         percentage: 73
       - title: Editing
         percentage: 80
-explore_categories:
-  title: Explore Categories
+
 profile_data:
   - text: 5+
     label: "Years of Experience"
@@ -80,6 +80,31 @@ profile_data:
     label: "Followers"
   - text: 50K+
     label: "Subscribers"
+
+videos:
+  title: Latest Videos
+  data:
+    - title: Top 10 Best Places in Japan to Get Deluxe Edition Boxes
+      views: 734000
+      time: 6 Hours ago
+      image: /images/videos/gallery-img-1.png
+      link: "#"
+    - title: Ranking the Best Sunglasses Bundles for This Summer
+      views: 204000
+      time: 7 Hours ago
+      image: /images/videos/gallery-img-2.png
+      link: "#"
+    - title: We Unbox the 'Power Computer Bundle' for Gaming
+      views: 7190000
+      time: 13 Hours ago
+      image: /images/videos/gallery-img-3.png
+      link: "#"
+
+blogs:
+  title: Latest Blogs
+
+explore_categories:
+  title: Explore Categories
 
 social:
   links:
@@ -118,23 +143,4 @@ social:
       image: /images/social_posts/post-4.jpg
       caption: जुनसुकै समय आए पनि आशा कहिल्यै नगुमाऔं, नयाँ साल नयाँ सोच सधैं अगाडि बढिरहौँ
       link: https://www.facebook.com/share/p/19KYdYxh58/
-
-videos:
-  title: My Latest Videos
-  data:
-    - title: Top 10 Best Places in Japan to Get Deluxe Edition Boxes
-      views: 734000
-      time: 6 Hours ago
-      image: /images/videos/gallery-img-1.png
-      link: "#"
-    - title: Ranking the Best Sunglasses Bundles for This Summer
-      views: 204000
-      time: 7 Hours ago
-      image: /images/videos/gallery-img-2.png
-      link: "#"
-    - title: We Unbox the 'Power Computer Bundle' for Gaming
-      views: 7190000
-      time: 13 Hours ago
-      image: /images/videos/gallery-img-3.png
-      link: "#"
 ---

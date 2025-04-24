@@ -11,7 +11,7 @@ const { links } = Astro.props as { links: Link[] };
 ---
 
 <div
-  class="grid grid-cols-2 2sm:grid-cols-3 xl:grid-cols-[repeat(auto-fit,minmax(0,1fr))] gap-4 lg:gap-5 xl:gap-7 justify-center"
+  class="grid grid-cols-2 2sm:grid-cols-3 xl:grid-cols-[repeat(auto-fit,minmax(0,1fr))] gap-4 lg:gap-5 xl:gap-7"
 >
   {
     links.map((link: Link, index) => {

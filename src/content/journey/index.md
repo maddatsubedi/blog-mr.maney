@@ -4,7 +4,9 @@ page_data:
     page_title: My Journey
 
 content:
-    - date: 2020 - Gaming Beginnings
+    - date:
+        year: 2020
+        title: "Gaming Beginnings"
       items:
         - badge:
             icon: "fa-solid fa-gamepad"
@@ -17,7 +19,9 @@ content:
             - Built initial audience with engaging gameplay commentary
             - Developed unique streaming style combining humor and skill
 
-    - date: 2022 - Gaming Entrepreneurship
+    - date:
+        year: 2022
+        title: "Gaming Entrepreneurship"
       items:
         - badge:
             icon: "fa-solid fa-building"
@@ -40,7 +44,9 @@ content:
             - Started mentoring aspiring streamers
             - Appeared as guest on Nepali gaming podcasts
 
-    - date: 2023 - Content Evolution
+    - date:
+        year: 2023
+        title: "Content Evolution"
       items:
         - badge:
             icon: "fa-solid fa-robot"
@@ -53,7 +59,9 @@ content:
             - Implemented AI-powered video editing tools
             - Reached 100k+ combined subscribers
             
-    - date: 2025 - New Horizons
+    - date:
+        year: 2025
+        title: "New Horizons"
       items:
         - badge:
             icon: "fa-solid fa-car"

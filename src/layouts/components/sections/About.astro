@@ -7,19 +7,23 @@ import LinkIconMap from "@/layouts/function-components/LinkIconMap";
 import MainLink from "../MainLink.astro";
 import { datetimeRegex } from "astro:schema";
 
-const { about } = Astro.props;
+const { about, background } = Astro.props;
 const {
   title,
   secondTitle,
   sideText,
   description,
   main_links_group,
-  info_section
+  info_section,
 } = about;
-
 ---
 
-<section class="home-section about bg-[#f5f4fe]">
+<section
+  class="home-section about"
+  style={{
+    backgroundColor: background,
+  }}
+>
   <div class="home-section-content flex gap-11 2md:gap-12 lg:gap-14">
     <div
       class="side-text text-primary opacity-60 hidden leading-none 3md:flex text-6xl xl:text-7xl font-light scale-x-[-1] scale-y-[-1] font-montserrat text-end"
@@ -46,27 +50,33 @@ const {
           class="description font-medium order-2 2md:row-start-1"
           set:html={markdownifyBlock(description)}
         />
-        <div class="bottom-group flex flex-col h-[900px] 2sm:h-[200px] xl:h-[250px] gap-[4.75rem] 2sm:gap-11 md:gap-12 lg:gap-14 2sm:flex-row my-4 2md:my-0 order-3 items-center 2md:row-start-2">
+        <div
+          class="bottom-group flex flex-col h-[900px] 2sm:h-[200px] xl:h-[250px] gap-[4.75rem] 2sm:gap-11 md:gap-12 lg:gap-14 2sm:flex-row my-4 2md:my-0 order-3 items-center 2md:row-start-2"
+        >
           {main_links_group.map((link: any) => <MainLink link={link} />)}
         </div>
         <div
-          class="about-info-section flex flex-col 2sm:flex-row 2md:flex-col gap-4 p-5 2sm:gap-6 2sm:p-6 2md:gap-4 2md:p-4 order-1 2md:max-w-[150px] items-center h-fit self-center overflow-ellipsis bg-white border-red-500/60 border-[1px] shadow-medium-2 rounded-lg 2md:col-start-2 2md:row-span-2"
+          class="about-info-section flex flex-col 2sm:flex-row 2md:flex-col gap-4 2sm:gap-6 2md:gap-4 p-[1.25rem] 2sm:p-[1.5rem_2rem] 2md:p-[1rem] order-1 2md:max-w-[150px] items-center h-fit self-center overflow-ellipsis bg-white border-red-500/60 border-[1px] shadow-medium-2 rounded-lg 2md:col-start-2 2md:row-span-2"
         >
           <div
             class="info-head leading-none flex-shrink-0 max-w-[unset] 2sm:max-w-[125px] 2md:max-w-[unset] text-[1.5rem] 2md:w-full line-clamp-1 2sm:line-clamp-2 text-center overflow-hidden overflow-ellipsis font-bold text-primary"
           >
             {info_section.title}
           </div>
-          <div class="info-body w-full flex flex-row 2md:flex-col gap-[1.125rem] 2sm:gap-4">
+          <div
+            class="info-body w-full flex flex-row 2md:flex-col gap-[1.125rem] 2sm:gap-4"
+          >
             {
-              info_section.infos.map((info: {title: string, icon: string}) => (
-                <div class="info-body-item w-full cursor-pointer transition-all duration-[250ms] hover:scale-[1.075] flex flex-col justify-center items-center gap-[10px] bg-white rounded-md shadow-small-2 p-3 leading-none">
-                  <i class={`${info.icon} text-[1.25rem] text-primary`} />
-                  <div class="font-medium wrap-all text-[1.1rem] text-center w-full line-clamp-2 overflow-hidden overflow-ellipsis">
-                    {markdownify(info.title)}
+              info_section.infos.map(
+                (info: { title: string; icon: string }) => (
+                  <div class="info-body-item w-full cursor-pointer transition-all duration-[250ms] hover:scale-[1.075] flex flex-col justify-center items-center gap-[10px] bg-white rounded-md shadow-small-2 p-3 leading-none">
+                    <i class={`${info.icon} text-[1.25rem] text-primary`} />
+                    <div class="font-medium wrap-all text-[1.1rem] text-center w-full line-clamp-2 overflow-hidden overflow-ellipsis">
+                      {markdownify(info.title)}
+                    </div>
                   </div>
-                </div>
-              ))
+                ),
+              )
             }
           </div>
         </div>
@@ -79,5 +89,4 @@ const {
   .side-text {
     writing-mode: vertical-rl;
   }
-  
 </style>
