@@ -24,7 +24,8 @@
       @apply text-center 2sm:text-left;
     }
   }
-  &.social {
+  &.social,
+  &.videos {
     .custom-bg-\[\#1877f2\] {
       @apply bg-[#1877f2]/75 hover:bg-[#1877f2];
     }

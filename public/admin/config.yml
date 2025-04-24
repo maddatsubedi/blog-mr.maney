@@ -128,6 +128,7 @@ collections:
                 widget: "list"
                 fields:
                   - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Platform", name: "platform", widget: "string" }
                   - { label: "Views", name: "views", widget: "string" }
                   - { label: "Time", name: "time", widget: "string" }
                   - { label: "Image", name: "image", widget: "image" }

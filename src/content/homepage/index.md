@@ -84,21 +84,24 @@ profile_data:
 videos:
   title: Latest Videos
   data:
-    - title: Top 10 Best Places in Japan to Get Deluxe Edition Boxes
-      views: 734000
-      time: 6 Hours ago
-      image: /images/videos/gallery-img-1.png
-      link: "#"
-    - title: Ranking the Best Sunglasses Bundles for This Summer
-      views: 204000
-      time: 7 Hours ago
-      image: /images/videos/gallery-img-2.png
-      link: "#"
-    - title: We Unbox the 'Power Computer Bundle' for Gaming
-      views: 7190000
-      time: 13 Hours ago
-      image: /images/videos/gallery-img-3.png
-      link: "#"
+    - title: First Time BYD chalaudai @PyAmrit sir 🙏❤️
+      platform: youtube
+      views: 45
+      time: 1 week ago
+      image: /images/videos/video-1.jpg
+      link: "https://www.youtube.com/watch?v=ySEEseTAxGY&t=1s"
+    - title: Pridev la BYD test Drive gardai
+      platform: facebook
+      views: 121
+      time: 2 weeks ago
+      image: /images/videos/video-4.jpg
+      link: "https://www.facebook.com/share/v/16BwC8fTJ6/"
+    - title: Car wash garda aafu bhitra basera experience ligdai
+      platform: youtube
+      views: 290
+      time: 1 month ago
+      image: /images/videos/video-3.jpg
+      link: "https://www.youtube.com/watch?v=DXh-ilfcK8E"
 
 blogs:
   title: Latest Blogs

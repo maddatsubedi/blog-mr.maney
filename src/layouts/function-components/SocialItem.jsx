@@ -104,7 +104,7 @@ const SocialItem = ({ platform, link, label, className, type = "normal" }) => {
     return (
         <>
             {
-                <a href={link} class={`social-link ${className} flex gap-3 justify-evenly py-2 px-4 transition duration-[250ms] ease-in-out rounded-md bg-white hover:bg-[#FED6D6] shadow-small-3 items-center`} target="_blank" style={{
+                <a href={link} className={`social-link ${className} flex gap-3 justify-evenly py-2 px-4 transition duration-[250ms] ease-in-out rounded-md bg-white hover:bg-[#FED6D6] shadow-small-3 items-center`} target="_blank" style={{
                     color: platformStyles[platform]?.theme || DEFAULT_STYLE.theme,
                 }}>
                     <div className="icon">
@@ -113,7 +113,7 @@ const SocialItem = ({ platform, link, label, className, type = "normal" }) => {
 
                         }
                     </div>
-                    <span class="text-[1.125rem] overflow-hidden text-ellipsis text-black">
+                    <span className="text-[1.125rem] overflow-hidden text-ellipsis text-black">
                         {label || platform || "Social"}
                     </span>
                 </a>

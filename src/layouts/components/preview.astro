@@ -1,11 +1,16 @@
 ---
 import viewsFormat from "../../lib/utils/viewFromat";
-const { videos, background } = Astro.props;
+import { platformStyles, DEFAULT_STYLE } from "@/layouts/function-components/SocialItem.jsx";
+const { videos, social, background } = Astro.props;
 const { data, title } = videos;
+
+const getSocialLink = (platform: string) => {
+  return social.links.find((link: any) => link.platform === platform)?.link || "#";
+};
 ---
 
 <section
-  class="home-section"
+  class="home-section videos"
   style={{
     backgroundColor: background,
   }}
@@ -14,20 +19,34 @@ const { data, title } = videos;
     <h2 class="home-section-header place-left ml-4">
       {title || "Latest Videos"}
     </h2>
-    <div class="flex overflow-x-auto gap-5 2md:gap-6 xl:gap-7 flex-shrink-0 p-4 -mt-4">
+    <div
+      class="flex overflow-x-auto gap-5 2md:gap-6 xl:gap-7 flex-shrink-0 p-4 -mt-4"
+    >
       {
         data.map((item: any) => {
           return (
-            <div class="bg-white min-w-[275px] sm:min-w-[300px] 2md:min-w-[380px] rounded-lg overflow-hidden shadow-medium-light flex flex-col">
-              <img
-                class="w-full h-[150px] xm:h-[175px] 2md:h-[195px] object-cover"
-                src={item.image}
-                alt="Video Thumbnail"
-              />
+            <div class="video-card bg-white min-w-[275px] sm:min-w-[300px] 2md:min-w-[380px] rounded-lg overflow-hidden shadow-medium-light flex flex-col">
+              <div class="img-wrapper overflow-hidden relative w-full h-[150px] xm:h-[175px] 2md:h-[195px]">
+                <img
+                  class="video-card-thumbnail w-full h-full transition-all duration-[250ms] ease-in-out brightness-[0.65] object-cover object-center"
+                  src={item.image}
+                  alt="Video Thumbnail"
+                />
+                <a
+                  href={getSocialLink(item.platform)}
+                  class={`text-white absolute bottom-[15px] left-[15px] transition-all duration-[250ms] ease-in-out backdrop-blur-[1px] custom-bg-[${platformStyles[item.platform as keyof typeof platformStyles]?.theme || DEFAULT_STYLE.theme}] rounded-2xl text-xs p-1 px-2 capitalize`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.platform}
+                </a>
+              </div>
               <div class="flex flex-col gap-3 2md:gap-4 p-4 bg-slate-300/30 flex-grow justify-between">
                 <a
                   href={item.link}
                   class="text-[1rem] sm:text-[1.1rem] line-clamp-2 text-ellipsis 2md:text-[1.2rem] lg:text-[1.25rem] leading-[1.25rem] sm:leading-[1.5rem] 2md:leading-[1.75rem] font-semibold font-montserrat text-gray-700"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {item.title}
                 </a>
@@ -43,3 +62,9 @@ const { data, title } = videos;
     </div>
   </div>
 </section>
+
+<style>
+  .video-card:hover .video-card-thumbnail {
+    @apply brightness-[0.85] scale-[1.1];
+  }
+</style>

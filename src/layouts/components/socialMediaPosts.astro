@@ -14,15 +14,15 @@ const getSocialLink = (platform: string) => {
     posts.map((post: any, index: number) => {
       const allHideClass = index > 1 ? "all-hide-flex" : "";
       return (
-        <div class={`social-post ${allHideClass} relative flex bg-cover bg-center h-[300px]  sm:h-[250px] overflow-hidden rounded-xl`}>
+        <div class={`social-post ${allHideClass} relative flex bg-cover bg-center h-[300px] sm:h-[250px] overflow-hidden rounded-xl`}>
           <img
             src={post.image}
             alt="career"
-            class="post-image w-full h-full object-cover object-center transition-all duration-[250ms] ease-in-out brightness-50 relative z-10"
+            class="post-image w-full h-full object-cover object-center transition-all duration-[250ms] ease-in-out brightness-[0.5] relative z-10"
           />
           <div class="absolute bottom-0 left-0 p-4 w-full z-20">
             <a
-              href={getSocialLink(post?.platform)}
+              href={getSocialLink(post.platform)}
               class={`text-white transition-all duration-[250ms] ease-in-out backdrop-blur-[1px] custom-bg-[${platformStyles[post.platform as keyof typeof platformStyles]?.theme || DEFAULT_STYLE.theme}] rounded-2xl inline-block text-xs p-1 px-2 mb-3 capitalize`}
               target="_blank"
               rel="noopener noreferrer"
@@ -45,7 +45,6 @@ const getSocialLink = (platform: string) => {
 
 <style>
   .social-post:hover .post-image {
-    transform: scale(1.175);
-    filter: brightness(0.75);
+    @apply brightness-[0.75] scale-[1.125];
   }
 </style>
