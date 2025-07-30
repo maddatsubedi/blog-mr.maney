@@ -47,9 +47,9 @@ skills:
   title: Creating Worlds, Building Connections
   image: /images/skills/mrmaney_transparent_ai.png
   bottom_section:
-    title: Laugh, play, and grow together
-    description: I believe every game played and video created is a story waiting to
-      be told, shared, and celebrated.
+    title: Laugh, Play, and Grow Together
+    description: Every game and idea is a step toward something bigger. I create to
+      connect, build, and inspire.
     vision: My vision is to create a community of like-minded individuals who
       passionate about content creation and gaming.
     mission: My mission is to provide my audience with the best fun and gaming
