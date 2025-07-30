@@ -2,7 +2,7 @@
 import { markdownify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 const { banner } = Astro.props;
-const { title, secondTitle, button, image, content, badges } = banner;
+const { title, secondTitle, button, image, content, badge } = banner;
 ---
 
 <section
@@ -63,7 +63,7 @@ const { title, secondTitle, button, image, content, badges } = banner;
       }
       <div class="badge-wrapper max-w-[400px] mt-4">
         <Image
-          src={badges}
+          src={badge}
           class="object-cover object-center w-full"
           alt="badges"
           width={400}
@@ -82,9 +82,10 @@ const { title, secondTitle, button, image, content, badges } = banner;
           src={image}
           class="object-cover object-top h-full sm:w-1/2 right-0 absolute bottom-0 md:w-full"
           alt="banner"
-          width={250}
-          height={500}
+          width={370}
+          height={525}
           loading="eager"
+          format="avif"
         />
       </div>
     </div>

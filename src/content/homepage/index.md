@@ -9,7 +9,7 @@ banner:
     label: Subscribe Now
     link: "#"
     enable: true
-  badges: /images/users/Badges.svg
+  badge: /images/assets/badge.svg
 
 about:
   title: ABOUT
