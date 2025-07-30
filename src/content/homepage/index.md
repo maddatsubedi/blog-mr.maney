@@ -2,7 +2,7 @@
 banner:
   title: Mr Maney
   secondTitle: Content Creator
-  content: Entrepreneur by vision, creator by passion
+  content: Entrepreneur by vision, creator by passion.
   image: /images/users/mrmaney.png
   button:
     label: Subscribe Now
