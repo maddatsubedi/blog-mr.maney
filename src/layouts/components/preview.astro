@@ -1,5 +1,6 @@
 ---
 import viewsFormat from "../../lib/utils/viewFromat";
+import { Image } from "astro:assets";
 import { platformStyles, DEFAULT_STYLE } from "@/layouts/function-components/SocialItem.jsx";
 const { videos, social, background } = Astro.props;
 const { data, title } = videos;
@@ -27,10 +28,13 @@ const getSocialLink = (platform: string) => {
           return (
             <div class="video-card bg-white min-w-[275px] sm:min-w-[300px] 2md:min-w-[380px] rounded-lg overflow-hidden shadow-medium-light flex flex-col">
               <div class="img-wrapper overflow-hidden relative w-full h-[150px] xm:h-[175px] 2md:h-[195px]">
-                <img
+                <Image
                   class="video-card-thumbnail w-full h-full transition-all duration-[250ms] ease-in-out brightness-[0.65] object-cover object-center"
                   src={item.image}
                   alt="Video Thumbnail"
+                  width={400}
+                  height={200}
+                  loading={"lazy"}
                 />
                 <a
                   href={getSocialLink(item.platform)}

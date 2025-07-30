@@ -1,6 +1,7 @@
 ---
 import { markdownify } from "@/lib/utils/textConverter";
 import { platformStyles, DEFAULT_STYLE } from "@/layouts/function-components/SocialItem.jsx";
+import { Image } from "astro:assets";
 
 const { posts, links } = Astro.props;
 
@@ -15,10 +16,13 @@ const getSocialLink = (platform: string) => {
       const allHideClass = index > 1 ? "all-hide-flex" : "";
       return (
         <div class={`social-post ${allHideClass} relative flex bg-cover bg-center h-[300px] sm:h-[250px] overflow-hidden rounded-xl`}>
-          <img
+          <Image
             src={post.image}
             alt="career"
             class="post-image w-full h-full object-cover object-center transition-all duration-[250ms] ease-in-out brightness-[0.5] relative z-10"
+            width={325}
+            height={275}
+            loading="lazy"
           />
           <div class="absolute bottom-0 left-0 p-4 w-full z-20">
             <a
