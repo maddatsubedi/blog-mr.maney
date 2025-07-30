@@ -13,10 +13,11 @@ about:
   title: About Me
   secondTitle: " "
   sideText: MR MANEY
-  description: I’m **Mr Maney**, A content creator and entrepreneur from Nepal.
-    From my first upload to building my own company, my journey is all about
-    creativity, consistency, and vision. I aim to represent Nepal on the global
-    digital stage.
+  description: I’m **[Mr
+    Maney](https://www.youtube.com/channel/UCxxoAAZiLmoh7kHC0FiwcRg)**, A
+    content creator and entrepreneur from Nepal. From my first upload to
+    building my own company, my journey is all about creativity, consistency,
+    and vision. I aim to represent Nepal on the global digital stage.
   main_links_group:
     - link_to: /blog
       badge_icon: fa-solid fa-blog
