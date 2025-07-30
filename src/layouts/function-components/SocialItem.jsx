@@ -10,7 +10,7 @@ import { TiSocialAtCircular } from 'react-icons/ti';
 
 const instagramSvg = (
     <svg
-        class="w-[30px]"
+        className="w-[30px]"
         xmlns="http://www.w3.org/2000/svg"
         xml:space="preserve"
         viewBox="0 0 16 16"
