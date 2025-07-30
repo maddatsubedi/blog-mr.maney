@@ -12,7 +12,7 @@ banner:
   badge: /images/cms/logo.png
 about:
   title: About Me
-  secondTitle: " "
+  secondTitle: " asdf"
   sideText: MR MANEY
   description: I’m **[Mr
     Maney](https://www.youtube.com/channel/UCxxoAAZiLmoh7kHC0FiwcRg)**, A
