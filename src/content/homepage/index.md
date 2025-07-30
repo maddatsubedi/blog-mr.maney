@@ -9,6 +9,7 @@ banner:
     link: https://www.youtube.com/channel/UCxxoAAZiLmoh7kHC0FiwcRg
     enable: true
   badges: /images/users/Badges.svg
+  badge: /images/cms/badge.svg
 about:
   title: About Me
   secondTitle: " "
