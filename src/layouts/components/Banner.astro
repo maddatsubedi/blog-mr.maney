@@ -11,9 +11,21 @@ const { title, secondTitle, button, image, content, badges } = banner;
   <div
     class="social-media hidden md:flex gap-10 justify-evenly z-50 absolute flex-col h-full top-0 left-0 px-10 pt-28 2md:pt-32 pb-16"
   >
-    <a href="#" class="social-media-link text-white hover:text-slate-300 transition duration-[250ms]">Facebook</a>
-    <a href="#" class="social-media-link text-white hover:text-slate-300 transition duration-[250ms]">YouTube</a>
-    <a href="#" class="social-media-link text-white hover:text-slate-300 transition duration-[250ms]">Instagram</a>
+    <a
+      href="#"
+      class="social-media-link text-white hover:text-slate-300 transition duration-[250ms]"
+      >Facebook</a
+    >
+    <a
+      href="#"
+      class="social-media-link text-white hover:text-slate-300 transition duration-[250ms]"
+      >YouTube</a
+    >
+    <a
+      href="#"
+      class="social-media-link text-white hover:text-slate-300 transition duration-[250ms]"
+      >Instagram</a
+    >
   </div>
   <div
     class="grid gap-5 max-w-[1200px] mx-auto grid-cols-[0.65fr_0.35fr] md:min-h-screen h-full"
@@ -66,9 +78,9 @@ const { title, secondTitle, button, image, content, badges } = banner;
         class="image-wrapper relative z-20 w-full h-full flex justify-center"
       >
         <Image
+          src={image}
           class="object-cover object-top h-full sm:w-1/2 right-0 absolute bottom-0 md:w-full"
           alt="banner"
-          src={image}
           width={250}
           height={500}
         />
