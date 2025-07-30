@@ -6,27 +6,17 @@ banner:
   image: /images/users/mrmaney.png
   button:
     label: Subscribe Now
-    link: "#"
+    link: https://www.youtube.com/channel/UCxxoAAZiLmoh7kHC0FiwcRg
     enable: true
   badges: /images/users/Badges.svg
 about:
-  title: ABOUT
-  secondTitle: Let me introduce myself
-  sideText: MR.MANEY
-  description: >-
-    I am a content creator who loves to share my passion for gaming and
-    technology
-
-    with the world. I create unboxing videos of the latest technology, games,
-
-    and toys, and I also share my thoughts and opinions on various topics related
-
-    to gaming and technology.
-
-
-    I am a firm believer in the power of community and I strive to create a space
-
-    where everyone feels welcome and included. I love to connect with my audience
+  title: Let Me Introduce Myself
+  secondTitle: " "
+  sideText: MR MANEY
+  description: I’m **Mr Maney**, A content creator and entrepreneur from Nepal.
+    From my first upload to building my own company, my journey is all about
+    creativity, consistency, and vision. I aim to represent Nepal on the global
+    digital stage.
   main_links_group:
     - link_to: /blog
       badge_icon: fa-solid fa-blog
