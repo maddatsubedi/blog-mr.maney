@@ -8,7 +8,7 @@ const Journey = ({ children, date, isLast }) => {
           <div className="lg:col-10 p-0">
             <div className={`row ${isLast ? "" : "pb-10"} m-0 lg:pb-0`}>
               <div className="date-section p-0 mb-4 lg:m-0 lg:col-3 lg:pr-7">
-                <div className="sticky top-[25px] bg-[#f5f4fe] shadow-small-3 lg:w-auto rounded-md px-4 lg:py-4 justify-center items-center leading-none flex lg:flex-col gap-3 lg:gap-2 text-center">
+                <div className="sticky lg:mb-7 top-[25px] bg-[#f5f4fe] shadow-small-3 lg:w-auto rounded-md px-4 lg:py-4 justify-center items-center leading-none flex lg:flex-col gap-3 lg:gap-2 text-center">
                   <div className="m-0 font-bold py-4 lg:py-0 text-primary text-[1.1rem]">{date.year}</div>
                   <div className="lg:hidden h-[6px] w-[6px] bg-primary rounded-full"></div>
                   <div className="lg:leading-[1.1] py-4 lg:py-0 font-medium text-[0.9rem] lg:text-[0.875rem]">
