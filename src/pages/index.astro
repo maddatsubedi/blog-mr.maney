@@ -3,16 +3,12 @@ import Base from "@/layouts/Base.astro";
 import Banner from "@/layouts/components/Banner.astro";
 import ProfileData from "@/layouts/components/ProfileData.astro";
 import Preview from "@/components/Preview.astro";
-import PreviewBlog from "@/components/previewBlog.astro";
+import PreviewBlog from "@/components/PreviewBlog.astro";
 import Skills from "@/layouts/components/sections/Skills.astro";
 import About from "@/layouts/components/sections/About.astro";
 import ExploreCategories from "@/components/sections/ExploreCategories.astro";
-import { getEntryBySlug } from "astro:content";
-import SocialLinks from "@/components/SocialLinks.astro";
-import SocialMediaPosts from "@/components/socialMediaPosts.astro";
 import Social from "@/components/sections/Social.astro";
 import { getEntry } from "astro:content";
-import { fade } from "astro:transitions";
 
 const homepage = await getEntry("homepage", "index");
 const {
