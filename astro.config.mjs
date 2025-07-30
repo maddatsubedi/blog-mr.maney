@@ -19,7 +19,7 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   output: "hybrid",
   adapter: netlify({
-    imageCDN: false,
+    imageCDN: true,
   }),
   vite: {
     ssr: {
