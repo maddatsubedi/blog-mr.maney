@@ -10,7 +10,7 @@ banner:
     enable: true
   badges: /images/users/Badges.svg
 about:
-  title: Let Me Introduce Myself
+  title: About Me
   secondTitle: " "
   sideText: MR MANEY
   description: I’m **Mr Maney**, A content creator and entrepreneur from Nepal.
