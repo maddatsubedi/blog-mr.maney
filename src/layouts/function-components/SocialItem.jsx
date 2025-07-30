@@ -12,7 +12,7 @@ const instagramSvg = (
     <svg
         className="w-[30px]"
         xmlns="http://www.w3.org/2000/svg"
-        xml:space="preserve"
+        xmlSpace="preserve"
         viewBox="0 0 16 16"
         id="instagram"
     >
@@ -24,9 +24,9 @@ const instagramSvg = (
             y2="1.464"
             gradientUnits="userSpaceOnUse"
         >
-            <stop offset="0" stop-color="#FFC107" />
-            <stop offset=".507" stop-color="#F44336" />
-            <stop offset=".99" stop-color="#9C27B0" />
+            <stop offset="0" stopColor="#FFC107" />
+            <stop offset=".507" stopColor="#F44336" />
+            <stop offset=".99" stopColor="#9C27B0" />
         </linearGradient>
         <path
             fill="url(#a)"
@@ -40,9 +40,9 @@ const instagramSvg = (
             y2="5.172"
             gradientUnits="userSpaceOnUse"
         >
-            <stop offset="0" stop-color="#FFC107" />
-            <stop offset=".507" stop-color="#F44336" />
-            <stop offset=".99" stop-color="#9C27B0" />
+            <stop offset="0" stopColor="#FFC107" />
+            <stop offset=".507" stopColor="#F44336" />
+            <stop offset=".99" stopColor="#9C27B0" />
         </linearGradient>
         <path
             fill="url(#b)"
@@ -56,9 +56,9 @@ const instagramSvg = (
             y2="3.323"
             gradientUnits="userSpaceOnUse"
         >
-            <stop offset="0" stop-color="#FFC107" />
-            <stop offset=".507" stop-color="#F44336" />
-            <stop offset=".99" stop-color="#9C27B0" />
+            <stop offset="0" stopColor="#FFC107" />
+            <stop offset=".507" stopColor="#F44336" />
+            <stop offset=".99" stopColor="#9C27B0" />
         </linearGradient>
         <circle cx="12.3" cy="3.7" r=".533" fill="url(#c)" />
     </svg>
